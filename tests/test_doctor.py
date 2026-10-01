@@ -107,11 +107,22 @@ class DoctorTests(unittest.TestCase):
         self.wrench.write_bytes(b"")
 
     def test_an_empty_environment_still_ends_with_a_command(self):
+        # No mock here on purpose: on a bare interpreter (what CI is) the honest next command
+        # is the pinned install, and on a prepared one it is setup.py. Both are commands.
         code, output = gather([])
         self.assertEqual(code, 0)
         self.assertIn("build (assembly reconstruction)  not yet", output)
         self.assertIn("C candidates (byte proofs)       not yet", output)
-        self.assertTrue(output.rstrip().splitlines()[-1].strip().startswith("python"))
+        last = output.rstrip().splitlines()[-1].strip()
+        self.assertTrue(last.startswith(("python", "pip")), f"verdict must end with a command, got: {last}")
+
+    def test_a_prepared_environment_asks_for_the_disc_next(self):
+        with mock.patch.object(doctor, "installed_version",
+                               side_effect=lambda package: doctor.pinned_versions(
+                                   doctor.ROOT / "requirements.txt").get(package)):
+            code, output = gather([])
+        self.assertEqual(code, 0)
+        self.assertTrue(output.rstrip().splitlines()[-1].strip().startswith("python scripts/setup.py"))
 
     def test_a_complete_environment_reaches_the_candidates(self):
         with mock.patch.object(doctor, "installed_version",
