@@ -9,7 +9,7 @@ does not count as C/C++ decompilation. See `progress/report.json` for measured s
 
 Verified on **2026-10-01**: the complete boot image (**2,521,763 loaded bytes,
 two PT_LOAD segments**) and **all 27 level overlays** rebuild identically in loaded
-memory. **81 tool tests pass**. C/C++ decompiled functions: **0**. The compiler
+memory. **87 tool tests pass**. C/C++ decompiled functions: **0**. The compiler
 profile and native runtime remain to be established.
 
 ## Requirements
@@ -73,6 +73,20 @@ manifest explicitly to reconstruct and compare the boot and all 27 overlays:
   The RAC1 `-O2 -G2` profile is deliberately **not** declared valid for RAC2.
 - Native runtime work must execute original code; HLE replacements and movie
   playback are not evidence of a functioning native game.
+
+## decomp.dev reporting
+
+The CI uploads `SCUS_972.68_report` in objdiff report v2 format. It records
+**0% C/C++ decompilation**, independently of the successful assembly reconstruction
+gates in `progress/report.json`. The measured scope includes the boot and all 27
+overlays, with executable and initialized-data section sizes, including VU code.
+Function counts are omitted until boundaries have been reviewed. Generated section
+units are placeholders for that future catalogue, not completed translation units.
+
+`python scripts/decomp_report.py --output build/decomp/report.json` regenerates
+the baseline using metadata only; it requires no game assets or proprietary SDK
+in GitHub Actions. Once C/C++ matches exist, it refuses to export the old zero
+baseline and must be replaced with verified objdiff object-level measurements.
 
 ## Next milestones
 
