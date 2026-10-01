@@ -2,6 +2,30 @@
 
 Synthesized from the `#rac-ps2-reverse-engineering` community research archive (2018–2026), Aug 8 2002 prototype datamining, and cross-game engine analysis.
 
+> **How to read this document — and what it is not.**
+>
+> This page is a community **reference**, never evidence. The only thing that can make a match
+> in this repository is compiler-produced code that compares byte for byte against the pinned
+> executable: no tool reads this page, and nothing here can make a gate pass. The sources
+> above are cited, not merged.
+>
+> **The target of this repository is the USA v1.01 release** (`SCUS_972.68`, pinned in
+> `config/target.json` against Redump disc 13103). The table below opens on the **v2.00
+> Greatest Hits** build, which is a *different target* — do not point a build at it. Where a
+> claim here is build-specific, the build is part of the claim.
+>
+> **Confirmed against our own measurement of v1.01** (`config/boot-sections.json`): entry point
+> `0x00131AE8` (= 1252072), `$gp` `0x001AEFF0`, first PT_LOAD at `0x00100080`, second at
+> `0x01800000`, the `.DVP.ovly*` overlay tables inside the boot, and the level-overlay layout
+> (`.lit`, `.bss`, `.data`, `lvl.vtbl`, `lvl.camvtbl`, `lvl.sndvtbl`, `.text`). Those are the
+> parts of this document this project has reproduced from the retail disc it owns. Everything
+> else is a **lead to verify**, not a fact to build on.
+>
+> **`include/` is reference scaffolding.** Nothing in the repository includes these headers
+> yet, and `include/common.h` re-declares `u8/u16/u32/u64/s8…s64/f32/f64` — the very aliases
+> `candidates/boot.c` declares for itself. Decide which declaration wins before including one
+> into the other: at best it is a compile error, at worst a silent type difference.
+
 ---
 
 ## 1. Versions & Target Executable

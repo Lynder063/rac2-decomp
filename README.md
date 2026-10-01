@@ -43,7 +43,7 @@ The native runtime remains a separate development milestone.
 
 Verified on **2026-10-01**: the complete boot image (**2,521,763 loaded bytes,
 two PT_LOAD segments**) and **all 27 level overlays** rebuild identically in loaded
-memory. **142 tool tests pass**. **Twenty-six C functions (1076 bytes) are integrated in the boot, and the same reviewed C is integrated in all 27 level overlays (401 placements, 24,236 bytes)**
+memory. **156 tool tests pass**. **Twenty-six C functions (1076 bytes) are integrated in the boot, and the same reviewed C is integrated in all 27 level overlays (401 placements, 24,236 bytes)**
 using genuine compiler-produced objects, with the complete boot matching both
 original loaded segments.** The general compiler profile and native runtime
 remain to be established.
@@ -54,7 +54,9 @@ remain to be established.
 - A local image of your own matching game disc (or a local archive of that image).
 - Wrench `wrenchbuild` for unpacking level executables.
 - Windows and a locally supplied **SN ProDG 2.0** EE toolchain containing `ee/bin/Ps2EeAs.exe`
-  and `ee/bin/ld.exe`. No SDK is supplied or downloaded by these scripts.
+  and `ee/bin/ld.exe`, plus the **SN ProDG 3.01** C toolchain (`bin/ee-gcc2953.exe`,
+  `bin/ee-as.exe`, `lib/gcc-lib/ee/2.95.3/cc1.exe`) to prove matching C.
+  No SDK is supplied or downloaded by these scripts.
 
 The target's size and disc hashes are pinned in `config/target.json` against
 [Redump disc 13103](https://redump.info/disc/13103). Boot identity is measured
@@ -100,6 +102,19 @@ only the reviewed assembly bodies, retains padding and remaining assembly
 fragments, and preserves original call names as linker aliases to C symbols.
 Both PT_LOAD segments and each C STT_FUNC body must still match before a proof
 is emitted. No bytes are patched or trimmed after the link.
+
+## Contributing
+
+Contributions are welcome. The rules are in [CONTRIBUTING.md](CONTRIBUTING.md); the full
+walkthrough — what you need, the order to run things in, what each command must print, and what
+to do when it does not — is [docs/START-HERE.md](docs/START-HERE.md).
+
+Start with the environment check. It says what your machine can already do, what is missing,
+and the next command to run:
+
+```powershell
+.venv\Scripts\python.exe scripts/doctor.py
+```
 
 ## Lessons carried forward from RAC1
 
@@ -191,3 +206,9 @@ so the full code/data totals remain unchanged. The site currently displays
 No game assets, proprietary SDK, reconstructed executable, or copied retail
 assembly is distributed. Third-party dependencies are installed separately; this
 repository currently includes only project-45-authored tools and measurements.
+
+## Licence
+
+MIT — see [LICENSE](LICENSE). It covers the code in this repository only, never the game, its
+assets, or the proprietary toolchains. By opening a pull request you agree that your
+contribution is distributed under the same terms.
