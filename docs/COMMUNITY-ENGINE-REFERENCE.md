@@ -103,6 +103,45 @@ The game uses dynamic level overlays loaded over the high memory region:
 - The Left Analog Stick is internally remapped to D-pad directional pulses.
 - The title screen sofa animation ("Ratchet watching TV") is an IPU/FMV streaming video in RaC2/RaC3, unlike RaC1 where it was rendered in real-time engine 3D.
 
+### 4.6 Geometry Subsystems & Collision Architecture (`include/engine.h`)
+- Datamining via Ghidra reveals the core four-part geometry renderer architecture used across Insomniac's PS2 engine:
+  - **`tfrag`**: Terrain fragment geometry engine (`tfrag geom`, `tfrag texture overflow`, point lighting).
+  - **`tie`**: Instanced environment structures (`ties`, `tie insts`, `tie texture overflow`).
+  - **`shrub`**: Instanced foliage, grass, and decorative meshes (`shrubs`, `shrub insts`, `shrub texture overflow`).
+  - **`moby`**: Dynamic actors and interactive entities (`mobys`, `moby insts`, `moby pvars`).
+- **Collision Detection**:
+  - `MB_CheckCollPill`: Primary pill/capsule bounding collision check for moby instances (`0x001E8890`).
+  - `Camera_CollPrimTest`: Camera-to-world collision boundary check (`0x001E7A50`).
+  - PVS Occlusion grid validation runs per-frame across `mobys`, `tfrag`, and `ties`.
+
+### 4.7 Memory Card State Machine (`include/card.h`)
+- The complete 25-state finite state machine (`CardState` / `CS_*`) discovered in string tables and `libmc.a` handlers:
+  - `CS_INIT` (0), `CS_GOOD_SAVE` (1), `CS_WARNING` (2), `CS_NOCARD` (3), `CS_WAIT_FOR_CARD` (4), `CS_UNFORMATTED` (5), `CS_PROMPT_FORMAT` (6), `CS_FORMAT_PENDING` (7), `CS_FORMATTING` (8), `CS_FORMATTED` (9), `CS_CHECK_SAVE` (10), `CS_CHECKING_SAVE` (11), `CS_NOSAVE` (12), `CS_PROMPT_CREATE_SAVE` (13), `CS_CREATE_SAVE_PENDING` (14), `CS_CREATING_SAVE` (15), `CS_NEWCARD` (16), `CS_FORMAT_FAILED` (17), `CS_CREATE_FAILED` (18), `CS_NO_ROOM` (19), `CS_LOAD_FAILED` (20), `CS_SAVE_FAILED` (21), `CS_SAVING` (22), `CS_PROMPT_BEGIN_UNFORMATTED` (23), `CS_PROMPT_BEGIN_NOSAVE` (24).
+
+### 4.8 Engine Debug Memory Map Partitions
+- Diagnostic string tables (`0x001E8080`) preserve the original Insomniac memory profiler layout:
+  - `code mem`: Executable instruction space
+  - `dead space`: Sector/alignment gap between loads
+  - `vu chain bufs`: VU0/VU1 DMA chain buffers
+  - `gadget buffer`: Active weapon/gadget state
+  - `tfrag geom`, `tie insts`, `shrub insts`, `moby insts`: Geometry heap allocations
+  - `moby pvars`: Entity private variable pools
+  - `shared vram`, `particle vram`, `effects vram`: GS VRAM partitions
+  - `ratchett seqs`: Character skeletal animation sequences
+
+### 4.9 Hardware DMA & Subsystem Mapping
+- EE DMA Controllers (Channels 0–9) mapped in core handlers:
+  - DMA 0 (`VIF0`), DMA 1 (`VIF1`), DMA 2 (`GIF`), DMA 3 (`from IPU`), DMA 4 (`to IPU`), DMA 5 (`SIF0`), DMA 6 (`SIF1`), DMA 7 (`SIF2`), DMA 8 (`from SPR`), DMA 9 (`to SPR`).
+  - PS2 Fast Scratchpad RAM (SPR) is mapped at `0x70000000 - 0x70003FFF` (16 KB) for math and matrix transforms.
+
+### 4.10 Recovered Insomniac Developer Initials
+- Diagnostic asserts and warnings in the engine core retain developer initials:
+  - `(RAR)`: Rich A. Rayl (`Camera_CollPrimTest WARNING! - grid out of bounds! (RAR)`)
+  - `TJB`: Ted J. Brown (`TJB - No env sample point found!`)
+  - `(GD)`: Gavin Dodd
+  - `(BH)`: Brian Hastings
+  - `Tony`: Tony Garcia / Tony Iuppa ("...cause Tony to be here until 4 in the morning")
+
 ---
 
 ## 5. Community Ecosystem & Tools Reference
@@ -116,3 +155,4 @@ The game uses dynamic level overlays loaded over the high memory region:
 | `github.com/Metroynome/rac-cheats` / `libgc` | @agentmoose | C cheat library with known memory offsets for player state, bolts, weapons, and level variables. |
 | Native ARM64/Metal Port | @protonfission | Verified level overlay mappings, confirmed function execution against PCSX2 state captures. |
 | `RAC2Decomp` (AI repo) | platypet2217-star | **Caution**: Criticized by community for questionable provenance and non-clean-room C code. Avoid copying. |
+
