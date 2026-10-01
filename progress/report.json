@@ -277,6 +277,9 @@
     "sha256": "9db2e33e276133cc283647fa3279b37911955e123d6199d10065547eaa9b1ce5"
   },
   "gp": 1765360,
-  "status": "Assembly reconstruction baseline verified; C/C++ and native runtime not started",
+  "status": "Assembly reconstruction baseline verified; seven exact C candidates await integration; native runtime not started",
+  "matched_candidate_functions": 7,
+  "matched_candidate_bytes": 72,
+  "integrated_functions": 0,
   "native_gameplay_verified": false
 }

@@ -9,8 +9,9 @@ does not count as C/C++ decompilation. See `progress/report.json` for measured s
 
 Verified on **2026-10-01**: the complete boot image (**2,521,763 loaded bytes,
 two PT_LOAD segments**) and **all 27 level overlays** rebuild identically in loaded
-memory. **87 tool tests pass**. C/C++ decompiled functions: **0**. The compiler
-profile and native runtime remain to be established.
+memory. **99 tool tests pass**. **Seven initial C candidates (72 bytes) match
+completely after compilation and link, and await integration.** Integrated C/C++
+functions: **0**. The general compiler profile and native runtime remain to be established.
 
 ## Requirements
 
@@ -73,6 +74,36 @@ manifest explicitly to reconstruct and compare the boot and all 27 overlays:
   The RAC1 `-O2 -G2` profile is deliberately **not** declared valid for RAC2.
 - Native runtime work must execute original code; HLE replacements and movie
   playback are not evidence of a functioning native game.
+
+## Initial C candidate lot
+
+`candidates/boot.c` contains seven project-authored leaf functions. Their initial
+neutral address-based names are retained; engine-purpose names are not inferred.
+Ghidra's saved GC programme was reopened read-only with its SHA-256 and R5900
+language verified. All seven contiguous bodies, callers and return delay slots
+were reviewed. `config/candidate-catalog.json` records their individual boundaries.
+
+```powershell
+.venv\Scripts\python.exe scripts/check_candidates.py --reference <boot.elf> --toolchain <SN-ProDG-3.01-EE-gcc-directory> --runtime D:\RAC2\runtime
+```
+
+This lot uses `ee-gcc2953.exe`, its GNU `ee-as.exe`, and `ld.exe`, with
+`-O2 -G0 -ffunction-sections`. Those settings are measured for these seven small
+functions only. They are not a qualified profile for the remaining SDK or game
+functions. In particular, a 64-bit zero-return declaration emitted `por`, while
+the 32-bit declaration emitted the required `daddu`; the failed attempt is not
+counted. The original API widths beyond the observed accesses remain to be studied.
+
+The gate requires a fresh compile/link, a defined global STT_FUNC symbol, its
+exact address and **full symbol size**, and all its bytes. Absolute aliases,
+zero-size symbols, unlinked objects and identical prefixes with extra code are
+refused. A deliberately wrong pointer-return candidate was compiled and rejected.
+`progress/candidates.json` records reproducible source, tool and byte hashes.
+
+These candidates are **not integrated** into the whole-game reconstruction.
+The reconstruction and decomp.dev reports therefore retain zero integrated
+C/C++ progress. The next milestone is a separately validated integration gate
+that replaces only these reviewed assembly bodies and rechecks the full boot.
 
 ## decomp.dev reporting
 

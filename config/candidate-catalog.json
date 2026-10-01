@@ -1,0 +1,19 @@
+{
+  "target": "SCUS_972.68",
+  "reference_sha256": "36d5814d8d95328d5839612ccdf7a2e7ecac0b6f868d3ad4bb2e98411f734b4a",
+  "language": "r5900:LE:32:default",
+  "evidence": "Ghidra saved GC programme, read-only headless extraction 2026-10-01; body ranges and delay slots cross-checked with fresh splat output",
+  "flags": ["-O2", "-G0", "-ffunction-sections"],
+  "gp": 1765360,
+  "externals": {"D_00133E74": 1261172, "D_0013A308": 1286920, "D_00137E00": 1277440},
+  "functions": [
+    {"symbol": "FUN_00115200", "address": 1135104, "size": 12, "ranges": 1, "xrefs": 2, "meaning": "Return pointer stored in absolute cell 00133E74"},
+    {"symbol": "FUN_00115210", "address": 1135120, "size": 12, "ranges": 1, "xrefs": 1, "meaning": "Return address of pointer cell 0013A308"},
+    {"symbol": "FUN_00120BC8", "address": 1182664, "size": 8, "ranges": 1, "xrefs": 1, "meaning": "Return without effects"},
+    {"symbol": "FUN_00125960", "address": 1202528, "size": 12, "ranges": 1, "xrefs": 7, "meaning": "Return absolute data address 00137E00"},
+    {"symbol": "FUN_0012F9A8", "address": 1243560, "size": 12, "ranges": 1, "xrefs": 1, "meaning": "Load a pointer at argument offset 0x40 and return the pointed 32-bit word"},
+    {"symbol": "FUN_0026F710", "address": 2553616, "size": 8, "ranges": 1, "xrefs": 3, "meaning": "Return zero"},
+    {"symbol": "FUN_0026F718", "address": 2553624, "size": 8, "ranges": 1, "xrefs": 2, "meaning": "Return without effects"}
+  ],
+  "state": "candidates_unintegrated; flags qualified only for functions that pass this byte gate"
+}
