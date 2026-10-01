@@ -1,0 +1,84 @@
+{
+  "target": "SCUS_972.68",
+  "source": "candidates/boot.c",
+  "measured_at": "2026-10-01",
+  "evidence": "Body addresses measured 2026-10-01 by exact byte search of each reviewed boot body in the pinned overlays (351 couples over 27 levels). Each placement below was re-checked cell by cell against the pinned overlay and accepted only where the measured address is one of the level's own function entries; a couple whose measured address falls inside a larger function is recorded under 'excluded' and is not integrated.",
+  "state": "one level reviewed; placements reuse the reviewed boot C bodies unchanged",
+  "levels": {
+    "0_aranos_tutorial": {
+      "reference_sha256": "c486f497920118066ed02076f540a5fad6811ce874d014a3a2bb18cb77714d11",
+      "functions": [
+        {
+          "symbol": "FUN_0028B740",
+          "address": 3108688,
+          "size": 104
+        },
+        {
+          "symbol": "FUN_002A7AA8",
+          "address": 3254768,
+          "size": 56
+        },
+        {
+          "symbol": "FUN_002A8860",
+          "address": 3258816,
+          "size": 56
+        },
+        {
+          "symbol": "FUN_002A8AF0",
+          "address": 3259632,
+          "size": 204
+        },
+        {
+          "symbol": "FUN_002AA140",
+          "address": 3266144,
+          "size": 16
+        },
+        {
+          "symbol": "FUN_002AAF40",
+          "address": 3269880,
+          "size": 92
+        },
+        {
+          "symbol": "FUN_002CC6A0",
+          "address": 3431168,
+          "size": 16
+        },
+        {
+          "symbol": "FUN_00312B58",
+          "address": 3789056,
+          "size": 16
+        },
+        {
+          "symbol": "FUN_00312E10",
+          "address": 3795728,
+          "size": 16
+        },
+        {
+          "symbol": "FUN_003505E0",
+          "address": 4480800,
+          "size": 68
+        }
+      ],
+      "excluded": [
+        {
+          "symbol": "FUN_0026F710",
+          "address": 2773048,
+          "size": 8,
+          "reason": "not a function entry in this level; the 8-byte body occurs 101 times in .text (18 of them at function entries), so no occurrence can be told apart by bytes: this address is a fragment inside another function"
+        },
+        {
+          "symbol": "FUN_00120BC8",
+          "address": 2781412,
+          "size": 8,
+          "reason": "not a function entry in this level; the 8-byte body occurs 353 times in .text (38 of them at function entries), so no occurrence can be told apart by bytes: this address is a fragment inside another function"
+        },
+        {
+          "symbol": "FUN_0026F718",
+          "address": 2781412,
+          "size": 8,
+          "reason": "not a function entry in this level; the 8-byte body occurs 353 times in .text (38 of them at function entries), so no occurrence can be told apart by bytes: this address is a fragment inside another function; byte-identical twin of FUN_00120BC8, which shares this measured address"
+        }
+      ]
+    }
+  }
+}

@@ -105,6 +105,97 @@ class IntegrationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             integration.split_assembly(content.removesuffix(instruction(0x1004)), [function()])
 
+    def test_relocated_placement_keeps_the_reviewed_symbol(self):
+        content = original_function(0x1000, 8)
+        placement = {"symbol": "FUN_00120BC8", "address": 0x1000, "size": 8}
+        with self.assertRaisesRegex(ValueError, "does not identify its address"):
+            integration.split_assembly(content, [placement])
+        pieces = integration.split_assembly(content, [placement], relocated=True)
+        self.assertEqual([piece["kind"] for piece in pieces], ["c"])
+        self.assertEqual(pieces[0]["function"]["symbol"], "FUN_00120BC8")
+
+    def level_document(self, functions, excluded=None):
+        return {"target": "SCUS_972.68", "source": "candidates/boot.c",
+                "levels": {"0_aranos_tutorial": {"reference_sha256": "a" * 64, "functions": functions,
+                                                 "excluded": excluded or []}}}
+
+    def level_directory(self, functions):
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        directory = Path(temporary.name)
+        (directory / "config").mkdir()
+        (directory / "config" / "candidate-catalog.json").write_text(json.dumps(
+            {"target": "SCUS_972.68", "flags": ["-O2"],
+             "functions": [{"symbol": "FUN_00120BC8", "address": 0x120BC8, "size": 8},
+                           {"symbol": "FUN_00115200", "address": 0x115200, "size": 8}]}))
+        (directory / "config" / "overlays.json").write_text(json.dumps(
+            {"levels": [{"level": "0_aranos_tutorial", "sha256": "a" * 64}]}))
+        (directory / "config" / "level-catalog.json").write_text(json.dumps(self.level_document(functions)))
+        return directory
+
+    def test_level_catalog_only_places_reviewed_bodies_once(self):
+        placement = {"symbol": "FUN_00120BC8", "address": 0x2A70E4, "size": 8}
+        directory = self.level_directory([placement])
+        with mock.patch.object(integration, "ROOT", directory):
+            catalog = integration.level_catalog("0_aranos_tutorial")
+        self.assertEqual(catalog["functions"], [placement])
+        self.assertNotIn("gp", catalog)
+        elsewhere = {"symbol": "FUN_00115200", "address": 0x2A70E8, "size": 8}
+        broken = {
+            "unknown symbol": [{"symbol": "FUN_99999999", "address": 0x2A70E4, "size": 8}],
+            "wrong size": [{**placement, "size": 12}],
+            "duplicate symbol": [placement, {**placement, "address": 0x2A7100}],
+            "duplicate address": [placement, {**elsewhere, "address": placement["address"]}],
+            "unaligned address": [{**placement, "address": 0x2A70E2}],
+            "empty placement": [],
+        }
+        for label, functions in broken.items():
+            with self.subTest(label=label), mock.patch.object(integration, "ROOT", directory):
+                (directory / "config" / "level-catalog.json").write_text(
+                    json.dumps(self.level_document(functions)))
+                with self.assertRaises(ValueError):
+                    integration.level_catalog("0_aranos_tutorial")
+        with mock.patch.object(integration, "ROOT", directory):
+            (directory / "config" / "level-catalog.json").write_text(json.dumps(self.level_document([placement])))
+            with self.assertRaisesRegex(ValueError, "No reviewed C placement catalog"):
+                integration.level_catalog("1_oozla")
+            (directory / "config" / "overlays.json").write_text(json.dumps(
+                {"levels": [{"level": "0_aranos_tutorial", "sha256": "b" * 64}]}))
+            with self.assertRaisesRegex(ValueError, "pinned overlay identity"):
+                integration.level_catalog("0_aranos_tutorial")
+
+    def test_level_placement_never_invents_a_gp_base(self):
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        directory = Path(temporary.name)
+        (directory / "config").mkdir()
+        path = directory / "config" / "undefined_symbols.ld"
+        path.write_text("func_002A70E4 = 0x0;\n", encoding="ascii")
+        integration.add_definitions(directory, {"functions": [{"symbol": "FUN_00120BC8", "address": 0x2A70E4,
+                                                              "size": 8}], "externals": {}})
+        content = path.read_text(encoding="ascii")
+        self.assertIn("func_002A70E4 = FUN_00120BC8;", content)
+        self.assertNotIn("_gp", content)
+
+    def test_shipped_level_catalog_matches_the_reviewed_bodies(self):
+        catalog = json.loads((ROOT / "config" / "level-catalog.json").read_text(encoding="utf-8"))
+        boot = json.loads((ROOT / "config" / "candidate-catalog.json").read_text(encoding="utf-8"))
+        overlays = json.loads((ROOT / "config" / "overlays.json").read_text(encoding="utf-8"))
+        reviewed = {function["symbol"]: function["size"] for function in boot["functions"]}
+        pinned = {entry["level"]: entry["sha256"] for entry in overlays["levels"]}
+        self.assertTrue(catalog["levels"])
+        for level, entry in catalog["levels"].items():
+            with self.subTest(level=level):
+                self.assertEqual(entry["reference_sha256"], pinned[level])
+                addresses = [function["address"] for function in entry["functions"]]
+                self.assertEqual(len(addresses), len(set(addresses)))
+                for function in entry["functions"]:
+                    self.assertEqual(function["size"], reviewed[function["symbol"]])
+                for rejected in entry["excluded"]:
+                    self.assertEqual(rejected["size"], reviewed[rejected["symbol"]])
+                    self.assertNotIn(rejected["address"], addresses)
+                    self.assertIn("function entry", rejected["reason"])
+
     def test_linker_places_compiled_sections_instead_of_original_object(self):
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)

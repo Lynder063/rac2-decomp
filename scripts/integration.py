@@ -19,7 +19,7 @@ INTERNAL_LABEL = re.compile(r"^\s*\.?L[0-9A-Fa-f]+:\s*$")
 HEADER = '.set noat\n.set noreorder\n.section .text, "ax"\n'
 
 
-def split_assembly(content: str, functions: list[dict]) -> list[dict]:
+def split_assembly(content: str, functions: list[dict], relocated: bool = False) -> list[dict]:
     lines = content.splitlines(keepends=True)
     selected = sorted(functions, key=lambda function: function["address"])
     if len({function["address"] for function in selected}) != len(selected):
@@ -30,7 +30,11 @@ def split_assembly(content: str, functions: list[dict]) -> list[dict]:
         address, size = function["address"], function["size"]
         if size <= 0 or size % 4 or address % 4 or address < previous_end:
             raise ValueError("Invalid or overlapping integration boundary")
-        if function["symbol"] != f"FUN_{address:08X}":
+        # The original assembly names its functions after their own address.
+        # A boot catalog entry carries that same name as its C symbol; a level
+        # placement keeps the reviewed C symbol and takes the address from the
+        # level, so the name/address agreement is only required for the boot.
+        if not relocated and function["symbol"] != f"FUN_{address:08X}":
             raise ValueError("Integration symbol does not identify its address")
         previous_end = address + size
         original_symbol = f"func_{address:08X}"
@@ -100,6 +104,29 @@ def split_assembly(content: str, functions: list[dict]) -> list[dict]:
     return pieces
 
 
+def c_instruments(toolchain: Path) -> dict:
+    """The separately qualified SN 2.95.3 instruments, by recorded name."""
+    return {"ee-gcc2953.exe": toolchain / "bin" / "ee-gcc2953.exe",
+            "ee-as.exe": toolchain / "bin" / "ee-as.exe",
+            "ld.exe": toolchain / "ee" / "bin" / "ld.exe",
+            "cc1.exe": toolchain / "lib" / "gcc-lib" / "ee" / "2.95.3" / "cc1.exe",
+            "cpp.exe": toolchain / "lib" / "gcc-lib" / "ee" / "2.95.3" / "cpp.exe"}
+
+
+def compile_snapshot(directory: Path, instruments: dict, flags: list) -> tuple[Path, Path]:
+    """Compile the reviewed public source into this build; never edit the reviewed copy."""
+    source = ROOT / "candidates" / "boot.c"
+    c_directory = directory / "build" / "c"
+    c_directory.mkdir(parents=True)
+    snapshot = c_directory / "boot.c"
+    snapshot.write_bytes(source.read_bytes())
+    object_path = c_directory / "boot.c.o"
+    run([str(instruments["ee-gcc2953.exe"]), "-c", *flags, str(snapshot), "-o", str(object_path)],
+        directory / "compile-c.log")
+    assert_fresh(object_path, [snapshot])
+    return snapshot, object_path
+
+
 def compile_c(reference: Path, directory: Path, toolchain: Path) -> tuple[dict, Path, dict]:
     catalog = json.loads((ROOT / "config" / "candidate-catalog.json").read_text(encoding="utf-8"))
     candidates = json.loads((ROOT / "progress" / "candidates.json").read_text(encoding="utf-8"))
@@ -113,25 +140,15 @@ def compile_c(reference: Path, directory: Path, toolchain: Path) -> tuple[dict, 
               if entry["matched"]}
     if actual != expected or len(candidates["functions"]) != len(expected):
         raise ValueError("Every integrated function requires a complete candidate match")
-    instrument_paths = {"ee-gcc2953.exe": toolchain / "bin" / "ee-gcc2953.exe",
-                        "ee-as.exe": toolchain / "bin" / "ee-as.exe",
-                        "ld.exe": toolchain / "ee" / "bin" / "ld.exe",
-                        "cc1.exe": toolchain / "lib" / "gcc-lib" / "ee" / "2.95.3" / "cc1.exe",
-                        "cpp.exe": toolchain / "lib" / "gcc-lib" / "ee" / "2.95.3" / "cpp.exe"}
+    instrument_paths = c_instruments(toolchain)
     hashes = {name: file_hash(path) for name, path in instrument_paths.items()}
     if hashes != candidates["tools"]:
         raise ValueError("C integration instruments differ from the qualified candidate run")
-    c_directory = directory / "build" / "c"
-    c_directory.mkdir(parents=True)
-    snapshot = c_directory / "boot.c"
-    snapshot.write_bytes(source.read_bytes())
+    snapshot, object_path = compile_snapshot(directory, instrument_paths, catalog["flags"])
     if file_hash(snapshot) != candidates["source_sha256"]:
         raise ValueError("C source changed while creating the integration snapshot")
     catalog["compiled_source_sha256"] = candidates["source_sha256"]
-    object_path = c_directory / "boot.c.o"
-    run([str(instrument_paths["ee-gcc2953.exe"]), "-c", *catalog["flags"], str(snapshot), "-o", str(object_path)],
-        directory / "compile-c.log")
-    assert_fresh(object_path, [snapshot])
+    c_directory = object_path.parent
     qualification_script = c_directory / "qualification.ld"
     qualification_script.write_text(linker_script(catalog), encoding="ascii")
     qualified = c_directory / "qualification.elf"
@@ -155,7 +172,92 @@ def compile_c(reference: Path, directory: Path, toolchain: Path) -> tuple[dict, 
     return catalog, object_path, hashes
 
 
-def replace_inputs(directory: Path, sources: list[Path], catalog: dict, c_object: Path) -> tuple[list[Path], dict]:
+def level_catalog(level: str) -> dict:
+    """The reviewed placement of the SAME C bodies at one level's own addresses.
+
+    A level is a different link of shared engine code, so the boot symbol keeps
+    its name and the level's measured address replaces the boot address. Only
+    reviewed boot symbols with their complete reviewed size may be placed, and
+    two bodies may never claim one address.
+    """
+    document = json.loads((ROOT / "config" / "level-catalog.json").read_text(encoding="utf-8"))
+    levels = document.get("levels")
+    if not isinstance(levels, dict) or level not in levels:
+        raise ValueError("No reviewed C placement catalog for this level")
+    entry = levels[level]
+    overlays = json.loads((ROOT / "config" / "overlays.json").read_text(encoding="utf-8"))
+    pinned = {item["level"]: item["sha256"] for item in overlays["levels"]}
+    if pinned.get(level) != entry.get("reference_sha256"):
+        raise ValueError("Level catalog reference is not the pinned overlay identity")
+    boot = json.loads((ROOT / "config" / "candidate-catalog.json").read_text(encoding="utf-8"))
+    reviewed = {function["symbol"]: function["size"] for function in boot["functions"]}
+    functions = entry.get("functions")
+    if not isinstance(functions, list) or not functions:
+        raise ValueError("Level placement requires at least one reviewed body")
+    seen_symbols = set()
+    seen_addresses = set()
+    for function in functions:
+        symbol, address, size = function.get("symbol"), function.get("address"), function.get("size")
+        if symbol not in reviewed or reviewed[symbol] != size:
+            raise ValueError("Level placement must reuse a reviewed complete C body")
+        if type(address) is not int or type(size) is not int or size <= 0 or size % 4 or address % 4:
+            raise ValueError("Invalid level placement boundary")
+        if symbol in seen_symbols or address in seen_addresses:
+            raise ValueError("Duplicate level placement symbol or address")
+        seen_symbols.add(symbol)
+        seen_addresses.add(address)
+    return {"target": boot["target"], "level": level, "reference_sha256": entry["reference_sha256"],
+            "flags": boot["flags"], "functions": functions, "externals": {}}
+
+
+def compile_level_c(reference: Path, directory: Path, toolchain: Path, level: str) -> tuple[dict, Path, dict]:
+    """Compile the reviewed C again and qualify that exact object at level addresses."""
+    catalog = level_catalog(level)
+    candidates = json.loads((ROOT / "progress" / "candidates.json").read_text(encoding="utf-8"))
+    if file_hash(reference) != catalog["reference_sha256"]:
+        raise ValueError("Level reference changed since the placement catalog was measured")
+    instrument_paths = c_instruments(toolchain)
+    hashes = {name: file_hash(path) for name, path in instrument_paths.items()}
+    if hashes != candidates["tools"]:
+        raise ValueError("C integration instruments differ from the qualified candidate run")
+    snapshot, object_path = compile_snapshot(directory, instrument_paths, catalog["flags"])
+    if file_hash(snapshot) != candidates["source_sha256"]:
+        raise ValueError("C source changed while creating the level integration snapshot")
+    catalog["compiled_source_sha256"] = candidates["source_sha256"]
+    c_directory = object_path.parent
+    qualification_script = c_directory / "level-qualification.ld"
+    # The compiled object also carries the boot-only bodies, whose data
+    # references belong to the boot image; only the sections placed in this
+    # level may enter this link, and they must resolve nothing external.
+    # The qualification link declares gp = 0: a placed body that needed a
+    # gp-relative or external reference would fail this gate closed.
+    script = linker_script({**catalog, "gp": 0}).replace(
+        "/DISCARD/ : { *(.reginfo) }", "/DISCARD/ : { *(.reginfo) *(.text.FUN_*) }")
+    qualification_script.write_text(script, encoding="ascii")
+    qualified = c_directory / "level-qualification.elf"
+    run([str(instrument_paths["ld.exe"]), "-T", str(qualification_script), "-o", str(qualified), str(object_path)],
+        directory / "qualify-level-object.log")
+    assert_fresh(qualified, [object_path, snapshot, qualification_script])
+    results = [compare_function(reference, qualified, function["symbol"], function["address"], function["size"])
+               for function in catalog["functions"]]
+    if not all(result["matched"] for result in results):
+        raise ValueError("The exact C object used for level integration failed its level qualification")
+    object_proof = {"target": catalog["target"], "program": level, "reference_sha256": file_hash(reference),
+                    "source_sha256": file_hash(snapshot), "object_sha256": file_hash(object_path),
+                    "candidate_elf_sha256": file_hash(qualified),
+                    "catalog_sha256": file_hash(ROOT / "config" / "level-catalog.json"),
+                    "checker_sha256": file_hash(ROOT / "scripts" / "check_candidates.py"),
+                    "verified_at": datetime.now(timezone.utc).isoformat(),
+                    "tools": hashes, "flags": catalog["flags"], "functions": results,
+                    "integrated_functions": 0,
+                    "profile_scope": "Independent qualification of the exact object subsequently used in this level"}
+    (directory / "level-object-qualification.json").write_text(json.dumps(object_proof, indent=2) + "\n",
+                                                               encoding="utf-8")
+    return catalog, object_path, hashes
+
+
+def replace_inputs(directory: Path, sources: list[Path], catalog: dict, c_object: Path,
+                   relocated: bool = False) -> tuple[list[Path], dict]:
     script = directory / "config" / "rac2.ld"
     content = script.read_text(encoding="ascii")
     replacements = {}
@@ -177,7 +279,7 @@ def replace_inputs(directory: Path, sources: list[Path], catalog: dict, c_object
         if content.count(old_text) != 1:
             raise ValueError("Cannot identify one linked original text input")
         new_inputs = []
-        pieces = split_assembly(original, functions)
+        pieces = split_assembly(original, functions, relocated=relocated)
         for index, piece in enumerate(pieces):
             if piece["kind"] == "c":
                 function = piece["function"]
@@ -209,11 +311,17 @@ def add_definitions(directory: Path, catalog: dict) -> None:
     for name, address in catalog["externals"].items():
         content = re.sub(r"^" + re.escape(name) + r"\s*=.*?;\s*$", "", content, flags=re.MULTILINE)
         content += f"{name} = 0x{address:08X};\n"
-    content += f"_gp = 0x{catalog['gp']:08X};\n"
+    # Only the boot catalog carries a gp base. A level placement must not
+    # invent one: the reviewed level bodies are self-contained, and any
+    # gp-relative or external reference would fail the qualification gate
+    # instead of being papered over by an unchecked base value.
+    if "gp" in catalog:
+        content += f"_gp = 0x{catalog['gp']:08X};\n"
     path.write_text(content, encoding="ascii")
 
 
-def validate_integrated(reference: Path, candidate: Path, catalog: dict, source: Path) -> list[dict]:
+def validate_integrated(reference: Path, candidate: Path, catalog: dict, source: Path,
+                       program: str = "boot") -> list[dict]:
     if file_hash(source) != catalog["compiled_source_sha256"]:
         raise ValueError("Public C source changed after the compiled integration snapshot")
     results = [compare_function(reference, candidate, function["symbol"], function["address"], function["size"])
@@ -221,6 +329,6 @@ def validate_integrated(reference: Path, candidate: Path, catalog: dict, source:
     if not all(result["matched"] for result in results):
         raise ValueError("An integrated C body failed the complete post-link comparison")
     for result in results:
-        result.update({"integrated": True, "program": "boot"})
+        result.update({"integrated": True, "program": program})
         result["state"] = "integrated"
     return results

@@ -184,7 +184,7 @@ def resolved_symbols(directory: Path) -> None:
 
 
 def rebuild(reference: Path, expected_hash: str, directory: Path, toolchain: Path, jobs: int, name: str,
-            c_toolchain: Path | None = None) -> dict:
+            c_toolchain: Path | None = None, level: str | None = None) -> dict:
     if hashlib.sha256(reference.read_bytes()).hexdigest() != expected_hash:
         raise ValueError("Reference changed since verified extraction")
     directory.mkdir(parents=True)
@@ -202,11 +202,18 @@ def rebuild(reference: Path, expected_hash: str, directory: Path, toolchain: Pat
         raise ValueError("No generated assembly")
     c_object = None
     if c_toolchain is not None:
-        if name != "boot":
-            raise ValueError("C integration is qualified for the boot only")
-        from integration import compile_c, replace_inputs, add_definitions, validate_integrated
-        catalog, c_object, c_hashes = compile_c(reference, directory, c_toolchain)
-        sources, replacements = replace_inputs(directory, sources, catalog, c_object)
+        from integration import (compile_c, compile_level_c, replace_inputs, add_definitions,
+                                 validate_integrated)
+        if level is None:
+            if name != "boot":
+                raise ValueError("C integration is qualified for the boot only")
+            catalog, c_object, c_hashes = compile_c(reference, directory, c_toolchain)
+        else:
+            if name != "overlay":
+                raise ValueError("Level C integration is qualified for one overlay at a time")
+            catalog, c_object, c_hashes = compile_level_c(reference, directory, c_toolchain, level)
+        sources, replacements = replace_inputs(directory, sources, catalog, c_object,
+                                               relocated=level is not None)
     assembler = toolchain / "ee" / "bin" / "Ps2EeAs.exe"
     linker = toolchain / "ee" / "bin" / "ld.exe"
     with ThreadPoolExecutor(max_workers=jobs) as pool:
@@ -229,13 +236,17 @@ def rebuild(reference: Path, expected_hash: str, directory: Path, toolchain: Pat
     result.update({"name": name, "reference_sha256": expected_hash,
                    "candidate_sha256": hashlib.sha256(output.read_bytes()).hexdigest()})
     if c_object is not None:
-        functions = validate_integrated(reference, output, catalog, ROOT / "candidates" / "boot.c")
-        proof = {"target": TARGET["serial"], "reference_sha256": expected_hash,
+        program = level or "boot"
+        functions = validate_integrated(reference, output, catalog, ROOT / "candidates" / "boot.c",
+                                        program=program)
+        catalog_name = "level-catalog.json" if level else "candidate-catalog.json"
+        gate_name = "full_level_gate" if level else "full_boot_gate"
+        proof = {"target": TARGET["serial"], "program": program, "reference_sha256": expected_hash,
                  "source_sha256": hashlib.sha256((ROOT / "candidates" / "boot.c").read_bytes()).hexdigest(),
-                 "catalog_sha256": hashlib.sha256((ROOT / "config" / "candidate-catalog.json").read_bytes()).hexdigest(),
+                 "catalog_sha256": hashlib.sha256((ROOT / "config" / catalog_name).read_bytes()).hexdigest(),
                  "candidate_source": "candidates/boot.c", "state": "integrated", "functions": functions,
-                 "full_boot_gate": {"matched": True, "bytes_compared": result["bytes_compared"],
-                                    "segments": sum(segment["type"] == 1 for segment in read_elf(reference)["segments"])},
+                 gate_name: {"matched": True, "bytes_compared": result["bytes_compared"],
+                             "segments": sum(segment["type"] == 1 for segment in read_elf(reference)["segments"])},
                  "matched_code_bytes": sum(function["size"] for function in functions), "tools": c_hashes,
                  "candidate_elf_sha256": result["candidate_sha256"],
                  "c_object_sha256": hashlib.sha256(c_object.read_bytes()).hexdigest(),
@@ -254,6 +265,7 @@ def main() -> int:
     parser.add_argument("--toolchain", required=True, type=Path)
     parser.add_argument("--all-levels", action="store_true")
     parser.add_argument("--c-toolchain", type=Path, help="integrate reviewed C using the separately qualified SN compiler")
+    parser.add_argument("--c-level", help="also integrate the reviewed C into this one level overlay")
     parser.add_argument("--jobs", type=int, default=8)
     args = parser.parse_args()
     if args.jobs < 1:
@@ -292,10 +304,24 @@ def main() -> int:
                            args.c_toolchain.resolve() if args.c_toolchain else None)
     if args.c_toolchain:
         report["decompiled_functions"] = report["g1"]["integrated_c_functions"]
+    c_level = None
+    if args.c_level:
+        if not args.c_toolchain:
+            raise ValueError("Level C integration requires the separately qualified C toolchain")
+        matches = [overlay for overlay in manifest["overlays"] if overlay["level"] == args.c_level]
+        if len(matches) != 1:
+            raise ValueError("Level C integration requires one overlay of the verified manifest")
+        c_level = matches[0]
+        result = rebuild(Path(c_level["path"]), c_level["sha256"], builds / c_level["level"],
+                         toolchain, args.jobs, "overlay", args.c_toolchain.resolve(), level=c_level["level"])
+        result["level"] = c_level["level"]
+        report["g3"].append(result)
     if args.all_levels:
         if len(manifest["overlays"]) != 27:
             raise ValueError("G3 requires all 27 verified overlays")
         for overlay in manifest["overlays"]:
+            if c_level is not None and overlay["level"] == c_level["level"]:
+                continue
             result = rebuild(Path(overlay["path"]), overlay["sha256"], builds / overlay["level"],
                              toolchain, args.jobs, "overlay")
             result["level"] = overlay["level"]
