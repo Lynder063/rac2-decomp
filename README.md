@@ -1,11 +1,43 @@
-# RAC2 - Going Commando
+<h1 align="center">RAC2</h1>
+<p align="center"><strong>Ratchet &amp; Clank: Going Commando</strong></p>
 
-Preparation and byte-exact decompilation tooling for **Ratchet & Clank:
-Going Commando, USA v1.01, SCUS_972.68**. This is part of project 45.
+<p align="center">
+  <a href="progress/report.json"><img src="https://img.shields.io/badge/Progress-Measured-e89b35?style=flat-square&amp;labelColor=0d1117" alt="Measured progress"></a>
+  <a href="#prepare-locally"><img src="https://img.shields.io/badge/Build-Guide-c3cbd8?style=flat-square&amp;logo=gnubash&amp;logoColor=c3cbd8&amp;labelColor=0d1117" alt="Build guide"></a>
+  <a href="#supported-version"><img src="https://img.shields.io/badge/PS2-USA_v1.01-c3cbd8?style=flat-square&amp;labelColor=0d1117" alt="PlayStation 2 USA version 1.01"></a>
+</p>
 
-The goal is original game code running natively on PC. This repository is an
-initial reconstruction workspace, not a playable PC port. Assembly reconstruction
-does not count as C/C++ decompilation. See `progress/report.json` for measured status.
+<p align="center">
+  A work-in-progress, byte-matching decompilation of Going Commando for PlayStation 2.<br>
+  Recovering readable C/C++ from the original game, with a native PC port as the long-term goal.
+</p>
+
+> [!NOTE]
+> This project uses AI-assisted research, coding, and tooling under human direction.
+> Architecture and priorities remain human decisions. Matching claims require compiler-produced
+> code to pass byte-for-byte comparisons against the targeted game executable;
+> an AI-generated answer alone is not evidence of correctness.
+
+> [!WARNING]
+> This is an early decompilation and reconstruction project, not a playable PC port.
+> No game assets, disc images, rebuilt executables, or proprietary toolchains are distributed.
+> You must supply your own legally obtained copy of the supported release.
+
+## Supported version
+
+| Game | Platform | Region | Version | Boot executable |
+| --- | --- | --- | --- | --- |
+| Ratchet & Clank: Going Commando (2003) | PlayStation 2 | USA / NTSC-U | 1.01 | `SCUS_972.68` |
+
+Greatest Hits v2.00 and other regions are different targets.
+This repository is part of project 45.
+
+## Current status
+
+Assembly reconstruction and matching C/C++ are tracked separately.
+See [the measured progress report](progress/report.json) and
+[the C integration proof](progress/integration.json) for their respective results.
+The native runtime remains a separate development milestone.
 
 Verified on **2026-10-01**: the complete boot image (**2,521,763 loaded bytes,
 two PT_LOAD segments**) and **all 27 level overlays** rebuild identically in loaded
