@@ -1,4 +1,6 @@
-<h1 align="center">RAC2</h1>
+<p align="center">
+  <img src="assets/rac2-logo.png" alt="RAC2 — Going Commando" width="560">
+</p>
 <p align="center"><strong>Ratchet &amp; Clank: Going Commando</strong></p>
 
 <p align="center">
