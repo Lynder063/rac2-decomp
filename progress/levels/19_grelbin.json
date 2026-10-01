@@ -2,8 +2,8 @@
   "target": "SCUS_972.68",
   "program": "19_grelbin",
   "reference_sha256": "eeab491a667c311b024745af7173ac08371e279ade0b4ab5d48b6f81fa751aaf",
-  "source_sha256": "698c490942237325d93fa84961b2bede46bd0b7a8d365fbd4452da2d8db2a353",
-  "catalog_sha256": "4c57f3fe18e50c8830dd3d6a0ccb6ff5d5e68cd1d788605dde98f3f30da92eb1",
+  "source_sha256": "b1cb7a778aaafa682b644aae9b6ea6198c294234ca5499810fcfbbbfd10ff634",
+  "catalog_sha256": "f3ef2479e6a6a4fec9af93bfa2a2a571c93bfd9343916cade1861863d99b18f3",
   "candidate_source": "candidates/boot.c",
   "state": "integrated",
   "functions": [
@@ -56,6 +56,18 @@
       "program": "19_grelbin"
     },
     {
+      "symbol": "FUN_002A8C00",
+      "address": 3251184,
+      "size": 36,
+      "matched": true,
+      "reference_sha256": "f4f17fa7a9ce64cdb51e96509dfb644245aef470fcc984c755a77a21f12f02aa",
+      "candidate_sha256": "f4f17fa7a9ce64cdb51e96509dfb644245aef470fcc984c755a77a21f12f02aa",
+      "different_bytes": 0,
+      "state": "integrated",
+      "integrated": true,
+      "program": "19_grelbin"
+    },
+    {
       "symbol": "FUN_002AA140",
       "address": 3257528,
       "size": 16,
@@ -80,12 +92,60 @@
       "program": "19_grelbin"
     },
     {
+      "symbol": "FUN_002B7DF8",
+      "address": 3324896,
+      "size": 48,
+      "matched": true,
+      "reference_sha256": "2826ec704d2de54511f9a17969d9fbb41df5a0e211247d0abfca6a8a395c1d26",
+      "candidate_sha256": "2826ec704d2de54511f9a17969d9fbb41df5a0e211247d0abfca6a8a395c1d26",
+      "different_bytes": 0,
+      "state": "integrated",
+      "integrated": true,
+      "program": "19_grelbin"
+    },
+    {
+      "symbol": "FUN_002B7FB0",
+      "address": 3325336,
+      "size": 60,
+      "matched": true,
+      "reference_sha256": "a033f6596bebd5175d6f1cd351569066e37129bb0973c8d4c626a0e02be3e592",
+      "candidate_sha256": "a033f6596bebd5175d6f1cd351569066e37129bb0973c8d4c626a0e02be3e592",
+      "different_bytes": 0,
+      "state": "integrated",
+      "integrated": true,
+      "program": "19_grelbin"
+    },
+    {
       "symbol": "FUN_002CC6A0",
       "address": 3423024,
       "size": 16,
       "matched": true,
       "reference_sha256": "0131f5a43cbc181624c0ba9c09da356086fc13e8898ac59eea9078f286390ff7",
       "candidate_sha256": "0131f5a43cbc181624c0ba9c09da356086fc13e8898ac59eea9078f286390ff7",
+      "different_bytes": 0,
+      "state": "integrated",
+      "integrated": true,
+      "program": "19_grelbin"
+    },
+    {
+      "symbol": "FUN_002E60A0",
+      "address": 3529304,
+      "size": 68,
+      "matched": true,
+      "reference_sha256": "6b593ca2b5a14c18116cbe23810abaf81ad871125ed8ec43bd7700e8adbd9769",
+      "candidate_sha256": "6b593ca2b5a14c18116cbe23810abaf81ad871125ed8ec43bd7700e8adbd9769",
+      "different_bytes": 0,
+      "state": "integrated",
+      "integrated": true,
+      "program": "19_grelbin"
+    },
+    {
+      "symbol": "FUN_002E60E8",
+      "address": 3529376,
+      "size": 44,
+      "matched": true,
+      "reference_sha256": "33a9d2d27f7d7c6755ff6244f00748b3974b2275065dd3d66cc3c80c96f074de",
+      "candidate_sha256": "33a9d2d27f7d7c6755ff6244f00748b3974b2275065dd3d66cc3c80c96f074de",
       "different_bytes": 0,
       "state": "integrated",
       "integrated": true,
@@ -133,7 +193,7 @@
     "bytes_compared": 2822184,
     "segments": 1
   },
-  "matched_code_bytes": 644,
+  "matched_code_bytes": 900,
   "tools": {
     "ee-gcc2953.exe": "522d28f9d74ddfce89568437156c8ee323c806de525d99907f698050dee8d81e",
     "ee-as.exe": "5ae3c981bb4e105bd1edfc48c11f15a932dbbf4680be46edc46c55a869885f9e",
@@ -141,17 +201,22 @@
     "cc1.exe": "0393bcd31f91a6b9f0255db97f1cc99eba78ee8fc003e9a04dfabed1ae1d522e",
     "cpp.exe": "b9c50aa66f9cf5dbd80b2affe9874ec7674b7328965c629476f6ad7c77943154"
   },
-  "candidate_elf_sha256": "f892f995f80b5d5305c6fd9d0036007938db153a9230e0f2ad683dba62f0a582",
-  "c_object_sha256": "19cea7cd1bccf647eae6ed66340d89d46f03aeac867678fd3e801f5c47a7f9dc",
+  "candidate_elf_sha256": "e3821cb6140e6945b16c97e16ab16f33b2413f616d2a68b55ea33cadad601aaa",
+  "c_object_sha256": "b43656f61567ac1e457f418eccceb05e171d306f35d90af19c578fcffb622e56",
   "replacement_inputs": {
     "100980.s": [
       "FUN_0028B740",
       "FUN_002A7AA8",
       "FUN_002A8860",
       "FUN_002A8AF0",
+      "FUN_002A8C00",
       "FUN_002AA140",
       "FUN_002AAF40",
+      "FUN_002B7DF8",
+      "FUN_002B7FB0",
       "FUN_002CC6A0",
+      "FUN_002E60A0",
+      "FUN_002E60E8",
       "FUN_00312B58",
       "FUN_00312E10",
       "FUN_003505E0"

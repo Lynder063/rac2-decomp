@@ -58,3 +58,24 @@ compared across the 27 overlays, all identical to retail.
 2. Overlay integration on one level (0_aranos_tutorial), full-gate compared.
 3. The other 26, then the per-program report change.
 4. Only then port more C: each additional distinct byte counts 28 times.
+
+## Appendix - state after the third C lot (2026-10-01)
+
+The plan above was executed, and the third lot extended it. Current measured state:
+
+- boot: 26 reviewed bodies, 1076 bytes;
+- levels: **401 reviewed placements, 24,236 bytes** (the third lot added 135 placements,
+  6912 bytes: five bodies - `FUN_002A8C00`, `FUN_002B7DF8`, `FUN_002B7FB0`,
+  `FUN_002E60A0`, `FUN_002E60E8` - placed in all 27 overlays);
+- counted total: **1076 + 24,236 = 25,312 bytes** (about 0.052 %).
+
+Exclusions in the third lot are measured, not assumed: three bodies do not occur in any
+level's text at all, and one (`FUN_002B6770`) is a complete function at two addresses of
+every level, so neither occurrence is attributable to the reviewed symbol.
+
+A further three RAC1-reviewed bodies were byte-proved in isolation but not integrated:
+they exist **only** inside overlays (`FUN_00310838`, `FUN_00423BB0`, `FUN_0031C1E0`;
+3804 bytes of potential placements). Placing them needs a second reviewed source wired
+through `check_candidates`, `integration.py`, `build.py` and `decomp_report.py`, since the
+level catalogue and the level qualification link both only admit bodies reviewed against
+the boot. See `docs/THIRD-C-LOT.md`.

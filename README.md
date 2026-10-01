@@ -43,7 +43,7 @@ The native runtime remains a separate development milestone.
 
 Verified on **2026-10-01**: the complete boot image (**2,521,763 loaded bytes,
 two PT_LOAD segments**) and **all 27 level overlays** rebuild identically in loaded
-memory. **129 tool tests pass**. **Seventeen C functions (716 bytes) are integrated in the boot, and the same reviewed C is integrated in all 27 level overlays (17,324 bytes of placements)**
+memory. **142 tool tests pass**. **Twenty-six C functions (1076 bytes) are integrated in the boot, and the same reviewed C is integrated in all 27 level overlays (401 placements, 24,236 bytes)**
 using genuine compiler-produced objects, with the complete boot matching both
 original loaded segments.** The general compiler profile and native runtime
 remain to be established.
@@ -96,7 +96,7 @@ qualified compiler toolchain in addition to the assembly toolchain:
 
 The integration snapshots the reviewed C, qualifies the exact new object in a
 standalone link, then links that same object into the complete boot. It removes
-only the seven reviewed assembly bodies, retains padding and remaining assembly
+only the reviewed assembly bodies, retains padding and remaining assembly
 fragments, and preserves original call names as linker aliases to C symbols.
 Both PT_LOAD segments and each C STT_FUNC body must still match before a proof
 is emitted. No bytes are patched or trimmed after the link.
@@ -124,13 +124,16 @@ is emitted. No bytes are patched or trimmed after the link.
 - Native runtime work must execute original code; HLE replacements and movie
   playback are not evidence of a functioning native game.
 
-## Initial C candidate lot
+## C candidate lots
 
-`candidates/boot.c` contains seven project-authored leaf functions. Their initial
-neutral address-based names are retained; engine-purpose names are not inferred.
-Ghidra's saved GC programme was reopened read-only with its SHA-256 and R5900
-language verified. All seven contiguous bodies, callers and return delay slots
-were reviewed. `config/candidate-catalog.json` records their individual boundaries.
+`candidates/boot.c` holds every reviewed body. It began with seven project-authored
+leaf functions. Their initial neutral address-based names are retained; engine-purpose
+names are not inferred. Ghidra's saved GC programme was reopened read-only with its
+SHA-256 and R5900 language verified. All seven contiguous bodies, callers and return
+delay slots were reviewed. `config/candidate-catalog.json` records their individual
+boundaries. Two later lots added nineteen bodies measured in RAC1's reconstruction
+corpus whose bytes are identical in RAC2 - see `docs/SECOND-C-LOT.md` and
+`docs/THIRD-C-LOT.md`.
 
 ```powershell
 .venv\Scripts\python.exe scripts/check_candidates.py --reference <boot.elf> --toolchain <SN-ProDG-3.01-EE-gcc-directory> --runtime D:\RAC2\runtime
@@ -142,6 +145,10 @@ functions only. They are not a qualified profile for the remaining SDK or game
 functions. In particular, a 64-bit zero-return declaration emitted `por`, while
 the 32-bit declaration emitted the required `daddu`; the failed attempt is not
 counted. The original API widths beyond the observed accesses remain to be studied.
+Later lots extended the demonstrated scope of the same profile - arithmetic loops,
+float code, pointer-length parameters, counted loops over byte structures and one
+quadword copy - with every body proved individually through this same gate. The
+profile is still a per-function qualification, never a general one.
 
 The gate requires a fresh compile/link, a defined global STT_FUNC symbol, its
 exact address and **full symbol size**, and all its bytes. Absolute aliases,
@@ -149,7 +156,7 @@ zero-size symbols, unlinked objects and identical prefixes with extra code are
 refused. A deliberately wrong pointer-return candidate was compiled and rejected.
 `progress/candidates.json` records reproducible source, tool and byte hashes.
 
-These seventeen functions are now **integrated** into the whole-boot reconstruction.
+These twenty-six functions are now **integrated** into the whole-boot reconstruction.
 `progress/integration.json` records the complete boot gate, exact C object hash,
 post-link function hashes and removed assembly inputs. `progress/candidates.json`
 is the independent qualification of that same object before the complete link.
@@ -158,7 +165,7 @@ The remaining SDK and game functions still require separate compiler qualificati
 ## decomp.dev reporting
 
 The CI uploads `SCUS_972.68_report` in objdiff report v2 format. It records
-**18,040 integrated C bytes out of 48,788,176 executable bytes (about 0.037%)**,
+**25,312 integrated C bytes out of 48,788,176 executable bytes (about 0.052%)**,
 independently of assembly reconstruction. The measured scope includes the boot and all 27
 overlays, with executable and initialized-data section sizes, including VU code.
 Function counts are omitted until boundaries have been reviewed. Generated section
@@ -170,7 +177,7 @@ assets or proprietary SDK in GitHub Actions. It rejects absent or inconsistent
 integration evidence, changed source/catalogue hashes, object mismatches and
 double-counted ranges. C units are split out of the remaining assembly units,
 so the full code/data totals remain unchanged. The site currently displays
-0.01% for this initial positive progress; the precise report is about 0.037% once the level proofs are passed to it.
+0.01% for this initial positive progress; the precise report is about 0.052% once the level proofs are passed to it.
 
 ## Next milestones
 

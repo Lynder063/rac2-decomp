@@ -2,7 +2,7 @@
   "target": "SCUS_972.68",
   "reference_sha256": "36d5814d8d95328d5839612ccdf7a2e7ecac0b6f868d3ad4bb2e98411f734b4a",
   "language": "r5900:LE:32:default",
-  "evidence": "Ghidra saved GC programme, read-only headless extraction 2026-10-01; body ranges and delay slots cross-checked with fresh splat output",
+  "evidence": "Ghidra saved GC programme, read-only headless extraction 2026-10-01; body ranges and delay slots cross-checked with fresh splat output. The third lot was located by exact byte search of the reviewed RAC1 C bodies in the pinned RAC2 image and each entry was kept only after the qualified compiler reproduced its bytes.",
   "flags": [
     "-O2",
     "-G0",
@@ -32,6 +32,22 @@
       "meaning": "Return address of pointer cell 0013A308"
     },
     {
+      "symbol": "FUN_0011C880",
+      "address": 1165440,
+      "size": 28,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src/runtime/sio/fun_0011a428.c), byte-identical in both games"
+    },
+    {
+      "symbol": "FUN_0011C8A0",
+      "address": 1165472,
+      "size": 12,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src/runtime/sio/fun_0011a448.c), byte-identical in both games"
+    },
+    {
       "symbol": "FUN_00120BC8",
       "address": 1182664,
       "size": 8,
@@ -46,6 +62,14 @@
       "ranges": 1,
       "xrefs": 7,
       "meaning": "Return absolute data address 00137E00"
+    },
+    {
+      "symbol": "FUN_0012DA98",
+      "address": 1235608,
+      "size": 40,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src/sdk/library/fun_00129b38.c), byte-identical in both games"
     },
     {
       "symbol": "FUN_0012F9A8",
@@ -104,6 +128,14 @@
       "meaning": "Ported from RAC1 (src\\overlays\\shared\\gameplay_entities_00259710.c), byte-identical in both games"
     },
     {
+      "symbol": "FUN_002A8C00",
+      "address": 2788352,
+      "size": 36,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src/overlays/shared/gameplay_entities_00259710.c), byte-identical in both games; plain C rewrite of the RAC1 inline-assembly quad copy"
+    },
+    {
       "symbol": "FUN_002AA140",
       "address": 2793792,
       "size": 16,
@@ -120,12 +152,52 @@
       "meaning": "Ported from RAC1 (src\\overlays\\shared\\unclassified_0025bb38.c), byte-identical in both games"
     },
     {
+      "symbol": "FUN_002B6770",
+      "address": 2844528,
+      "size": 24,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src/audio/sound/fun_0022dd78.c), byte-identical in both games"
+    },
+    {
+      "symbol": "FUN_002B7DF8",
+      "address": 2850296,
+      "size": 48,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src/audio/streaming/fun_00216990.c), byte-identical in both games"
+    },
+    {
+      "symbol": "FUN_002B7FB0",
+      "address": 2850736,
+      "size": 60,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src/audio/streaming/fun_00216b28.c), byte-identical in both games"
+    },
+    {
       "symbol": "FUN_002CC6A0",
       "address": 2934432,
       "size": 16,
       "ranges": 1,
       "xrefs": 0,
       "meaning": "Ported from RAC1 (src\\overlays\\shared\\unclassified_00277f60.c), byte-identical in both games"
+    },
+    {
+      "symbol": "FUN_002E60A0",
+      "address": 3039392,
+      "size": 68,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src/audio/sound/fun_0022dd90.c), byte-identical in both games"
+    },
+    {
+      "symbol": "FUN_002E60E8",
+      "address": 3039464,
+      "size": 44,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src/audio/sound/fun_0022ddd8.c), byte-identical in both games"
     },
     {
       "symbol": "FUN_00312B58",

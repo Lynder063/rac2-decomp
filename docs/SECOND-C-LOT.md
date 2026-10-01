@@ -56,3 +56,10 @@ one program does not multiply the reported figure. 716 bytes out of 48,788,176 e
 bytes is about **0.0015 %** - real progress over 72 bytes, and still far from a decompiled
 game. The RAC1 corpus is now measured and exhausted for this purpose: everything else has
 to be written against RAC2 itself.
+
+## Update, same day
+
+The closing claim above was premature: nine further couples of the same measurement were
+integrated later the same day (`docs/THIRD-C-LOT.md`), taking the boot lot from 716 to
+1076 bytes and the level catalogue to 401 placements. Two couples of the twenty-four are
+refused there with their measured reasons and three are deferred.

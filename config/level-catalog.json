@@ -2,7 +2,7 @@
   "target": "SCUS_972.68",
   "source": "candidates/boot.c",
   "measured_at": "2026-10-01",
-  "evidence": "Body addresses measured 2026-10-01 by exact byte search of each reviewed boot body in the pinned overlays (351 couples over 27 levels). Every placement was re-checked cell by cell against its pinned overlay and accepted only where the measured address is one of that level's own splat function entries, that body identifies exactly one function of that level, and the level's function slot is at least the reviewed size. Every other couple is recorded under 'excluded' with its measured reason.",
+  "evidence": "Body addresses measured 2026-10-01 by exact byte search of each reviewed boot body in the pinned overlays (351 couples over 27 levels). Every placement was re-checked cell by cell against its pinned overlay and accepted only where the measured address is one of that level's own splat function entries, that body identifies exactly one function of that level, and the level's function slot is at least the reviewed size. Every other couple is recorded under 'excluded' with its measured reason. The third lot (nine further reviewed bodies, 2026-10-01) was measured by the same byte search, with the reviewed size of each body taken from the compiler-produced object rather than from the padding-inclusive splat boundary.",
   "state": "all 27 levels reviewed; placements reuse the reviewed boot C bodies unchanged",
   "levels": {
     "0_aranos_tutorial": {
@@ -29,6 +29,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3260128,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3266144,
           "size": 16
@@ -39,9 +44,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3336152,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3336592,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3431168,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3537416,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3537488,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -77,6 +102,30 @@
           "address": 2781412,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 353 times in .text (38 of them at function entries), so no occurrence can be told apart by bytes: this address is a fragment inside another function; byte-identical twin of FUN_00120BC8, which shares this measured address"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -104,6 +153,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3369544,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3374944,
           "size": 16
@@ -114,9 +168,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3419376,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3419816,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3513960,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3620064,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3620136,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -152,6 +226,30 @@
           "address": 2891364,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 346 times in .text (41 of them at function entries)"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -179,6 +277,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3335256,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3341296,
           "size": 16
@@ -189,9 +292,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3416432,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3416872,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3515416,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3621696,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3621768,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -227,6 +350,30 @@
           "address": 2884320,
           "size": 8,
           "reason": "the 8-byte body is a complete function at 45 addresses in this level (373 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -254,6 +401,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3275344,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3281384,
           "size": 16
@@ -264,9 +416,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3356328,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3356768,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3454288,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3560392,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3560464,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -303,6 +475,30 @@
           "address": 3818888,
           "size": 16,
           "reason": "the 16-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -330,6 +526,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3301600,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3307616,
           "size": 16
@@ -340,9 +541,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3375352,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3375792,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3470760,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3577008,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3577080,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -378,6 +599,30 @@
           "address": 2826332,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 366 times in .text (41 of them at function entries)"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -405,6 +650,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3291104,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3297144,
           "size": 16
@@ -415,9 +665,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3376744,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3377184,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3473960,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3580208,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3580280,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -454,6 +724,30 @@
           "address": 3843824,
           "size": 16,
           "reason": "the 16-byte body is a complete function at 3 addresses in this level (3 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -481,6 +775,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3361296,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3367312,
           "size": 16
@@ -491,9 +790,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3436256,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3436696,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3532744,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3639024,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3639096,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -529,6 +848,30 @@
           "address": 2883428,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 346 times in .text (40 of them at function entries)"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -556,6 +899,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3233576,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3239592,
           "size": 16
@@ -566,9 +914,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3303696,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3304136,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3398112,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3504216,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3504288,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -604,6 +972,30 @@
           "address": 2786152,
           "size": 8,
           "reason": "the 8-byte body is a complete function at 38 addresses in this level (357 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -631,6 +1023,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3264656,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3270864,
           "size": 16
@@ -641,9 +1038,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3347800,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3348240,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3445008,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3551256,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3551328,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -679,6 +1096,30 @@
           "address": 2786780,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 362 times in .text (39 of them at function entries)"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -706,6 +1147,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3370712,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3377056,
           "size": 16
@@ -716,9 +1162,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3447008,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3447448,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3546632,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3652736,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3652808,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -754,6 +1220,30 @@
           "address": 2903404,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 362 times in .text (38 of them at function entries)"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -781,6 +1271,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3251184,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3257528,
           "size": 16
@@ -791,9 +1286,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3324896,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3325336,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3423024,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3529304,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3529376,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -829,6 +1344,30 @@
           "address": 2795732,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 356 times in .text (35 of them at function entries)"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -856,6 +1395,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3219088,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3225432,
           "size": 16
@@ -866,9 +1410,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3293192,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3293632,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3391192,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3497472,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3497544,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -904,6 +1468,30 @@
           "address": 2789088,
           "size": 8,
           "reason": "the 8-byte body is a complete function at 38 addresses in this level (352 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -931,6 +1519,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3346328,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3352488,
           "size": 16
@@ -941,9 +1534,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3423528,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3423968,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3521408,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3627744,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3627816,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -980,6 +1593,30 @@
           "address": 3916888,
           "size": 16,
           "reason": "the 16-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -1007,6 +1644,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3281848,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3287864,
           "size": 16
@@ -1017,9 +1659,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3349616,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3350056,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3445904,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3552008,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3552080,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -1055,6 +1717,30 @@
           "address": 2799516,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 337 times in .text (36 of them at function entries)"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -1082,6 +1768,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3300048,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3306064,
           "size": 16
@@ -1092,9 +1783,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3367816,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3368256,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3464104,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3570208,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3570280,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -1130,6 +1841,30 @@
           "address": 2817692,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 345 times in .text (36 of them at function entries)"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -1157,6 +1892,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3252440,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3257840,
           "size": 16
@@ -1167,9 +1907,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3301896,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3302336,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3395944,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3502048,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3502120,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -1205,6 +1965,30 @@
           "address": 2777572,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 330 times in .text (35 of them at function entries)"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -1232,6 +2016,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3335432,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3340832,
           "size": 16
@@ -1242,9 +2031,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3387704,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3388144,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3481752,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3587856,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3587928,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -1280,6 +2089,30 @@
           "address": 2859748,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 339 times in .text (39 of them at function entries)"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -1307,6 +2140,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3260440,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3266456,
           "size": 16
@@ -1317,9 +2155,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3334888,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3335328,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3429616,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3535864,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3535936,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -1355,6 +2213,30 @@
           "address": 2782948,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 342 times in .text (37 of them at function entries)"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -1382,6 +2264,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3277240,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3283256,
           "size": 16
@@ -1392,9 +2279,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3363440,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3363880,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3459704,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3568016,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3568088,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -1430,6 +2337,30 @@
           "address": 2794468,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 367 times in .text (38 of them at function entries)"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -1457,6 +2388,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3287040,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3292440,
           "size": 16
@@ -1467,9 +2403,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3339144,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3339584,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3433736,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3539840,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3539912,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -1505,6 +2461,30 @@
           "address": 2809572,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 344 times in .text (37 of them at function entries)"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -1532,6 +2512,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3265000,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3271016,
           "size": 16
@@ -1542,9 +2527,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3341880,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3342320,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3437016,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3543264,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3543336,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -1581,6 +2586,30 @@
           "address": 3819896,
           "size": 16,
           "reason": "the 16-byte body is a complete function at 3 addresses in this level (3 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -1608,6 +2637,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3398408,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3404448,
           "size": 16
@@ -1618,9 +2652,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3479552,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3479992,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3577168,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3683448,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3683520,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -1656,6 +2710,30 @@
           "address": 2941936,
           "size": 8,
           "reason": "the 8-byte body is a complete function at 45 addresses in this level (365 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -1683,6 +2761,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3359208,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3364608,
           "size": 16
@@ -1693,9 +2776,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3411856,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3412296,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3506264,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3612368,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3612440,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -1731,6 +2834,30 @@
           "address": 2881892,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 344 times in .text (39 of them at function entries)"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -1758,6 +2885,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3522552,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3528592,
           "size": 16
@@ -1768,9 +2900,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3600304,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3600744,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3698560,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3805096,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3805168,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -1806,6 +2958,30 @@
           "address": 3040996,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 358 times in .text (40 of them at function entries)"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -1833,6 +3009,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3220200,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3226520,
           "size": 16
@@ -1843,9 +3024,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3297160,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3297600,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3390432,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3496712,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3496784,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -1881,6 +3082,30 @@
           "address": 2781408,
           "size": 8,
           "reason": "the 8-byte body is a complete function at 38 addresses in this level (344 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -1908,6 +3133,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3314808,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3321352,
           "size": 16
@@ -1918,9 +3148,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3393816,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3394256,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3489848,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3596096,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3596168,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -1956,6 +3206,30 @@
           "address": 2855920,
           "size": 8,
           "reason": "the 8-byte body is a complete function at 36 addresses in this level (357 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     },
@@ -1983,6 +3257,11 @@
           "size": 204
         },
         {
+          "symbol": "FUN_002A8C00",
+          "address": 3244768,
+          "size": 36
+        },
+        {
           "symbol": "FUN_002AA140",
           "address": 3251112,
           "size": 16
@@ -1993,9 +3272,29 @@
           "size": 92
         },
         {
+          "symbol": "FUN_002B7DF8",
+          "address": 3321760,
+          "size": 48
+        },
+        {
+          "symbol": "FUN_002B7FB0",
+          "address": 3322200,
+          "size": 60
+        },
+        {
           "symbol": "FUN_002CC6A0",
           "address": 3419752,
           "size": 16
+        },
+        {
+          "symbol": "FUN_002E60A0",
+          "address": 3526144,
+          "size": 68
+        },
+        {
+          "symbol": "FUN_002E60E8",
+          "address": 3526216,
+          "size": 44
         },
         {
           "symbol": "FUN_00312B58",
@@ -2031,6 +3330,30 @@
           "address": 2794700,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 364 times in .text (40 of them at function entries)"
+        },
+        {
+          "symbol": "FUN_0011C880",
+          "address": 1165440,
+          "size": 28,
+          "reason": "no occurrence is a function entry in this level; the 28-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0011C8A0",
+          "address": 1165472,
+          "size": 12,
+          "reason": "no occurrence is a function entry in this level; the 12-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_0012DA98",
+          "address": 1235608,
+          "size": 40,
+          "reason": "no occurrence is a function entry in this level; the 40-byte body occurs 0 times in .text"
+        },
+        {
+          "symbol": "FUN_002B6770",
+          "address": 2844528,
+          "size": 24,
+          "reason": "the 24-byte body is a complete function at 2 addresses in this level (2 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         }
       ]
     }
