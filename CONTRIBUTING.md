@@ -47,9 +47,11 @@ the tests run without any of it — `python -m unittest discover -s tests -v` an
   run **on the same build snapshot** — the integration refuses a catalogue that changed since
   its review, and that refusal is a feature.
 - **Say where your material comes from.** A match must be derived from the retail disc you
-  own, or be your own work. Community archives, prototype builds, leaked material or another
-  repository may be *cited as reference* — they are never evidence, and material from a
-  repository without a licence is not copied into this one.
+  own, be your own work, or come from a sister project that shares it with us — name the
+  project, its author and the agreement in the pull request. Community archives, prototype
+  builds and leaked material may be *cited as reference*, never as evidence. The Ratchet &
+  Clank decompilations work together; what keeps that possible is that every reuse is written
+  down, byte proof and permission side by side.
 - **One function (or one coherent family) per pull request**, tests green:
   `python -m unittest discover -s tests -v` must pass.
 

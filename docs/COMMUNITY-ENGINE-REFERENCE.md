@@ -6,8 +6,9 @@ Synthesized from the `#rac-ps2-reverse-engineering` community research archive (
 >
 > This page is a community **reference**, never evidence. The only thing that can make a match
 > in this repository is compiler-produced code that compares byte for byte against the pinned
-> executable: no tool reads this page, and nothing here can make a gate pass. The sources
-> above are cited, not merged.
+> executable: no tool reads this page, and nothing here can make a gate pass. Its sources are
+> named so every claim can be traced to whoever measured it — credit where it is due, and a
+> lead to follow if you want to check it yourself.
 >
 > **The target of this repository is the USA v1.01 release** (`SCUS_972.68`, pinned in
 > `config/target.json` against Redump disc 13103). The table below opens on the **v2.00

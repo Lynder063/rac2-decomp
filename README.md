@@ -113,6 +113,12 @@ Ratchet & Clank decompilation, as its *Going Commando* project — next to
 aggregates the verified progress of each title from its repository; this repository remains
 the source of truth for its own numbers.
 
+The three games share engine code, so what one project measures often serves the others.
+Reuse travels with credit: the C bodies this repository took from RAC1's reconstruction tree
+name their origin per function in [docs/SECOND-C-LOT.md](docs/SECOND-C-LOT.md), and engine
+intelligence contributed here is credited the same way in
+[docs/COMMUNITY-ENGINE-REFERENCE.md](docs/COMMUNITY-ENGINE-REFERENCE.md).
+
 ## Contributing
 
 Contributions are welcome. The rules are in [CONTRIBUTING.md](CONTRIBUTING.md); the full
