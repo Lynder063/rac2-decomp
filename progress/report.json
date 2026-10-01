@@ -1,5 +1,5 @@
 {
- "verified_at": "2026-10-01T17:40:00+00:00",
+ "verified_at": "2026-10-01T19:10:00+00:00",
  "target": "SCUS_972.68",
  "packages": {
   "splat64": "0.50.0",
@@ -279,7 +279,7 @@
   "sha256": "9db2e33e276133cc283647fa3279b37911955e123d6199d10065547eaa9b1ce5"
  },
  "gp": 1765360,
- "status": "Seventeen C functions integrated (716 bytes, ten of them ported from the RAC1 decompilation where the bytes are identical in both games); full boot PT_LOAD comparison verified; native gameplay not verified",
+ "status": "Seventeen C functions (716 bytes) integrated in the boot and gated over all 2,521,763 loaded bytes; the same reviewed C is placed in all 27 level overlays (266 reviewed placements, 17,324 bytes), each overlay gated over its own loaded bytes; matched total 18,040 bytes; native gameplay not verified",
  "matched_candidate_functions": 7,
  "matched_candidate_bytes": 72,
  "integrated_functions": 17,

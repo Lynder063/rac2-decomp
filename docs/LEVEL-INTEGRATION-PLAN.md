@@ -11,11 +11,21 @@ exception). Their addresses differ per level, and the mapping is measured, not
 assumed: byte search of each function's exact body, disambiguated for bodies
 that are byte-identical to each other.
 
-    couples (function, level) : 351 / 459        D:\RAC2\work\catalogues-niveaux.json
+    couples (function, level) : 351 / 459        (raw byte search - overcounts, see below)
+
+**Corrected after the reviewed placement rule (2026-10-01, same day).** The raw
+byte search overcounts: three 8-byte bodies (`FUN_0026F710`, `FUN_00120BC8`,
+`FUN_0026F718`) occur 97-374 times per level and are byte-twins of each other, so
+they are never attributable and are excluded (81 couples); `FUN_00312E10` is a
+complete body at two or three addresses in four levels and is excluded there.
+The reviewed catalogue keeps **266 placements, 17,324 C bytes in the levels**
+(10 per level, 9 in four of them), with 85 motivated exclusions.
 
 If the levels count the same way the boot does - one program at a time, which is
-how the 48,788,176-byte total is built - the present 716 bytes become about
-**18,750 bytes counted** (about 0.038 %), without writing a line of new C.
+how the 48,788,176-byte total is built - the present 716 bytes become
+**716 + 17,324 = 18,040 bytes counted** (about 0.037 %), without writing a line
+of new C. Every one of the 27 overlay gates passes: 76,965,088 loaded bytes
+compared across the 27 overlays, all identical to retail.
 
 ## What is missing
 

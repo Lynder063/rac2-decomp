@@ -41,7 +41,7 @@ The native runtime remains a separate development milestone.
 
 Verified on **2026-10-01**: the complete boot image (**2,521,763 loaded bytes,
 two PT_LOAD segments**) and **all 27 level overlays** rebuild identically in loaded
-memory. **129 tool tests pass**. **Seventeen C functions (716 bytes) are integrated
+memory. **129 tool tests pass**. **Seventeen C functions (716 bytes) are integrated in the boot, and the same reviewed C is integrated in all 27 level overlays (17,324 bytes of placements)**
 using genuine compiler-produced objects, with the complete boot matching both
 original loaded segments.** The general compiler profile and native runtime
 remain to be established.
@@ -156,7 +156,7 @@ The remaining SDK and game functions still require separate compiler qualificati
 ## decomp.dev reporting
 
 The CI uploads `SCUS_972.68_report` in objdiff report v2 format. It records
-**716 integrated C bytes out of 48,788,176 executable bytes (about 0.0015%)**,
+**18,040 integrated C bytes out of 48,788,176 executable bytes (about 0.037%)**,
 independently of assembly reconstruction. The measured scope includes the boot and all 27
 overlays, with executable and initialized-data section sizes, including VU code.
 Function counts are omitted until boundaries have been reviewed. Generated section
@@ -168,7 +168,7 @@ assets or proprietary SDK in GitHub Actions. It rejects absent or inconsistent
 integration evidence, changed source/catalogue hashes, object mismatches and
 double-counted ranges. C units are split out of the remaining assembly units,
 so the full code/data totals remain unchanged. The site currently displays
-0.01% for this initial positive progress; the precise report remains about 0.0015%.
+0.01% for this initial positive progress; the precise report is about 0.037% once the level proofs are passed to it.
 
 ## Next milestones
 

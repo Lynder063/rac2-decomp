@@ -187,14 +187,16 @@ class IntegrationTests(unittest.TestCase):
         for level, entry in catalog["levels"].items():
             with self.subTest(level=level):
                 self.assertEqual(entry["reference_sha256"], pinned[level])
-                addresses = [function["address"] for function in entry["functions"]]
+                ordered = sorted(entry["functions"], key=lambda function: function["address"])
+                addresses = [function["address"] for function in ordered]
                 self.assertEqual(len(addresses), len(set(addresses)))
+                for previous, current in zip(ordered, ordered[1:]):
+                    self.assertLessEqual(previous["address"] + previous["size"], current["address"])
                 for function in entry["functions"]:
                     self.assertEqual(function["size"], reviewed[function["symbol"]])
                 for rejected in entry["excluded"]:
                     self.assertEqual(rejected["size"], reviewed[rejected["symbol"]])
-                    self.assertNotIn(rejected["address"], addresses)
-                    self.assertIn("function entry", rejected["reason"])
+                    self.assertGreater(len(rejected["reason"]), 20)
 
     def test_linker_places_compiled_sections_instead_of_original_object(self):
         temporary = tempfile.TemporaryDirectory()

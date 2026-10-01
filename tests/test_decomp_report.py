@@ -25,6 +25,7 @@ class DecompReportTests(unittest.TestCase):
         self.catalog = json.loads((ROOT / "config" / "candidate-catalog.json").read_text())
         self.source = (ROOT / "candidates" / "boot.c").read_bytes()
         self.object_proof = json.loads((ROOT / "progress" / "candidates.json").read_text())
+        self.level_catalog = json.loads((ROOT / "config" / "level-catalog.json").read_text())
 
     def generate(self):
         return report_module.generate(self.scope, self.target, self.overlays, self.progress)
@@ -104,6 +105,30 @@ class DecompReportTests(unittest.TestCase):
         self.catalog["functions"][index].update(changes)
         integration["functions"][index].update(changes)
         integration["catalog_sha256"] = hashlib.sha256(self.catalog_bytes()).hexdigest()
+
+    def level_catalog_bytes(self):
+        return json.dumps(self.level_catalog).encode("utf-8")
+
+    def level_proof(self, level="0_aranos_tutorial"):
+        gate = next(item for item in self.progress["g3"] if item["level"] == level)
+        functions = [{"symbol": function["symbol"], "address": function["address"],
+                      "size": function["size"], "matched": True, "integrated": True, "program": level}
+                     for function in self.level_catalog["levels"][level]["functions"]]
+        return {"target": self.target["serial"], "program": level,
+                "reference_sha256": gate["reference_sha256"],
+                "source_sha256": hashlib.sha256(self.source).hexdigest(),
+                "catalog_sha256": hashlib.sha256(self.level_catalog_bytes()).hexdigest(),
+                "candidate_source": "candidates/boot.c", "state": "integrated", "functions": functions,
+                "full_level_gate": {"matched": True, "bytes_compared": gate["bytes_compared"], "segments": 1},
+                "matched_code_bytes": sum(function["size"] for function in functions),
+                "tools": copy.deepcopy(self.object_proof["tools"])}
+
+    def generate_levels(self, levels):
+        with patch.object(Path, "read_bytes",
+                          side_effect=[self.source, self.catalog_bytes(),
+                                       self.level_catalog_bytes(), self.catalog_bytes()]):
+            return report_module.generate(self.scope, self.target, self.overlays, self.progress,
+                                          self.integration(), levels)
 
     def test_fuzzy_percent_weights_code_and_data_while_code_percent_uses_only_code(self):
         measures = report_module.measures(80, 120, 1, 40)
@@ -307,17 +332,209 @@ class DecompReportTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Overlapping progress"):
             self.generate()
 
-    def run_main(self, integration, proof=None):
+    def test_level_proof_adds_per_program_bytes_and_units(self):
+        integration = self.integration()
+        boot_only = self.generate_integrated(integration)
+        proof = self.level_proof()
+        report = self.generate_levels([proof])
+        measures = report["measures"]
+        level_bytes = proof["matched_code_bytes"]
+        self.assertEqual(level_bytes, 644)
+        self.assertEqual(measures["totalCode"], boot_only["measures"]["totalCode"])
+        self.assertEqual(measures["totalData"], boot_only["measures"]["totalData"])
+        self.assertEqual(measures["totalUnits"], int(boot_only["measures"]["totalUnits"]) + 10)
+        self.assertEqual(measures["matchedCode"], str(716 + level_bytes))
+        self.assertEqual(measures["completeCode"], str(716 + level_bytes))
+        self.assertEqual(measures["completeUnits"], 17 + len(proof["functions"]))
+        categories = {category["id"]: category["measures"] for category in report["categories"]}
+        self.assertEqual(categories["boot"]["matchedCode"], "716")
+        self.assertEqual(categories["levels"]["matchedCode"], str(level_bytes))
+        self.assertEqual(categories["levels"]["completeUnits"], len(proof["functions"]))
+        for field in ("totalCode", "totalData", "completeCode", "matchedCode", "totalUnits", "completeUnits"):
+            with self.subTest(field=field):
+                self.assertEqual(sum(int(unit["measures"][field]) for unit in report["units"]), int(measures[field]))
+                self.assertEqual(sum(int(category["measures"][field]) for category in report["categories"]),
+                                 int(measures[field]))
+        completed = [unit for unit in report["units"] if unit["metadata"]["complete"]]
+        self.assertEqual({unit["metadata"]["moduleName"] for unit in completed},
+                         {"boot", "levels/" + proof["program"]})
+        level_units = [unit for unit in completed if unit["metadata"]["moduleName"] == "levels/" + proof["program"]]
+        self.assertEqual(len(level_units), len(proof["functions"]))
+        self.assertEqual({unit["functions"][0]["name"] for unit in level_units},
+                         {function["symbol"] for function in proof["functions"]})
+        for unit in level_units:
+            self.assertEqual(unit["metadata"]["sourcePath"], "candidates/boot.c")
+            self.assertEqual(unit["metadata"]["progressCategories"], ["levels"])
+            self.assertEqual(unit["measures"]["matchedCodePercent"], 100)
+        untouched = [unit for unit in report["units"] if unit["metadata"]["moduleName"] == "levels/1_oozla"]
+        self.assertTrue(untouched)
+        self.assertTrue(all(unit["measures"]["matchedCode"] == "0" for unit in untouched))
+        exported = json.dumps(report)
+        for private_field in ("sha256", "full_level_gate", "tools", "state", "meaning", "xrefs"):
+            self.assertNotIn(private_field, exported)
+
+    def test_level_units_reduce_only_their_own_section(self):
+        integration = self.integration()
+        boot_only = self.generate_integrated(integration)
+        proof = self.level_proof()
+        report = self.generate_levels([proof])
+        before = {unit["name"]: unit for unit in boot_only["units"]}
+        after = {unit["name"]: unit for unit in report["units"]}
+        added = set(after) - set(before)
+        self.assertEqual(len(added), len(proof["functions"]))
+        self.assertTrue(all(after[name]["metadata"]["complete"] for name in added))
+        self.assertTrue(all(after[name]["metadata"]["moduleName"] == "levels/" + proof["program"] for name in added))
+        changed = {name for name in before if name not in after or before[name] != after[name]}
+        self.assertEqual(len(changed), 1)
+        parent = changed.pop()
+        self.assertTrue(parent.startswith("levels/" + proof["program"] + "/"))
+        self.assertEqual(int(after[parent]["sections"][0]["size"]),
+                         int(before[parent]["sections"][0]["size"]) - proof["matched_code_bytes"])
+        self.assertEqual({unit["name"] for unit in report["units"] if not unit["metadata"]["complete"]},
+                         {unit["name"] for unit in boot_only["units"] if not unit["metadata"]["complete"]})
+
+    def test_level_bytes_count_only_when_a_proof_is_provided(self):
+        integration = self.integration()
+        boot_only = self.generate_integrated(integration)
+        levels_category = next(category for category in boot_only["categories"] if category["id"] == "levels")
+        self.assertEqual(levels_category["measures"]["matchedCode"], "0")
+        self.assertEqual(levels_category["measures"]["completeUnits"], 0)
+        self.assertEqual(int(boot_only["measures"]["completeUnits"]), 17)
+        placeholders = [unit for unit in boot_only["units"]
+                        if unit["metadata"]["moduleName"] == "levels/0_aranos_tutorial"]
+        self.assertTrue(placeholders)
+        self.assertTrue(all(not unit["metadata"]["complete"] for unit in placeholders))
+
+    def test_level_proof_identity_and_source_are_required(self):
+        integration = self.integration()
+        original = self.level_proof()
+        for field, value in (("target", "SCUS_971.99"), ("program", "9_unknown"), ("program", 5),
+                             ("reference_sha256", "0" * 64), ("source_sha256", "0" * 64),
+                             ("source_sha256", "not-a-hash"), ("catalog_sha256", "0" * 64),
+                             ("candidate_source", "candidates/other.c"), ("state", "matched_unintegrated"),
+                             ("tools", {}), ("tools", {"cc": "bad"}), ("tools", {"ld.exe": "0" * 64})):
+            with self.subTest(field=field, value=value):
+                proof = copy.deepcopy(original)
+                proof[field] = value
+                with self.assertRaises(ValueError):
+                    self.generate_levels([proof])
+        for field in original:
+            with self.subTest(missing=field):
+                proof = copy.deepcopy(original)
+                del proof[field]
+                with self.assertRaises(ValueError):
+                    self.generate_levels([proof])
+        forged = copy.deepcopy(original)
+        forged["source_sha256"] = hashlib.sha256(self.source + b"\n").hexdigest()
+        with self.assertRaisesRegex(ValueError, "verified boot C source"):
+            self.generate_levels([forged])
+
+    def test_level_proof_function_and_gate_contradictions_are_rejected(self):
+        integration = self.integration()
+        original = self.level_proof()
+        for field, value in (("matched", False), ("matched", 1), ("integrated", False), ("integrated", 1),
+                             ("program", "boot"), ("address", original["functions"][0]["address"] + 4),
+                             ("size", 8), ("symbol", "FUN_99999999"), ("different_bytes", 1)):
+            with self.subTest(field=field, value=value):
+                proof = copy.deepcopy(original)
+                proof["functions"][0][field] = value
+                with self.assertRaises(ValueError):
+                    self.generate_levels([proof])
+        proof = copy.deepcopy(original)
+        proof["functions"][0].update(reference_sha256="1" * 64, candidate_sha256="2" * 64)
+        with self.assertRaisesRegex(ValueError, "hashes differ"):
+            self.generate_levels([proof])
+        for change in ("partial", "duplicate", "unknown"):
+            with self.subTest(change=change):
+                proof = copy.deepcopy(original)
+                if change == "partial":
+                    proof["functions"].pop()
+                elif change == "duplicate":
+                    proof["functions"].append(copy.deepcopy(proof["functions"][0]))
+                else:
+                    proof["functions"].append({**copy.deepcopy(proof["functions"][0]),
+                                               "symbol": "FUN_99999999",
+                                               "address": proof["functions"][-1]["address"] + 8})
+                proof["matched_code_bytes"] = sum(function["size"] for function in proof["functions"])
+                with self.assertRaises(ValueError):
+                    self.generate_levels([proof])
+        for field, value in (("matched", False), ("bytes_compared", 0), ("bytes_compared", "2751616"),
+                             ("segments", 0), ("segments", "1")):
+            with self.subTest(gate_field=field, value=value):
+                proof = copy.deepcopy(original)
+                proof["full_level_gate"][field] = value
+                with self.assertRaises(ValueError):
+                    self.generate_levels([proof])
+        proof = copy.deepcopy(original)
+        proof["full_level_gate"]["bytes_compared"] = 4096
+        with self.assertRaisesRegex(ValueError, "contradicts"):
+            self.generate_levels([proof])
+        proof = copy.deepcopy(original)
+        proof["matched_code_bytes"] = 1
+        with self.assertRaisesRegex(ValueError, "byte count mismatch"):
+            self.generate_levels([proof])
+        recorded = next(item for item in self.progress["g3"] if item["level"] == original["program"])
+        before = recorded["bytes_compared"]
+        recorded["bytes_compared"] = 1
+        with self.assertRaisesRegex(ValueError, "contradicts"):
+            self.generate_levels([original])
+        recorded["bytes_compared"] = before
+
+    def test_level_proof_placement_must_match_the_reviewed_catalog(self):
+        integration = self.integration()
+        inventory = copy.deepcopy(self.level_catalog)
+        self.level_catalog["target"] = "SCUS_971.99"
+        with self.assertRaisesRegex(ValueError, "catalog identity"):
+            self.generate_levels([self.level_proof()])
+        self.level_catalog = copy.deepcopy(inventory)
+        self.level_catalog["levels"]["0_aranos_tutorial"]["functions"][0]["size"] = 8
+        with self.assertRaisesRegex(ValueError, "reviewed complete C body"):
+            self.generate_levels([self.level_proof()])
+        self.level_catalog = copy.deepcopy(inventory)
+        self.level_catalog["levels"]["0_aranos_tutorial"]["reference_sha256"] = "0" * 64
+        with self.assertRaisesRegex(ValueError, "pinned overlay identity"):
+            self.generate_levels([self.level_proof()])
+        self.level_catalog = copy.deepcopy(inventory)
+        self.level_catalog["levels"].pop("1_oozla", None)
+        base = self.level_proof()
+        gate = next(item for item in self.progress["g3"] if item["level"] == "1_oozla")
+        orphan = {**copy.deepcopy(base), "program": "1_oozla", "reference_sha256": gate["reference_sha256"],
+                  "full_level_gate": {"matched": True, "bytes_compared": gate["bytes_compared"], "segments": 1},
+                  "functions": [{**function, "program": "1_oozla"} for function in base["functions"]]}
+        with self.assertRaisesRegex(ValueError, "No reviewed level placement"):
+            self.generate_levels([orphan])
+        self.level_catalog = copy.deepcopy(inventory)
+
+    def test_duplicate_and_orphan_level_proofs_are_rejected(self):
+        integration = self.integration()
+        proof = self.level_proof()
+        with self.assertRaisesRegex(ValueError, "Duplicate"):
+            self.generate_levels([proof, copy.deepcopy(proof)])
+        with self.assertRaises(ValueError):
+            report_module.generate(self.scope, self.target, self.overlays, self.progress, None, [proof])
+        with self.assertRaises(ValueError):
+            report_module.generate(self.scope, self.target, self.overlays, self.progress,
+                                   self.integration(), {"0_aranos_tutorial": proof})
+
+    def run_main(self, integration, proof=None, level_proofs=None):
+        level_proofs = level_proofs or []
         fixtures = {"config/progress-scope.json": self.scope, "config/target.json": self.target,
                     "config/overlays.json": self.overlays, "progress/report.json": self.progress,
                     "progress/integration.json": integration,
                     "progress/candidates.json": proof if proof is not None else self.object_proof}
+        argv = ["decomp_report.py", "--output", str(ROOT / "unwritten-report.json")]
+        for index, level_proof in enumerate(level_proofs):
+            fixtures[f"level-proof-{index}.json"] = level_proof
+            argv.extend(["--level-proof", str(ROOT / f"level-proof-{index}.json")])
+        reads = [self.source, self.catalog_bytes()]
+        if level_proofs:
+            reads.extend([self.level_catalog_bytes(), self.catalog_bytes()])
         def read_text(path, **kwargs):
             return json.dumps(fixtures[path.relative_to(ROOT).as_posix()])
-        with patch("sys.argv", ["decomp_report.py", "--output", str(ROOT / "unwritten-report.json")]), \
+        with patch("sys.argv", argv), \
                 patch.object(Path, "exists", return_value=integration is not None), \
                 patch.object(Path, "read_text", autospec=True, side_effect=read_text), \
-                patch.object(Path, "read_bytes", side_effect=[self.source, self.catalog_bytes()]), \
+                patch.object(Path, "read_bytes", side_effect=reads), \
                 patch.object(Path, "mkdir") as mkdir, patch.object(Path, "write_text") as write, \
                 patch("sys.stdout", new_callable=io.StringIO) as stdout:
             try:
@@ -342,6 +559,29 @@ class DecompReportTests(unittest.TestCase):
         self.assertEqual(status, 0)
         self.assertEqual(json.loads(write.call_args.args[0]), self.generate())
         self.assertEqual(json.loads(stdout)["matched_code"], "0")
+
+    def test_main_counts_only_the_level_proofs_it_is_given(self):
+        integration = self.integration()
+        self.object_proof["catalog_sha256"] = integration["catalog_sha256"]
+        proof = self.level_proof()
+        status, write, stdout = self.run_main(integration)
+        self.assertEqual(status, 0)
+        self.assertEqual(json.loads(write.call_args.args[0])["measures"]["matchedCode"], "716")
+        status, write, stdout = self.run_main(integration, level_proofs=[proof])
+        self.assertEqual(status, 0)
+        report = json.loads(write.call_args.args[0])
+        self.assertEqual(report["measures"]["matchedCode"], str(716 + proof["matched_code_bytes"]))
+        self.assertEqual(report["measures"]["completeUnits"], 17 + len(proof["functions"]))
+        self.assertEqual(json.loads(stdout)["matched_code"], str(716 + proof["matched_code_bytes"]))
+        self.assertEqual(json.loads(stdout)["units"], len(report["units"]))
+
+    def test_main_refuses_a_level_proof_that_does_not_match_the_shipped_catalog(self):
+        integration = self.integration()
+        self.object_proof["catalog_sha256"] = integration["catalog_sha256"]
+        proof = self.level_proof()
+        proof["catalog_sha256"] = "0" * 64
+        with self.assertRaisesRegex(ValueError, "catalog hash mismatch"):
+            self.run_main(integration, level_proofs=[proof])
 
     def test_generation_preserves_inputs_and_does_not_depend_on_function_order(self):
         integration = self.integration()

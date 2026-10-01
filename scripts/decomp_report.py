@@ -1,4 +1,12 @@
-"""Export RAC2 section totals and proven C integrations in objdiff report v2 format."""
+"""Export RAC2 section totals and proven C integrations in objdiff report v2 format.
+
+The boot proof in ``progress/integration.json`` stays the anchor: its source,
+catalogue and object hashes were recomputed from disk.  A caller may add one
+proof per level overlay (``--level-proof``); each one is validated on its own
+identity, reviewed placement and progress gate before its bytes are counted, and
+matched bytes and units are summed per program.  Without level proofs the export
+is exactly what it has always been.
+"""
 
 from __future__ import annotations
 
@@ -157,8 +165,133 @@ def validate_object_proof(integration: dict, proof: dict) -> None:
                 raise ValueError("Integration and candidate object function hashes disagree")
 
 
+def level_placements(document: dict, program: str, target: dict, overlays: dict,
+                     boot_catalog: dict) -> dict[str, dict]:
+    """The reviewed placement of the boot's own C bodies at one level's addresses.
+
+    A level placement may only reuse a reviewed boot body with its complete
+    reviewed size, and two bodies may never claim one address.  Anything else is
+    not the reviewed placement and must not be counted.
+    """
+    pinned = {entry["level"]: entry["sha256"] for entry in overlays["levels"]}
+    if document.get("target") != target["serial"]:
+        raise ValueError("Level catalog identity mismatch")
+    levels = document.get("levels")
+    if not isinstance(levels, dict) or program not in levels or program not in pinned:
+        raise ValueError("No reviewed level placement catalog for this program")
+    entry = levels[program]
+    if not isinstance(entry, dict) or entry.get("reference_sha256") != pinned[program]:
+        raise ValueError("Level catalog is not the pinned overlay identity")
+    reviewed = {function["symbol"]: function["size"] for function in boot_catalog["functions"]}
+    functions = entry.get("functions")
+    if not isinstance(functions, list) or not functions:
+        raise ValueError("Level placement requires at least one reviewed body")
+    placements = {}
+    addresses = set()
+    for function in functions:
+        if not isinstance(function, dict):
+            raise ValueError("Invalid level placement")
+        symbol, address, size = function.get("symbol"), function.get("address"), function.get("size")
+        if symbol not in reviewed or reviewed[symbol] != size:
+            raise ValueError("Level placement must reuse a reviewed complete C body")
+        if type(address) is not int or type(size) is not int or size <= 0 or size % 4 or address % 4:
+            raise ValueError("Invalid level placement boundary")
+        if symbol in placements or address in addresses:
+            raise ValueError("Duplicate level placement symbol or address")
+        placements[symbol] = {"symbol": symbol, "address": address, "size": size}
+        addresses.add(address)
+    return placements
+
+
+def validate_level_proof(proof: dict, target: dict, overlays: dict, progress: dict,
+                         integration: dict, catalog_bytes: bytes, boot_catalog: dict) -> list[dict]:
+    """One level overlay's C integration proof, held to the same rules as the boot.
+
+    The boot proof is the source of truth for the reviewed C: its source hash was
+    recomputed from disk, so a level proof may only cite that exact reviewed
+    source and those instruments.  The level catalogue is re-read and hashed
+    here, its placement is the only admissible set of functions, and the level's
+    own recorded progress gate must agree with the proof.
+    """
+    if not isinstance(proof, dict):
+        raise ValueError("Invalid level integration proof")
+    program = proof.get("program")
+    pinned = {entry["level"]: entry["sha256"] for entry in overlays["levels"]}
+    if (proof.get("target") != target["serial"] or progress.get("target") != target["serial"]
+            or not isinstance(program, str) or program not in pinned
+            or proof.get("reference_sha256") != pinned[program]
+            or proof.get("state") != "integrated"
+            or proof.get("candidate_source") != "candidates/boot.c"):
+        raise ValueError("Level integration identity, source or state mismatch")
+    for field in ("reference_sha256", "source_sha256", "catalog_sha256"):
+        require_hash(proof.get(field))
+    if proof["source_sha256"] != integration["source_sha256"]:
+        raise ValueError("Level integration does not reuse the verified boot C source")
+    if hashlib.sha256(catalog_bytes).hexdigest() != proof["catalog_sha256"]:
+        raise ValueError("Level integration catalog hash mismatch")
+    require_tools(proof.get("tools"))
+    if any(integration["tools"].get(name) != digest for name, digest in proof["tools"].items()):
+        raise ValueError("Level integration instrument mismatch")
+    placements = level_placements(json.loads(catalog_bytes), program, target, overlays, boot_catalog)
+    functions = proof.get("functions")
+    if not isinstance(functions, list) or not functions:
+        raise ValueError("Level integration requires complete C functions")
+    seen = set()
+    for function in functions:
+        if not isinstance(function, dict):
+            raise ValueError("Invalid level integrated function")
+        symbol = function.get("symbol")
+        address, size = function.get("address"), function.get("size")
+        placement = placements.get(symbol) if isinstance(symbol, str) else None
+        if not isinstance(symbol, str) or symbol in seen:
+            raise ValueError("Unknown or duplicate level integrated function")
+        seen.add(symbol)
+        if (function.get("matched") is not True or function.get("integrated") is not True
+                or function.get("program") != program
+                or type(address) is not int or address < 0 or address % 4
+                or type(size) is not int or size <= 0 or size % 4
+                or placement is None or address != placement["address"] or size != placement["size"]):
+            raise ValueError("Level integration requires the complete catalogued level function")
+        if "different_bytes" in function and function["different_bytes"] != 0:
+            raise ValueError("Level integrated function has mismatched bytes")
+        if "reference_sha256" in function or "candidate_sha256" in function:
+            require_hash(function.get("reference_sha256"))
+            require_hash(function.get("candidate_sha256"))
+            if function["reference_sha256"] != function["candidate_sha256"]:
+                raise ValueError("Level integrated function byte hashes differ")
+    if seen != set(placements):
+        raise ValueError("Level integration does not cover the reviewed placement")
+    functions = sorted(functions, key=lambda function: function["address"])
+    for previous, current in zip(functions, functions[1:]):
+        if previous["address"] + previous["size"] > current["address"]:
+            raise ValueError("Overlapping level integrated functions")
+    gate = proof.get("full_level_gate")
+    if (not isinstance(gate, dict) or gate.get("matched") is not True
+            or type(gate.get("bytes_compared")) is not int or gate["bytes_compared"] <= 0
+            or type(gate.get("segments")) is not int or gate["segments"] <= 0):
+        raise ValueError("Level integration requires the complete level gate")
+    gates = progress.get("g3")
+    recorded = ([item for item in gates if isinstance(item, dict) and item.get("level") == program]
+                if isinstance(gates, list) else [])
+    if (len(recorded) != 1 or recorded[0].get("matched") is not True
+            or recorded[0].get("reference_sha256") != pinned[program]
+            or recorded[0].get("bytes_compared") != gate["bytes_compared"]):
+        raise ValueError("Progress level gate contradicts integration")
+    if (("integrated_c_functions" in recorded[0] and recorded[0]["integrated_c_functions"] != len(functions))
+            or ("integrated_c_bytes" in recorded[0]
+                and recorded[0]["integrated_c_bytes"] != sum(function["size"] for function in functions))):
+        raise ValueError("Progress level byte count contradicts integration")
+    for field in ("object_sha256", "c_object_sha256", "candidate_elf_sha256", "checker_sha256"):
+        if field in proof:
+            require_hash(proof[field])
+    if (type(proof.get("matched_code_bytes")) is not int
+            or proof["matched_code_bytes"] != sum(function["size"] for function in functions)):
+        raise ValueError("Level integration byte count mismatch")
+    return functions
+
+
 def generate(scope: dict, target: dict, overlays: dict, progress: dict,
-             integration: dict | None = None) -> dict:
+             integration: dict | None = None, levels: list[dict] | None = None) -> dict:
     if scope["target"] != target["serial"] or overlays["target"] != target["serial"]:
         raise ValueError("Progress scope belongs to another target")
     for field in ("decompiled_functions", "integrated_functions"):
@@ -174,8 +307,28 @@ def generate(scope: dict, target: dict, overlays: dict, progress: dict,
     if len(programs) != 28 or len(actual) != len(programs) or actual != expected:
         raise ValueError("Progress scope must cover the pinned boot and all 27 overlays")
     functions = [] if integration is None else validate_integration(integration, target, progress)
+    level_proofs = [] if levels is None else levels
+    if not isinstance(level_proofs, list):
+        raise ValueError("Invalid level integration proofs")
+    if level_proofs and integration is None:
+        raise ValueError("Level C progress requires the boot integration proof")
+    if level_proofs:
+        catalog_bytes = (ROOT / "config" / "level-catalog.json").read_bytes()
+        boot_catalog = json.loads((ROOT / "config" / "candidate-catalog.json").read_bytes())
+        seen_programs = set()
+        for proof in level_proofs:
+            program = proof.get("program") if isinstance(proof, dict) else None
+            if not isinstance(program, str) or program in seen_programs:
+                raise ValueError("Duplicate or invalid level integration proof")
+            seen_programs.add(program)
+            functions.extend(validate_level_proof(proof, target, overlays, progress, integration,
+                                                  catalog_bytes, boot_catalog))
     owners = {}
+    promoted_by_section = {}
     for program in programs:
+        name = program["name"]
+        key = name.removeprefix("levels/")
+        program_functions = [function for function in functions if function["program"] == key]
         occupied = []
         for section in program["sections"]:
             size, address = section["size"], section["address"]
@@ -186,12 +339,16 @@ def generate(scope: dict, target: dict, overlays: dict, progress: dict,
             if any(address < ending and starting < address + size for starting, ending in occupied):
                 raise ValueError("Overlapping progress sections")
             occupied.append((address, address + size))
-            if program["name"] == "boot" and section["flags"] & 4:
-                for function in functions:
+            if section["flags"] & 4 and program_functions:
+                for function in program_functions:
                     if address <= function["address"] and function["address"] + function["size"] <= address + size:
-                        owners[function["symbol"]] = section
+                        owners[(name, function["symbol"])] = section
+                        promoted_by_section.setdefault(id(section), []).append(function)
     if len(owners) != len(functions):
-        raise ValueError("Integrated function is outside an executable boot section")
+        missing = next(function for function in functions
+                       if (function["program"] if function["program"] == "boot"
+                           else "levels/" + function["program"], function["symbol"]) not in owners)
+        raise ValueError(f"Integrated function is outside an executable {missing['program']} section")
     units = []
     total_code = 0
     total_data = 0
@@ -209,10 +366,10 @@ def generate(scope: dict, target: dict, overlays: dict, progress: dict,
             total_code += code_size
             total_data += data_size
             category = "boot" if program["name"] == "boot" else "levels"
-            promoted = [function for function in functions if owners[function["symbol"]] is section]
+            promoted = promoted_by_section.get(id(section), [])
             remaining = size - sum(function["size"] for function in promoted)
             for function in promoted:
-                units.append({"name": f"boot/candidates/boot.c/{function['symbol']}",
+                units.append({"name": f"{program['name']}/candidates/boot.c/{function['symbol']}",
                               "measures": measures(function["size"], 0, 1, function["size"], 1),
                               "sections": [{"name": section["name"], "size": str(function["size"]),
                                             "fuzzyMatchPercent": 100,
@@ -221,8 +378,8 @@ def generate(scope: dict, target: dict, overlays: dict, progress: dict,
                                              "fuzzyMatchPercent": 100,
                                              "metadata": {"virtualAddress": str(function["address"])}}],
                               "metadata": {"complete": True, "autoGenerated": False,
-                                           "sourcePath": "candidates/boot.c", "moduleName": "boot",
-                                           "progressCategories": ["boot"]}})
+                                           "sourcePath": "candidates/boot.c", "moduleName": program["name"],
+                                           "progressCategories": [category]}})
             if not remaining:
                 continue
             code_size = remaining if is_code else 0
@@ -252,12 +409,17 @@ def generate(scope: dict, target: dict, overlays: dict, progress: dict,
 def main() -> int:
     parser = argparse.ArgumentParser(description="Export RAC2 C/C++ progress with integration evidence")
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--level-proof", type=Path, action="append", default=[], metavar="PATH",
+                        help="reviewed C integration proof for one level overlay (repeatable)")
     args = parser.parse_args()
     def read(relative: str) -> dict:
         return json.loads((ROOT / relative).read_text(encoding="utf-8"))
     integration = read("progress/integration.json") if (ROOT / "progress/integration.json").exists() else None
+    levels = [json.loads(path.read_text(encoding="utf-8")) for path in args.level_proof]
+    if levels and integration is None:
+        raise ValueError("Level integration proofs require the boot integration proof")
     report = generate(read("config/progress-scope.json"), read("config/target.json"),
-                      read("config/overlays.json"), read("progress/report.json"), integration)
+                      read("config/overlays.json"), read("progress/report.json"), integration, levels)
     if integration is not None:
         validate_object_proof(integration, read("progress/candidates.json"))
     args.output.parent.mkdir(parents=True, exist_ok=True)
