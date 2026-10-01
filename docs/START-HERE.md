@@ -168,3 +168,8 @@ The rules are deliberate; each one exists because a wrong result once got throug
 
 Open an issue — there is a template for a tool problem and one for "I want to help". Paste the
 output of `scripts/doctor.py`; it says in one block what you have and what is missing.
+
+The wider community — the other Ratchet & Clank titles, their repositories and their current
+progress — is gathered at **[openrac.dev](https://openrac.dev/)**. If your question is about a
+sister project's tooling, or about an engine pattern those projects already solved, that is
+where its maintainers are.

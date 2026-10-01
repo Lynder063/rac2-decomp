@@ -7,6 +7,7 @@
   <a href="progress/report.json"><img src="https://img.shields.io/badge/Progress-Measured-e89b35?style=flat-square&amp;labelColor=0d1117" alt="Measured progress"></a>
   <a href="#prepare-locally"><img src="https://img.shields.io/badge/Build-Guide-c3cbd8?style=flat-square&amp;logo=gnubash&amp;logoColor=c3cbd8&amp;labelColor=0d1117" alt="Build guide"></a>
   <a href="#supported-version"><img src="https://img.shields.io/badge/PS2-USA_v1.01-c3cbd8?style=flat-square&amp;labelColor=0d1117" alt="PlayStation 2 USA version 1.01"></a>
+  <a href="https://openrac.dev/"><img src="https://img.shields.io/badge/OpenRAC-tracked-e89b35?style=flat-square&amp;labelColor=0d1117" alt="Tracked on OpenRAC"></a>
 </p>
 
 <p align="center">
@@ -102,6 +103,15 @@ only the reviewed assembly bodies, retains padding and remaining assembly
 fragments, and preserves original call names as linker aliases to C symbols.
 Both PT_LOAD segments and each C STT_FUNC body must still match before a proof
 is emitted. No bytes are patched or trimmed after the link.
+
+## Community
+
+This project is tracked on **[openrac.dev](https://openrac.dev/)**, the community hub for
+Ratchet & Clank decompilation, as its *Going Commando* project — next to
+[RAC1](https://github.com/Lynder063/rac1-decomp) (Ratchet & Clank, 2002) and
+[UYA](https://github.com/vetusmagnus/ratchet-uya-decomp) (Up Your Arsenal, 2004). The hub
+aggregates the verified progress of each title from its repository; this repository remains
+the source of truth for its own numbers.
 
 ## Contributing
 
