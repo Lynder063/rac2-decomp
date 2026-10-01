@@ -2,23 +2,9 @@
   "target": "SCUS_972.68",
   "reference_sha256": "36d5814d8d95328d5839612ccdf7a2e7ecac0b6f868d3ad4bb2e98411f734b4a",
   "source_sha256": "34afef53dd5ad08274127e4be35985055893901278b0d7a93f1c3deb551ee512",
-  "object_sha256": "7a7b357e13eef30627cd87cb4c041666d06e5605260b0272a9f018b95c4a8e37",
-  "candidate_elf_sha256": "cf49f14228007259c8db9c62b0f59bffcfb73b264a4de7a22f03c91c4a74471e",
   "catalog_sha256": "87e33afced4d797fa0ad11f362ed3dfe2ab14efb98b9ae8d766041fba634b5db",
-  "checker_sha256": "47b5d178410a9e535c199f8de0264bae2bb4f5dd8dcc0f560ab9928242f91ba6",
-  "verified_at": "2026-10-01T16:09:45.763096+00:00",
-  "tools": {
-    "ee-gcc2953.exe": "522d28f9d74ddfce89568437156c8ee323c806de525d99907f698050dee8d81e",
-    "ee-as.exe": "5ae3c981bb4e105bd1edfc48c11f15a932dbbf4680be46edc46c55a869885f9e",
-    "ld.exe": "80f3724a63ce3c77c8b00d075f5c49448636518700ae251e5d6a6c809bbf5f48",
-    "cc1.exe": "0393bcd31f91a6b9f0255db97f1cc99eba78ee8fc003e9a04dfabed1ae1d522e",
-    "cpp.exe": "b9c50aa66f9cf5dbd80b2affe9874ec7674b7328965c629476f6ad7c77943154"
-  },
-  "flags": [
-    "-O2",
-    "-G0",
-    "-ffunction-sections"
-  ],
+  "candidate_source": "candidates/boot.c",
+  "state": "integrated",
   "functions": [
     {
       "symbol": "FUN_00115200",
@@ -28,7 +14,9 @@
       "reference_sha256": "1c59bf014fe9cfbc9b650d1471df21e50c6768b9219991ebb46bf6b606cff862",
       "candidate_sha256": "1c59bf014fe9cfbc9b650d1471df21e50c6768b9219991ebb46bf6b606cff862",
       "different_bytes": 0,
-      "state": "matched_unintegrated"
+      "state": "integrated",
+      "integrated": true,
+      "program": "boot"
     },
     {
       "symbol": "FUN_00115210",
@@ -38,7 +26,9 @@
       "reference_sha256": "6e79c27dec8072910e51df7c73d8b8ac5b0a4024d6f714e270c337341c36e48e",
       "candidate_sha256": "6e79c27dec8072910e51df7c73d8b8ac5b0a4024d6f714e270c337341c36e48e",
       "different_bytes": 0,
-      "state": "matched_unintegrated"
+      "state": "integrated",
+      "integrated": true,
+      "program": "boot"
     },
     {
       "symbol": "FUN_00120BC8",
@@ -48,7 +38,9 @@
       "reference_sha256": "6d64edf91449c1b17746c1ef18afa2eb25c70bdf1322ab3df5a2630993b7e2f1",
       "candidate_sha256": "6d64edf91449c1b17746c1ef18afa2eb25c70bdf1322ab3df5a2630993b7e2f1",
       "different_bytes": 0,
-      "state": "matched_unintegrated"
+      "state": "integrated",
+      "integrated": true,
+      "program": "boot"
     },
     {
       "symbol": "FUN_00125960",
@@ -58,7 +50,9 @@
       "reference_sha256": "57375826b9389a741564171712f6940ff164a280dbf0ff9640cc30b16c5c9f7f",
       "candidate_sha256": "57375826b9389a741564171712f6940ff164a280dbf0ff9640cc30b16c5c9f7f",
       "different_bytes": 0,
-      "state": "matched_unintegrated"
+      "state": "integrated",
+      "integrated": true,
+      "program": "boot"
     },
     {
       "symbol": "FUN_0012F9A8",
@@ -68,7 +62,9 @@
       "reference_sha256": "f6dbf1b62e175f92f699849ff96e6f6fdebb979b319bb071a5933519e8a1260c",
       "candidate_sha256": "f6dbf1b62e175f92f699849ff96e6f6fdebb979b319bb071a5933519e8a1260c",
       "different_bytes": 0,
-      "state": "matched_unintegrated"
+      "state": "integrated",
+      "integrated": true,
+      "program": "boot"
     },
     {
       "symbol": "FUN_0026F710",
@@ -78,7 +74,9 @@
       "reference_sha256": "008d26890102af179c703d77fae42cb7b3f424a11b8db552383dd8e5313f4061",
       "candidate_sha256": "008d26890102af179c703d77fae42cb7b3f424a11b8db552383dd8e5313f4061",
       "different_bytes": 0,
-      "state": "matched_unintegrated"
+      "state": "integrated",
+      "integrated": true,
+      "program": "boot"
     },
     {
       "symbol": "FUN_0026F718",
@@ -88,9 +86,37 @@
       "reference_sha256": "6d64edf91449c1b17746c1ef18afa2eb25c70bdf1322ab3df5a2630993b7e2f1",
       "candidate_sha256": "6d64edf91449c1b17746c1ef18afa2eb25c70bdf1322ab3df5a2630993b7e2f1",
       "different_bytes": 0,
-      "state": "matched_unintegrated"
+      "state": "integrated",
+      "integrated": true,
+      "program": "boot"
     }
   ],
-  "integrated_functions": 0,
-  "profile_scope": "Independent qualification of the exact object subsequently used in the full boot"
+  "full_boot_gate": {
+    "matched": true,
+    "bytes_compared": 2521763,
+    "segments": 2
+  },
+  "matched_code_bytes": 72,
+  "tools": {
+    "ee-gcc2953.exe": "522d28f9d74ddfce89568437156c8ee323c806de525d99907f698050dee8d81e",
+    "ee-as.exe": "5ae3c981bb4e105bd1edfc48c11f15a932dbbf4680be46edc46c55a869885f9e",
+    "ld.exe": "80f3724a63ce3c77c8b00d075f5c49448636518700ae251e5d6a6c809bbf5f48",
+    "cc1.exe": "0393bcd31f91a6b9f0255db97f1cc99eba78ee8fc003e9a04dfabed1ae1d522e",
+    "cpp.exe": "b9c50aa66f9cf5dbd80b2affe9874ec7674b7328965c629476f6ad7c77943154"
+  },
+  "candidate_elf_sha256": "a3ad31d09a8a0c63aae67aea416d50d8beda7a3a566c178c25d390b7bb96fe8b",
+  "c_object_sha256": "7a7b357e13eef30627cd87cb4c041666d06e5605260b0272a9f018b95c4a8e37",
+  "replacement_inputs": {
+    "16180.s": [
+      "FUN_00115200",
+      "FUN_00115210",
+      "FUN_00120BC8",
+      "FUN_00125960",
+      "FUN_0012F9A8"
+    ],
+    "16F980.s": [
+      "FUN_0026F710",
+      "FUN_0026F718"
+    ]
+  }
 }

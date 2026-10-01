@@ -29,6 +29,8 @@ source fingerprint and each pair of complete body fingerprints are stored in
 with exit code 1 because its complete function length differs. Synthetic tests
 also reject stale, zero-sized, absolute, non-function and prefix-only cases.
 
-State: **matched_unintegrated**. Full boot reconstruction still uses the measured
-assembly baseline. No native gameplay is verified, and no C progress is promoted
-to decomp.dev before a separate integration and complete boot gate.
+Initial state was **matched_unintegrated**. The subsequent explicitly authorized
+integration now links the seven genuine C sections into the complete boot.
+Both loaded segments and all seven post-link bodies match. See
+`INTEGRATION-FIRST-LOT.md` and `progress/integration.json`. No native gameplay
+is verified; only those 72 C bytes are promoted to decomp.dev.

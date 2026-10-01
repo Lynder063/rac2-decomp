@@ -16,7 +16,9 @@
     "reason": "All PT_LOAD bytes and metadata match",
     "name": "boot",
     "reference_sha256": "36d5814d8d95328d5839612ccdf7a2e7ecac0b6f868d3ad4bb2e98411f734b4a",
-    "candidate_sha256": "54afc9cddd96a58645a93dc3b901ca85374634135e76c22142e494c42afb2926"
+    "candidate_sha256": "a3ad31d09a8a0c63aae67aea416d50d8beda7a3a566c178c25d390b7bb96fe8b",
+    "integrated_c_functions": 7,
+    "integrated_c_bytes": 72
   },
   "g3": [
     {
@@ -263,7 +265,7 @@
       "level": "9_dobbo"
     }
   ],
-  "decompiled_functions": 0,
+  "decompiled_functions": 7,
   "compiler_flags": null,
   "environment_recheck": {
     "boot_report": "fresh RAC2 venv, matching two PT_LOADs",
@@ -277,9 +279,11 @@
     "sha256": "9db2e33e276133cc283647fa3279b37911955e123d6199d10065547eaa9b1ce5"
   },
   "gp": 1765360,
-  "status": "Assembly reconstruction baseline verified; seven exact C candidates await integration; native runtime not started",
+  "status": "Seven C functions integrated; full boot PT_LOAD comparison verified; native gameplay not verified",
   "matched_candidate_functions": 7,
   "matched_candidate_bytes": 72,
-  "integrated_functions": 0,
-  "native_gameplay_verified": false
+  "integrated_functions": 7,
+  "native_gameplay_verified": false,
+  "integrated_code_bytes": 72,
+  "c_integration_reference": "progress/integration.json"
 }

@@ -86,6 +86,18 @@ def run(arguments: list[str], log: Path) -> None:
         raise ValueError(f"Tool failed ({result.returncode}); see {log}")
 
 
+def linker_script(catalog: dict) -> str:
+    functions = sorted(catalog["functions"], key=lambda function: function["address"])
+    sections = "".join(f"    .text.{function['symbol']} 0x{function['address']:08X} : "
+                       f"{{ *(.text.{function['symbol']}) }}\n" for function in functions)
+    definitions = "".join(f"{name} = 0x{address:08X};\n" for name, address in catalog["externals"].items())
+    return (f"ENTRY({functions[0]['symbol']})\nSECTIONS\n{{\n" + sections +
+            "    .data : { *(.data) *(.rodata) *(.rdata) *(.lit4) *(.lit8) *(.sdata) }\n"
+            "    .bss : { *(.bss) *(.sbss) *(COMMON) }\n"
+            "    /DISCARD/ : { *(.reginfo) }\n}\n" + definitions +
+            f"_gp = 0x{catalog['gp']:08X};\n")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Verify the reviewed initial RAC2 C candidate lot")
     parser.add_argument("--reference", required=True, type=Path)
@@ -124,14 +136,7 @@ def main() -> int:
     assert_fresh(object_path, [source])
     functions = sorted(catalog["functions"], key=lambda function: function["address"])
     script = work / "candidate.ld"
-    sections = "".join(f"    .text.{function['symbol']} 0x{function['address']:08X} : "
-                       f"{{ *(.text.{function['symbol']}) }}\n" for function in functions)
-    definitions = "".join(f"{name} = 0x{address:08X};\n" for name, address in catalog["externals"].items())
-    script.write_text(f"ENTRY({functions[0]['symbol']})\nSECTIONS\n{{\n" + sections +
-                      "    .data : { *(.data) *(.rodata) *(.rdata) *(.lit4) *(.lit8) *(.sdata) }\n"
-                      "    .bss : { *(.bss) *(.sbss) *(COMMON) }\n"
-                      "    /DISCARD/ : { *(.reginfo) }\n}\n" + definitions +
-                      f"_gp = 0x{catalog['gp']:08X};\n", encoding="ascii")
+    script.write_text(linker_script(catalog), encoding="ascii")
     candidate = work / "candidate.elf"
     run([str(linker), "-T", str(script), "-o", str(candidate), str(object_path)], work / "link.log")
     assert_fresh(candidate, [source, object_path, script])

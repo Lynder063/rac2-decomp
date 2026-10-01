@@ -9,9 +9,10 @@ does not count as C/C++ decompilation. See `progress/report.json` for measured s
 
 Verified on **2026-10-01**: the complete boot image (**2,521,763 loaded bytes,
 two PT_LOAD segments**) and **all 27 level overlays** rebuild identically in loaded
-memory. **99 tool tests pass**. **Seven initial C candidates (72 bytes) match
-completely after compilation and link, and await integration.** Integrated C/C++
-functions: **0**. The general compiler profile and native runtime remain to be established.
+memory. **129 tool tests pass**. **Seven C functions (72 bytes) are integrated
+using genuine compiler-produced objects, with the complete boot matching both
+original loaded segments.** The general compiler profile and native runtime
+remain to be established.
 
 ## Requirements
 
@@ -51,6 +52,20 @@ manifest explicitly to reconstruct and compare the boot and all 27 overlays:
 .venv\Scripts\python.exe scripts/build.py --manifest <manifest.json> --toolchain <EE-gcc-directory> --all-levels
 .venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
+
+To build the boot with the reviewed C functions, supply the independently
+qualified compiler toolchain in addition to the assembly toolchain:
+
+```powershell
+.venv\Scripts\python.exe scripts/build.py --manifest <manifest.json> --toolchain <SN-ProDG-2.0-EE-gcc-directory> --c-toolchain <SN-ProDG-3.01-EE-gcc-directory>
+```
+
+The integration snapshots the reviewed C, qualifies the exact new object in a
+standalone link, then links that same object into the complete boot. It removes
+only the seven reviewed assembly bodies, retains padding and remaining assembly
+fragments, and preserves original call names as linker aliases to C symbols.
+Both PT_LOAD segments and each C STT_FUNC body must still match before a proof
+is emitted. No bytes are patched or trimmed after the link.
 
 ## Lessons carried forward from RAC1
 
@@ -100,24 +115,28 @@ zero-size symbols, unlinked objects and identical prefixes with extra code are
 refused. A deliberately wrong pointer-return candidate was compiled and rejected.
 `progress/candidates.json` records reproducible source, tool and byte hashes.
 
-These candidates are **not integrated** into the whole-game reconstruction.
-The reconstruction and decomp.dev reports therefore retain zero integrated
-C/C++ progress. The next milestone is a separately validated integration gate
-that replaces only these reviewed assembly bodies and rechecks the full boot.
+These seven functions are now **integrated** into the whole-boot reconstruction.
+`progress/integration.json` records the complete boot gate, exact C object hash,
+post-link function hashes and removed assembly inputs. `progress/candidates.json`
+is the independent qualification of that same object before the complete link.
+The remaining SDK and game functions still require separate compiler qualification.
 
 ## decomp.dev reporting
 
 The CI uploads `SCUS_972.68_report` in objdiff report v2 format. It records
-**0% C/C++ decompilation**, independently of the successful assembly reconstruction
-gates in `progress/report.json`. The measured scope includes the boot and all 27
+**72 integrated C bytes out of 48,788,176 executable bytes (about 0.000148%)**,
+independently of assembly reconstruction. The measured scope includes the boot and all 27
 overlays, with executable and initialized-data section sizes, including VU code.
 Function counts are omitted until boundaries have been reviewed. Generated section
 units are placeholders for that future catalogue, not completed translation units.
 
 `python scripts/decomp_report.py --output build/decomp/report.json` regenerates
-the baseline using metadata only; it requires no game assets or proprietary SDK
-in GitHub Actions. Once C/C++ matches exist, it refuses to export the old zero
-baseline and must be replaced with verified objdiff object-level measurements.
+the report using measured metadata and integration proofs; it requires no game
+assets or proprietary SDK in GitHub Actions. It rejects absent or inconsistent
+integration evidence, changed source/catalogue hashes, object mismatches and
+double-counted ranges. C units are split out of the remaining assembly units,
+so the full code/data totals remain unchanged. The site's two-decimal display
+still rounds this initial progress to 0.00%.
 
 ## Next milestones
 
