@@ -13,6 +13,9 @@ from elf_tools import assert_fresh
 
 ROOT = Path(__file__).resolve().parents[1]
 INSTRUCTION = re.compile(r"/\*\s+[0-9A-Fa-f]+\s+([0-9A-Fa-f]{8})\s+[0-9A-Fa-f]{8}\s*\*/")
+# Branch targets inside a promoted body. They belong to the body and go away
+# with it; without accepting them, only label-free leaves could be integrated.
+INTERNAL_LABEL = re.compile(r"^\s*\.?L[0-9A-Fa-f]+:\s*$")
 HEADER = '.set noat\n.set noreorder\n.section .text, "ax"\n'
 
 
@@ -42,6 +45,9 @@ def split_assembly(content: str, functions: list[dict]) -> list[dict]:
         while end < len(lines):
             match = INSTRUCTION.search(lines[end])
             if not match:
+                if INTERNAL_LABEL.match(lines[end]):
+                    end += 1
+                    continue
                 raise ValueError("Unexpected directive or label within promoted body")
             instruction_address = int(match.group(1), 16)
             expected_address = address + 4 * len(observed)
@@ -65,6 +71,32 @@ def split_assembly(content: str, functions: list[dict]) -> list[dict]:
     remaining = "".join(lines[cursor:])
     if INSTRUCTION.search(remaining):
         pieces.append({"kind": "asm", "content": HEADER + remaining})
+    # Every piece becomes its own object, and `.L*` names are local to their
+    # object: a label defined in one piece and used in another links as an
+    # undefined symbol (measured 2026-10-01: `lw $a0,%lo(.L002C0020)($s0)` in
+    # one piece, the definition 54k lines later in another). Such names are
+    # promoted to file-global `XL_*` symbols instead. No instruction and no
+    # linked byte changes - only which object owns the name.
+    fragments = [piece["content"] for piece in pieces if piece["kind"] == "asm"]
+    positions = [index for index, piece in enumerate(pieces) if piece["kind"] == "asm"]
+    defined: dict[str, int] = {}
+    for index, fragment in enumerate(fragments):
+        for match in re.finditer(r"(?m)^\s*\.?L([0-9A-Fa-f]+):", fragment):
+            defined.setdefault(match.group(1), index)
+    crossing: set[str] = set()
+    for index, fragment in enumerate(fragments):
+        for match in re.finditer(r"\.?L([0-9A-Fa-f]+)\b", fragment):
+            if defined.get(match.group(1), index) != index:
+                crossing.add(match.group(1))
+    for name in sorted(crossing):
+        for index, fragment in enumerate(fragments):
+            renomme = re.sub(r"\.?L" + re.escape(name) + r"\b", "XL_" + name, fragment)
+            if defined.get(name) == index:
+                renomme = re.sub(r"(?m)^(\s*)XL_" + re.escape(name) + r":",
+                                 r"\1.globl XL_" + name + "\n\\1XL_" + name + ":", renomme, count=1)
+            fragments[index] = renomme
+    for index, fragment in enumerate(fragments):
+        pieces[positions[index]]["content"] = fragment
     return pieces
 
 

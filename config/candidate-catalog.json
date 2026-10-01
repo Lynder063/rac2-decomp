@@ -3,17 +3,154 @@
   "reference_sha256": "36d5814d8d95328d5839612ccdf7a2e7ecac0b6f868d3ad4bb2e98411f734b4a",
   "language": "r5900:LE:32:default",
   "evidence": "Ghidra saved GC programme, read-only headless extraction 2026-10-01; body ranges and delay slots cross-checked with fresh splat output",
-  "flags": ["-O2", "-G0", "-ffunction-sections"],
+  "flags": [
+    "-O2",
+    "-G0",
+    "-ffunction-sections"
+  ],
   "gp": 1765360,
-  "externals": {"D_00133E74": 1261172, "D_0013A308": 1286920, "D_00137E00": 1277440},
+  "externals": {
+    "D_00133E74": 1261172,
+    "D_0013A308": 1286920,
+    "D_00137E00": 1277440
+  },
   "functions": [
-    {"symbol": "FUN_00115200", "address": 1135104, "size": 12, "ranges": 1, "xrefs": 2, "meaning": "Return pointer stored in absolute cell 00133E74"},
-    {"symbol": "FUN_00115210", "address": 1135120, "size": 12, "ranges": 1, "xrefs": 1, "meaning": "Return address of pointer cell 0013A308"},
-    {"symbol": "FUN_00120BC8", "address": 1182664, "size": 8, "ranges": 1, "xrefs": 1, "meaning": "Return without effects"},
-    {"symbol": "FUN_00125960", "address": 1202528, "size": 12, "ranges": 1, "xrefs": 7, "meaning": "Return absolute data address 00137E00"},
-    {"symbol": "FUN_0012F9A8", "address": 1243560, "size": 12, "ranges": 1, "xrefs": 1, "meaning": "Load a pointer at argument offset 0x40 and return the pointed 32-bit word"},
-    {"symbol": "FUN_0026F710", "address": 2553616, "size": 8, "ranges": 1, "xrefs": 3, "meaning": "Return zero"},
-    {"symbol": "FUN_0026F718", "address": 2553624, "size": 8, "ranges": 1, "xrefs": 2, "meaning": "Return without effects"}
+    {
+      "symbol": "FUN_00115200",
+      "address": 1135104,
+      "size": 12,
+      "ranges": 1,
+      "xrefs": 2,
+      "meaning": "Return pointer stored in absolute cell 00133E74"
+    },
+    {
+      "symbol": "FUN_00115210",
+      "address": 1135120,
+      "size": 12,
+      "ranges": 1,
+      "xrefs": 1,
+      "meaning": "Return address of pointer cell 0013A308"
+    },
+    {
+      "symbol": "FUN_00120BC8",
+      "address": 1182664,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 1,
+      "meaning": "Return without effects"
+    },
+    {
+      "symbol": "FUN_00125960",
+      "address": 1202528,
+      "size": 12,
+      "ranges": 1,
+      "xrefs": 7,
+      "meaning": "Return absolute data address 00137E00"
+    },
+    {
+      "symbol": "FUN_0012F9A8",
+      "address": 1243560,
+      "size": 12,
+      "ranges": 1,
+      "xrefs": 1,
+      "meaning": "Load a pointer at argument offset 0x40 and return the pointed 32-bit word"
+    },
+    {
+      "symbol": "FUN_0026F710",
+      "address": 2553616,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 3,
+      "meaning": "Return zero"
+    },
+    {
+      "symbol": "FUN_0026F718",
+      "address": 2553624,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 2,
+      "meaning": "Return without effects"
+    },
+    {
+      "symbol": "FUN_0028B740",
+      "address": 2668352,
+      "size": 104,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src\\overlays\\shared\\gameplay_animation_00235878.c), byte-identical in both games"
+    },
+    {
+      "symbol": "FUN_002A7AA8",
+      "address": 2783912,
+      "size": 56,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src\\overlays\\shared\\gameplay_entities_00257d78.c), byte-identical in both games"
+    },
+    {
+      "symbol": "FUN_002A8860",
+      "address": 2787424,
+      "size": 56,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src\\overlays\\shared\\math_interpolation_00257ef0.c), byte-identical in both games"
+    },
+    {
+      "symbol": "FUN_002A8AF0",
+      "address": 2788080,
+      "size": 204,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src\\overlays\\shared\\gameplay_entities_00259710.c), byte-identical in both games"
+    },
+    {
+      "symbol": "FUN_002AA140",
+      "address": 2793792,
+      "size": 16,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src\\overlays\\shared\\gameplay_entities_00259710.c), byte-identical in both games"
+    },
+    {
+      "symbol": "FUN_002AAF40",
+      "address": 2797376,
+      "size": 92,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src\\overlays\\shared\\unclassified_0025bb38.c), byte-identical in both games"
+    },
+    {
+      "symbol": "FUN_002CC6A0",
+      "address": 2934432,
+      "size": 16,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src\\overlays\\shared\\unclassified_00277f60.c), byte-identical in both games"
+    },
+    {
+      "symbol": "FUN_00312B58",
+      "address": 3222360,
+      "size": 16,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src\\overlays\\l16\\unclassified_002a3f38.c), byte-identical in both games"
+    },
+    {
+      "symbol": "FUN_00312E10",
+      "address": 3223056,
+      "size": 16,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src\\overlays\\shared\\unclassified_002d7f88.c), byte-identical in both games"
+    },
+    {
+      "symbol": "FUN_003505E0",
+      "address": 3474912,
+      "size": 68,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "Ported from RAC1 (src\\overlays\\shared\\runtime_buffers_002ef300.c), byte-identical in both games"
+    }
   ],
   "state": "candidates_unintegrated; flags qualified only for functions that pass this byte gate"
 }

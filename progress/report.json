@@ -1,289 +1,289 @@
 {
-  "verified_at": "2026-10-01T14:58:16.686726+00:00",
-  "target": "SCUS_972.68",
-  "packages": {
-    "splat64": "0.50.0",
-    "spimdisasm": "1.42.4",
-    "rabbitizer": "1.16.2"
+ "verified_at": "2026-10-01T17:40:00+00:00",
+ "target": "SCUS_972.68",
+ "packages": {
+  "splat64": "0.50.0",
+  "spimdisasm": "1.42.4",
+  "rabbitizer": "1.16.2"
+ },
+ "tools": {
+  "Ps2EeAs.exe": "c839dd63facabe7b76573c114056be61eaa7b3aa2329dd546930ab8f98898c76",
+  "ld.exe": "80f3724a63ce3c77c8b00d075f5c49448636518700ae251e5d6a6c809bbf5f48"
+ },
+ "g1": {
+  "matched": true,
+  "bytes_compared": 2521763,
+  "reason": "All PT_LOAD bytes and metadata match",
+  "name": "boot",
+  "reference_sha256": "36d5814d8d95328d5839612ccdf7a2e7ecac0b6f868d3ad4bb2e98411f734b4a",
+  "candidate_sha256": "a3ad31d09a8a0c63aae67aea416d50d8beda7a3a566c178c25d390b7bb96fe8b",
+  "integrated_c_functions": 7,
+  "integrated_c_bytes": 72
+ },
+ "g3": [
+  {
+   "matched": true,
+   "bytes_compared": 2751616,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "c486f497920118066ed02076f540a5fad6811ce874d014a3a2bb18cb77714d11",
+   "candidate_sha256": "b77535d9509d91abb5a8794faae998e471e09aee6127ea5b42dd0e321e12d04f",
+   "level": "0_aranos_tutorial"
   },
-  "tools": {
-    "Ps2EeAs.exe": "c839dd63facabe7b76573c114056be61eaa7b3aa2329dd546930ab8f98898c76",
-    "ld.exe": "80f3724a63ce3c77c8b00d075f5c49448636518700ae251e5d6a6c809bbf5f48"
+  {
+   "matched": true,
+   "bytes_compared": 2871096,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "287e8f233f0b60cf4ccb3f0ff4dc043b907cabb7b3eff8c2229ca79cc1d19b48",
+   "candidate_sha256": "820ce25ef9e630e7a6286415319c36934fdc083b8ae63c78885cdb073dc45836",
+   "level": "10_hrugis_cloud"
   },
-  "g1": {
-    "matched": true,
-    "bytes_compared": 2521763,
-    "reason": "All PT_LOAD bytes and metadata match",
-    "name": "boot",
-    "reference_sha256": "36d5814d8d95328d5839612ccdf7a2e7ecac0b6f868d3ad4bb2e98411f734b4a",
-    "candidate_sha256": "a3ad31d09a8a0c63aae67aea416d50d8beda7a3a566c178c25d390b7bb96fe8b",
-    "integrated_c_functions": 7,
-    "integrated_c_bytes": 72
+  {
+   "matched": true,
+   "bytes_compared": 3151320,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "c6cf24ac0591c78ae6a5320a333b4465f54969ab91e0f42f52fcb7fc95f2f00e",
+   "candidate_sha256": "833c5439e7abd63d8b02aeed48d1d36973d4f74a888a74e8afb57fdccd7a9026",
+   "level": "11_joba"
   },
-  "g3": [
-    {
-      "matched": true,
-      "bytes_compared": 2751616,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "c486f497920118066ed02076f540a5fad6811ce874d014a3a2bb18cb77714d11",
-      "candidate_sha256": "b77535d9509d91abb5a8794faae998e471e09aee6127ea5b42dd0e321e12d04f",
-      "level": "0_aranos_tutorial"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2871096,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "287e8f233f0b60cf4ccb3f0ff4dc043b907cabb7b3eff8c2229ca79cc1d19b48",
-      "candidate_sha256": "820ce25ef9e630e7a6286415319c36934fdc083b8ae63c78885cdb073dc45836",
-      "level": "10_hrugis_cloud"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 3151320,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "c6cf24ac0591c78ae6a5320a333b4465f54969ab91e0f42f52fcb7fc95f2f00e",
-      "candidate_sha256": "833c5439e7abd63d8b02aeed48d1d36973d4f74a888a74e8afb57fdccd7a9026",
-      "level": "11_joba"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2843680,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "326343dd0c4ba2e4fc0b626f633e1fbdd4e5937e7b693c4c7e994f2bf895c40c",
-      "candidate_sha256": "c5a704e4ff7af1077718228ef14d580d7d692731d10f4ba650f20b77154874ef",
-      "level": "12_todano"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2833784,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "d093f5f5922a2da0628e552a01d3b32ca5d30c23ef844b8716732343fe6c8b60",
-      "candidate_sha256": "b9f00334d8f787f72a8d3e125b0765924d8c30cc784b0fd9ad73b60759646ef4",
-      "level": "13_boldan"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2875248,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "9e04a2a32b12a2ff31b3370ac506e96804816e3b0e918843b209797a929a40d3",
-      "candidate_sha256": "331f5918975b144a70cfbe380e59ffc7d98fed06f5a7702a7e999bc19f2fdc0a",
-      "level": "14_aranos_prison"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2916344,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "838098ef94f05d78f79be2f65291447db6c9468e7c44e2cab36396f720cce109",
-      "candidate_sha256": "953cc8b8f7fca7fa7c61fd324e589a29de085f4e46c1769ee392e345afa5dbbb",
-      "level": "15_gorn"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2799304,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "ad5840ad4ebfef75199ad6196e36ba010d99970e75d0de681a050ab4c59f944b",
-      "candidate_sha256": "71287c6e31a0fffdbecd443a35d7b57e04384424daab91e718bbaa775ea3fea9",
-      "level": "16_snivelak"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2803536,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "4e1908fbc51ea0f156a32077fd20b2af755fe0b1f4aa7b1bc67967208e7e87f4",
-      "candidate_sha256": "a30577c5fcac2c0d83b9831c199b2f290fd313e9504b70bc434d2211851775fb",
-      "level": "17_smolg"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2937928,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "61c1050b11c8bbb1674bc35107ccf83f2634ee6c8248c9983ba552343d911113",
-      "candidate_sha256": "722107c70642b85c02d95ede2592dc1664caf45197d8a49a163cac41ecb038e2",
-      "level": "18_damosel"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2822184,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "eeab491a667c311b024745af7173ac08371e279ade0b4ab5d48b6f81fa751aaf",
-      "candidate_sha256": "58189b555182a1505e46641caa9416eded55c0a720243f85d5fcfce6b85fe2de",
-      "level": "19_grelbin"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2763912,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "84c7e1d55cd34f7785ca8e72d03667707474c29249891735cef9dd0e53b834e3",
-      "candidate_sha256": "0a80a0cb8902c4b6e107a80a0102b57efc8d44b801a9affcf8003cc1b5519272",
-      "level": "1_oozla"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2977264,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "af33c5378811e9d57c612c10002ca5c92eb676add3db0552ab2d6231034cafc8",
-      "candidate_sha256": "ebf6f451131ccc69ae964e95509767e5a7ca3e3837a88b4ac76617554a9716fd",
-      "level": "20_yeedil"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2754176,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "c609f24d897e1a82d49cdb9a8a7ece36ea83332414dc3cc6d588375e0bda55db",
-      "candidate_sha256": "b239f0365fae316e7fa45ee5b73b52baa2ef22ccb0b67dc7b0f19e8999b6b74f",
-      "level": "22_dobbo_orbit"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2841784,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "0c75617382013a703eb5fcc85845f4d1352f496bfbb4047f512454aa730d37b4",
-      "candidate_sha256": "33e9e67f20346dfca8459db439dec5330c9bea93ad2662c442c0f103baaae8c7",
-      "level": "23_damosel_orbit"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2616168,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "4afbc22add84109c84ef8ca49099fdf9863905e5f497369c207ac5cb47814740",
-      "candidate_sha256": "ec0a48d9840b30fb3f184e2db4df6e1691a87d5bded5062ade09e7085bde4eda",
-      "level": "24_ship_shack"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2802432,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "075a0a55f83fd7d35957af62eeac8e911357cee2fa6119edd9f2cfcdea7e9cdc",
-      "candidate_sha256": "6c953c85200e8a6c42c02ff24e9f56b6a1c9a4936d5a2daded814d77da6c9ce7",
-      "level": "25_wupash_nebula"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2695704,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "575ab90300200e2c8bd49afba637aa9212e82d2ee17af618e2ad8c5bf78bd36b",
-      "candidate_sha256": "c6427b7d73a55a51e9ccee10fd2d1ba5adbe5ddce6b130f8227d0de5907e371d",
-      "level": "26_jamming_array"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2928824,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "ab59cf107fb30843db03cd3571af1c08d62e99e6b50594bc38dd7a70f91ac94b",
-      "candidate_sha256": "4b79b23f95cf56a0a898baaa99aef7df69a2e038dc11e3c97910894f49740cf5",
-      "level": "2_maktar_nebula"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2766936,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "b638bb36997a9b3e8041738f45b0c624c01fe4ad9ae601ff50e305916ff3040c",
-      "candidate_sha256": "b743d95ef8976e74e5dc768055005a6b8457295dc889add548e377a103d4186c",
-      "level": "30_insomniac_museum"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2821104,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "7b2caf2987c29ef7bc86c35bb2991cf0127170bd726ddbb74a7c5506b386d6d3",
-      "candidate_sha256": "bc22626d982a51e66d000bba267fec3a053cef2ab46729d910de0e02b0546b44",
-      "level": "3_endako"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 3027792,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "fdb2c733e5c52e9e30f72cef2656d6c6c5cc5fc3d9198600e224b94b7d786eb8",
-      "candidate_sha256": "563a105eee272aee3da8bc133875250ffa55ac2b235588152b9b58818108f80e",
-      "level": "4_barlow"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2863992,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "bd41a03a57871a6f33106d5277c6b4918f379ceaa5f780a84c82360b421204fb",
-      "candidate_sha256": "a9bbf679fddf2193ede2953bcb0488753830a41dbe68bfa6c873f8be23fdb6ca",
-      "level": "5_feltzin_system"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 3086560,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "c6f43c2e92a414bc38a98cb396e675d4ae4cf6fb9a380c886d47cd9897d5c412",
-      "candidate_sha256": "de5335202530e302eef974a16aa0286b1d370f7309d81e33fe13584f4c77a069",
-      "level": "6_notak"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2734104,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "76b77dbbc9a3e15f1c4f202a36b37d01bdaff7936142c14b5b35a1552a85287a",
-      "candidate_sha256": "466632cee642483598898ce8ff47de4c609c0132c48b0bfd6eb2ddc43de7e769",
-      "level": "7_siberius"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2866032,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "37c1b1c86b8800fb3930b539fe4b5c94dccf42e7bb5960154477f63731dd48a5",
-      "candidate_sha256": "659436c2f25d2840555f3854f264af84dddcf2627e00bb76c22f7c2cce7d4109",
-      "level": "8_tabora"
-    },
-    {
-      "matched": true,
-      "bytes_compared": 2812264,
-      "reason": "All PT_LOAD bytes and metadata match",
-      "name": "overlay",
-      "reference_sha256": "a47999f3aa251431498e068932ac542399b5e402ab8dcddcbfe246dc220b7810",
-      "candidate_sha256": "1873bad86a25d551bcccf83da9ba002eb6cac4dcd1652a9959301aedf4e7a036",
-      "level": "9_dobbo"
-    }
-  ],
-  "decompiled_functions": 7,
-  "compiler_flags": null,
-  "environment_recheck": {
-    "boot_report": "fresh RAC2 venv, matching two PT_LOADs",
-    "tests_passed": 81
+  {
+   "matched": true,
+   "bytes_compared": 2843680,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "326343dd0c4ba2e4fc0b626f633e1fbdd4e5937e7b693c4c7e994f2bf895c40c",
+   "candidate_sha256": "c5a704e4ff7af1077718228ef14d580d7d692731d10f4ba650f20b77154874ef",
+   "level": "12_todano"
   },
-  "iso": {
-    "size": 3828350976,
-    "crc32": "6d1fc798",
-    "sha1": "f2cfaf0eb12b3c0d8fd6db7aa49ce032e8a6020b",
-    "md5": "3cbbb5127ee8a0be93ef0876f7781ee8",
-    "sha256": "9db2e33e276133cc283647fa3279b37911955e123d6199d10065547eaa9b1ce5"
+  {
+   "matched": true,
+   "bytes_compared": 2833784,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "d093f5f5922a2da0628e552a01d3b32ca5d30c23ef844b8716732343fe6c8b60",
+   "candidate_sha256": "b9f00334d8f787f72a8d3e125b0765924d8c30cc784b0fd9ad73b60759646ef4",
+   "level": "13_boldan"
   },
-  "gp": 1765360,
-  "status": "Seven C functions integrated; full boot PT_LOAD comparison verified; native gameplay not verified",
-  "matched_candidate_functions": 7,
-  "matched_candidate_bytes": 72,
-  "integrated_functions": 7,
-  "native_gameplay_verified": false,
-  "integrated_code_bytes": 72,
-  "c_integration_reference": "progress/integration.json"
+  {
+   "matched": true,
+   "bytes_compared": 2875248,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "9e04a2a32b12a2ff31b3370ac506e96804816e3b0e918843b209797a929a40d3",
+   "candidate_sha256": "331f5918975b144a70cfbe380e59ffc7d98fed06f5a7702a7e999bc19f2fdc0a",
+   "level": "14_aranos_prison"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2916344,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "838098ef94f05d78f79be2f65291447db6c9468e7c44e2cab36396f720cce109",
+   "candidate_sha256": "953cc8b8f7fca7fa7c61fd324e589a29de085f4e46c1769ee392e345afa5dbbb",
+   "level": "15_gorn"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2799304,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "ad5840ad4ebfef75199ad6196e36ba010d99970e75d0de681a050ab4c59f944b",
+   "candidate_sha256": "71287c6e31a0fffdbecd443a35d7b57e04384424daab91e718bbaa775ea3fea9",
+   "level": "16_snivelak"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2803536,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "4e1908fbc51ea0f156a32077fd20b2af755fe0b1f4aa7b1bc67967208e7e87f4",
+   "candidate_sha256": "a30577c5fcac2c0d83b9831c199b2f290fd313e9504b70bc434d2211851775fb",
+   "level": "17_smolg"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2937928,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "61c1050b11c8bbb1674bc35107ccf83f2634ee6c8248c9983ba552343d911113",
+   "candidate_sha256": "722107c70642b85c02d95ede2592dc1664caf45197d8a49a163cac41ecb038e2",
+   "level": "18_damosel"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2822184,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "eeab491a667c311b024745af7173ac08371e279ade0b4ab5d48b6f81fa751aaf",
+   "candidate_sha256": "58189b555182a1505e46641caa9416eded55c0a720243f85d5fcfce6b85fe2de",
+   "level": "19_grelbin"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2763912,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "84c7e1d55cd34f7785ca8e72d03667707474c29249891735cef9dd0e53b834e3",
+   "candidate_sha256": "0a80a0cb8902c4b6e107a80a0102b57efc8d44b801a9affcf8003cc1b5519272",
+   "level": "1_oozla"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2977264,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "af33c5378811e9d57c612c10002ca5c92eb676add3db0552ab2d6231034cafc8",
+   "candidate_sha256": "ebf6f451131ccc69ae964e95509767e5a7ca3e3837a88b4ac76617554a9716fd",
+   "level": "20_yeedil"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2754176,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "c609f24d897e1a82d49cdb9a8a7ece36ea83332414dc3cc6d588375e0bda55db",
+   "candidate_sha256": "b239f0365fae316e7fa45ee5b73b52baa2ef22ccb0b67dc7b0f19e8999b6b74f",
+   "level": "22_dobbo_orbit"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2841784,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "0c75617382013a703eb5fcc85845f4d1352f496bfbb4047f512454aa730d37b4",
+   "candidate_sha256": "33e9e67f20346dfca8459db439dec5330c9bea93ad2662c442c0f103baaae8c7",
+   "level": "23_damosel_orbit"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2616168,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "4afbc22add84109c84ef8ca49099fdf9863905e5f497369c207ac5cb47814740",
+   "candidate_sha256": "ec0a48d9840b30fb3f184e2db4df6e1691a87d5bded5062ade09e7085bde4eda",
+   "level": "24_ship_shack"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2802432,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "075a0a55f83fd7d35957af62eeac8e911357cee2fa6119edd9f2cfcdea7e9cdc",
+   "candidate_sha256": "6c953c85200e8a6c42c02ff24e9f56b6a1c9a4936d5a2daded814d77da6c9ce7",
+   "level": "25_wupash_nebula"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2695704,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "575ab90300200e2c8bd49afba637aa9212e82d2ee17af618e2ad8c5bf78bd36b",
+   "candidate_sha256": "c6427b7d73a55a51e9ccee10fd2d1ba5adbe5ddce6b130f8227d0de5907e371d",
+   "level": "26_jamming_array"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2928824,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "ab59cf107fb30843db03cd3571af1c08d62e99e6b50594bc38dd7a70f91ac94b",
+   "candidate_sha256": "4b79b23f95cf56a0a898baaa99aef7df69a2e038dc11e3c97910894f49740cf5",
+   "level": "2_maktar_nebula"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2766936,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "b638bb36997a9b3e8041738f45b0c624c01fe4ad9ae601ff50e305916ff3040c",
+   "candidate_sha256": "b743d95ef8976e74e5dc768055005a6b8457295dc889add548e377a103d4186c",
+   "level": "30_insomniac_museum"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2821104,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "7b2caf2987c29ef7bc86c35bb2991cf0127170bd726ddbb74a7c5506b386d6d3",
+   "candidate_sha256": "bc22626d982a51e66d000bba267fec3a053cef2ab46729d910de0e02b0546b44",
+   "level": "3_endako"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 3027792,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "fdb2c733e5c52e9e30f72cef2656d6c6c5cc5fc3d9198600e224b94b7d786eb8",
+   "candidate_sha256": "563a105eee272aee3da8bc133875250ffa55ac2b235588152b9b58818108f80e",
+   "level": "4_barlow"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2863992,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "bd41a03a57871a6f33106d5277c6b4918f379ceaa5f780a84c82360b421204fb",
+   "candidate_sha256": "a9bbf679fddf2193ede2953bcb0488753830a41dbe68bfa6c873f8be23fdb6ca",
+   "level": "5_feltzin_system"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 3086560,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "c6f43c2e92a414bc38a98cb396e675d4ae4cf6fb9a380c886d47cd9897d5c412",
+   "candidate_sha256": "de5335202530e302eef974a16aa0286b1d370f7309d81e33fe13584f4c77a069",
+   "level": "6_notak"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2734104,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "76b77dbbc9a3e15f1c4f202a36b37d01bdaff7936142c14b5b35a1552a85287a",
+   "candidate_sha256": "466632cee642483598898ce8ff47de4c609c0132c48b0bfd6eb2ddc43de7e769",
+   "level": "7_siberius"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2866032,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "37c1b1c86b8800fb3930b539fe4b5c94dccf42e7bb5960154477f63731dd48a5",
+   "candidate_sha256": "659436c2f25d2840555f3854f264af84dddcf2627e00bb76c22f7c2cce7d4109",
+   "level": "8_tabora"
+  },
+  {
+   "matched": true,
+   "bytes_compared": 2812264,
+   "reason": "All PT_LOAD bytes and metadata match",
+   "name": "overlay",
+   "reference_sha256": "a47999f3aa251431498e068932ac542399b5e402ab8dcddcbfe246dc220b7810",
+   "candidate_sha256": "1873bad86a25d551bcccf83da9ba002eb6cac4dcd1652a9959301aedf4e7a036",
+   "level": "9_dobbo"
+  }
+ ],
+ "decompiled_functions": 17,
+ "compiler_flags": null,
+ "environment_recheck": {
+  "boot_report": "fresh RAC2 venv, matching two PT_LOADs",
+  "tests_passed": 81
+ },
+ "iso": {
+  "size": 3828350976,
+  "crc32": "6d1fc798",
+  "sha1": "f2cfaf0eb12b3c0d8fd6db7aa49ce032e8a6020b",
+  "md5": "3cbbb5127ee8a0be93ef0876f7781ee8",
+  "sha256": "9db2e33e276133cc283647fa3279b37911955e123d6199d10065547eaa9b1ce5"
+ },
+ "gp": 1765360,
+ "status": "Seventeen C functions integrated (716 bytes, ten of them ported from the RAC1 decompilation where the bytes are identical in both games); full boot PT_LOAD comparison verified; native gameplay not verified",
+ "matched_candidate_functions": 7,
+ "matched_candidate_bytes": 72,
+ "integrated_functions": 17,
+ "native_gameplay_verified": false,
+ "integrated_code_bytes": 72,
+ "c_integration_reference": "progress/integration.json"
 }
