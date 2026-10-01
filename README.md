@@ -135,8 +135,8 @@ the report using measured metadata and integration proofs; it requires no game
 assets or proprietary SDK in GitHub Actions. It rejects absent or inconsistent
 integration evidence, changed source/catalogue hashes, object mismatches and
 double-counted ranges. C units are split out of the remaining assembly units,
-so the full code/data totals remain unchanged. The site's two-decimal display
-still rounds this initial progress to 0.00%.
+so the full code/data totals remain unchanged. The site currently displays
+0.01% for this initial positive progress; the precise report remains about 0.000148%.
 
 ## Next milestones
 

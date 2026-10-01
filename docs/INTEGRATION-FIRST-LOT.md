@@ -29,6 +29,8 @@ Reproduction: use `scripts/build.py` with both `--toolchain` (assembly) and
 `progress/candidates.json` and `progress/integration.json`.
 
 Progress is 72 / 48,788,176 executable bytes: about **0.000148%**, not 100%.
+decomp.dev currently displays 0.01% for this small positive value; the JSON
+retains the precise fraction and unchanged full-game denominator.
 The 27 overlay identities and measured assembly reconstruction remain in scope;
 no overlay C is claimed. Seven complete C units are carved out of the former
 assembly units without duplicating their bytes. The native runtime and gameplay
