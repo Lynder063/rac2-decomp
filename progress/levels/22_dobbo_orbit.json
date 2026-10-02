@@ -909,8 +909,8 @@
     "cc1.exe": "0393bcd31f91a6b9f0255db97f1cc99eba78ee8fc003e9a04dfabed1ae1d522e",
     "cpp.exe": "b9c50aa66f9cf5dbd80b2affe9874ec7674b7328965c629476f6ad7c77943154"
   },
-  "candidate_elf_sha256": "330f91260f5b625d3d9034007942b7c92e9008bdf10f84f08bafc79814a0edce",
-  "c_object_sha256": "cd2b3be4dc33b574c2d2b7d0c2a4044ac059bd75149bb78db7434426e6b15662",
+  "candidate_elf_sha256": "0741276f53382d781f1434c60b77759f77e5fc7851a750ef5a04377ee96a15b6",
+  "c_object_sha256": "b40d171852b7cac6f64d1ec4ff224b5d325a56c34ebafeca652e17e5ea1ffa45",
   "replacement_inputs": {
     "100D80.s": [
       "FUN_00282C48",

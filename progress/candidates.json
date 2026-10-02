@@ -1,12 +1,12 @@
 {
   "target": "SCUS_972.68",
-  "verified_at": "2026-10-02T02:56:56.846992+00:00",
+  "verified_at": "2026-10-02T04:37:15.052797+00:00",
   "reference_sha256": "36d5814d8d95328d5839612ccdf7a2e7ecac0b6f868d3ad4bb2e98411f734b4a",
   "source_sha256": "6b01b603d95e98b7f7bee4fd9a0802ebdf251f71672d6551b4550d27c56d5262",
-  "candidate_elf_sha256": "c4086788a356fa350b3a606929abd104565dd67fc62a4209f34a30849bddc5ad",
-  "object_sha256": "2e29c99aa1786e7c284cce80b406ad4045bc144ff7fb90c8d4bbb0c68c55feed",
+  "candidate_elf_sha256": "c52125ba5f334c39ff30262334abc4219def1e79b3b55a60c998b55bd984701e",
+  "object_sha256": "b40d171852b7cac6f64d1ec4ff224b5d325a56c34ebafeca652e17e5ea1ffa45",
   "catalog_sha256": "721d2e08dec6cbc5d6b739d0f752c2372fde69870dd2f58354db5fa2d997e439",
-  "checker_sha256": "47b5d178410a9e535c199f8de0264bae2bb4f5dd8dcc0f560ab9928242f91ba6",
+  "checker_sha256": "4b92a73b6f057db542363d3fbf52ca5c47dee7380cf8968c08a65948a9cc7e53",
   "flags": [
     "-O2",
     "-G0",
@@ -881,7 +881,6 @@
       "state": "matched_unintegrated"
     }
   ],
-  "integrated_functions": 86,
-  "profile_scope": "Only the fully matched functions below; not a general RAC2 compiler qualification",
-  "decompiled_functions": 86
+  "integrated_functions": 0,
+  "profile_scope": "Only the fully matched functions below; not a general RAC2 compiler qualification"
 }

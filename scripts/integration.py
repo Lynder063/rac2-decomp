@@ -121,8 +121,12 @@ def compile_snapshot(directory: Path, instruments: dict, flags: list) -> tuple[P
     snapshot = c_directory / "boot.c"
     snapshot.write_bytes(source.read_bytes())
     object_path = c_directory / "boot.c.o"
-    run([str(instruments["ee-gcc2953.exe"]), "-c", *flags, str(snapshot), "-o", str(object_path)],
-        directory / "compile-c.log")
+    # Compiled under its bare name from its own directory, exactly as the
+    # candidate checker does: `.file` carries the source spelling, so passing
+    # the absolute build path here would hash a different object than the one
+    # the candidate gate qualified, and that object would differ per machine.
+    run([str(instruments["ee-gcc2953.exe"]), "-c", *flags, snapshot.name, "-o", str(object_path)],
+        directory / "compile-c.log", snapshot.parent)
     assert_fresh(object_path, [snapshot])
     return snapshot, object_path
 

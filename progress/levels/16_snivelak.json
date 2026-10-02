@@ -909,8 +909,8 @@
     "cc1.exe": "0393bcd31f91a6b9f0255db97f1cc99eba78ee8fc003e9a04dfabed1ae1d522e",
     "cpp.exe": "b9c50aa66f9cf5dbd80b2affe9874ec7674b7328965c629476f6ad7c77943154"
   },
-  "candidate_elf_sha256": "c5780f72eb1f23196c7c68826c25379225982a17954249c416a8d3e6963fd83f",
-  "c_object_sha256": "2b4986a6376591d684612ac738461b17bcd6213e7cbb272967760baea261bf09",
+  "candidate_elf_sha256": "0c7f9c925932e147036fa91c502402e45c7f6d873f8d05938f53beb72c0f8326",
+  "c_object_sha256": "b40d171852b7cac6f64d1ec4ff224b5d325a56c34ebafeca652e17e5ea1ffa45",
   "replacement_inputs": {
     "FE780.s": [
       "FUN_00282C48",

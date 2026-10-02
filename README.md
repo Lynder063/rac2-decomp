@@ -42,11 +42,11 @@ See [the measured progress report](progress/report.json) and
 [the C integration proof](progress/integration.json) for their respective results.
 The native runtime remains a separate development milestone.
 
-Verified on **2026-10-01**: the complete boot image (**2,521,763 loaded bytes,
+Verified on **2026-10-02**: the complete boot image (**2,521,763 loaded bytes,
 two PT_LOAD segments**) and **all 27 level overlays** rebuild identically in loaded
-memory. **156 tool tests pass**. **Twenty-six C functions (1076 bytes) are integrated in the boot, and the same reviewed C is integrated in all 27 level overlays (401 placements, 24,236 bytes)**
+memory. **157 tool tests pass**. **Eighty-six C functions (1,752 bytes) are integrated in the boot, and the same reviewed C is integrated in all 27 level overlays (1,935 placements, 41,500 bytes)**
 using genuine compiler-produced objects, with the complete boot matching both
-original loaded segments.** The general compiler profile and native runtime
+original loaded segments. The general compiler profile and native runtime
 remain to be established.
 
 ## Requirements
@@ -187,7 +187,7 @@ zero-size symbols, unlinked objects and identical prefixes with extra code are
 refused. A deliberately wrong pointer-return candidate was compiled and rejected.
 `progress/candidates.json` records reproducible source, tool and byte hashes.
 
-These twenty-six functions are now **integrated** into the whole-boot reconstruction.
+These eighty-six functions are now **integrated** into the whole-boot reconstruction.
 `progress/integration.json` records the complete boot gate, exact C object hash,
 post-link function hashes and removed assembly inputs. `progress/candidates.json`
 is the independent qualification of that same object before the complete link.
@@ -196,7 +196,7 @@ The remaining SDK and game functions still require separate compiler qualificati
 ## decomp.dev reporting
 
 The CI uploads `SCUS_972.68_report` in objdiff report v2 format. It records
-**25,312 integrated C bytes out of 48,788,176 executable bytes (about 0.052%)**,
+**43,252 integrated C bytes out of 48,788,176 executable bytes (about 0.089%)**,
 independently of assembly reconstruction. The measured scope includes the boot and all 27
 overlays, with executable and initialized-data section sizes, including VU code.
 Function counts are omitted until boundaries have been reviewed. Generated section
@@ -207,8 +207,8 @@ the report using measured metadata and integration proofs; it requires no game
 assets or proprietary SDK in GitHub Actions. It rejects absent or inconsistent
 integration evidence, changed source/catalogue hashes, object mismatches and
 double-counted ranges. C units are split out of the remaining assembly units,
-so the full code/data totals remain unchanged. The site currently displays
-0.01% for this initial positive progress; the precise report is about 0.052% once the level proofs are passed to it.
+so the full code/data totals remain unchanged. The workflow hands every level
+proof to the export, so the report carries the measured total.
 
 ## Next milestones
 

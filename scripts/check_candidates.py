@@ -76,10 +76,11 @@ def compare_function(reference: Path, candidate: Path, symbol: str, address: int
             "state": "matched_unintegrated" if original == produced else "mismatch"}
 
 
-def run(arguments: list[str], log: Path) -> None:
+def run(arguments: list[str], log: Path, directory: Path | None = None) -> None:
     with log.open("wb") as stream:
         try:
-            result = subprocess.run(arguments, stdout=stream, stderr=subprocess.STDOUT, timeout=120)
+            result = subprocess.run(arguments, cwd=directory, stdout=stream,
+                                    stderr=subprocess.STDOUT, timeout=120)
         except subprocess.TimeoutExpired as error:
             raise ValueError(f"Tool timed out; see {log}") from error
     if result.returncode:
@@ -131,8 +132,16 @@ def main() -> int:
     assembly = work / "candidate.s"
     object_path = work / "candidate.o"
     flags = catalog["flags"]
-    run([str(compiler), "-S", *flags, str(source), "-o", str(assembly)], work / "compile-assembly.log")
-    run([str(compiler), "-c", *flags, str(source), "-o", str(object_path)], work / "compile.log")
+    # The compiler writes the source spelling into `.file`, so the same file
+    # compiled as an absolute path and as a bare name produces two different
+    # objects. Compile from the source's own directory under its bare name:
+    # the object then identifies the file itself, not the machine or the build
+    # directory it happened to be copied to, and two passes over one source
+    # yield one hash.
+    run([str(compiler), "-S", *flags, source.name, "-o", str(assembly)],
+        work / "compile-assembly.log", source.parent)
+    run([str(compiler), "-c", *flags, source.name, "-o", str(object_path)],
+        work / "compile.log", source.parent)
     assert_fresh(object_path, [source])
     functions = sorted(catalog["functions"], key=lambda function: function["address"])
     script = work / "candidate.ld"
