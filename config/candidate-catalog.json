@@ -12,7 +12,9 @@
   "externals": {
     "D_00133E74": 1261172,
     "D_0013A308": 1286920,
-    "D_00137E00": 1277440
+    "D_00137E00": 1277440,
+    "D_001A7A0A": 1735178,
+    "D_00189EA0": 1613472
   },
   "functions": [
     {
@@ -222,6 +224,398 @@
       "ranges": 1,
       "xrefs": 0,
       "meaning": "Ported from RAC1 (src\\overlays\\shared\\runtime_buffers_002ef300.c), byte-identical in both games"
+    },
+    {
+      "symbol": "FUN_00282C48",
+      "address": 2632776,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "valeur absolue flottante ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_002A7790",
+      "address": 2783120,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "carre flottant ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00335E10",
+      "address": 3366416,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "lit un mot a 0x0 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00335E18",
+      "address": 3366424,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "lit un mot a 0x4 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00335E20",
+      "address": 3366432,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "lit un mot a 0xc ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00336318",
+      "address": 3367704,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "lit un mot a 0x38 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_003367B8",
+      "address": 3368888,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "lit un mot a 0x34 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00336CC0",
+      "address": 3370176,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0x38 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00339790",
+      "address": 3381136,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0x2f8 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_0033A9C8",
+      "address": 3385800,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un flottant a 0x204 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_0033A9F8",
+      "address": 3385848,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0x20c ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_0033AE18",
+      "address": 3386904,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0x290 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_0033AE20",
+      "address": 3386912,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0x294 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_0033B0A8",
+      "address": 3387560,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un flottant a 0x274 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00341550",
+      "address": 3413328,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0x220 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00341CD8",
+      "address": 3415256,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0x8 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_003423A8",
+      "address": 3417000,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0x170 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00343038",
+      "address": 3420216,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un flottant a 0x4 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00343058",
+      "address": 3420248,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "remet a zero le mot a 0x90 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00343060",
+      "address": 3420256,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "lit un mot a 0x10 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_003435A0",
+      "address": 3421600,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0x330 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_003435A8",
+      "address": 3421608,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "lit un mot a 0x330 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00348118",
+      "address": 3440920,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0x50 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00348120",
+      "address": 3440928,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0xbc ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00348128",
+      "address": 3440936,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "lit un mot a 0x50 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00348130",
+      "address": 3440944,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "lit un mot a 0xb0 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00348570",
+      "address": 3442032,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0x448 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00348578",
+      "address": 3442040,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0x44c ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00349490",
+      "address": 3445904,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0x144 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00349590",
+      "address": 3446160,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0x2c ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_003495C0",
+      "address": 3446208,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0x80 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00349678",
+      "address": 3446392,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un flottant a 0x24 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00349B18",
+      "address": 3447576,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un flottant a 0x18 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_0034A4A8",
+      "address": 3450024,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0x0 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_0034CE98",
+      "address": 3460760,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot a 0x2bc ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00351888",
+      "address": 3479688,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "remet a zero le mot a 0xa8 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_003518D8",
+      "address": 3479768,
+      "size": 8,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "lit un mot a 0xa8 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00283CE0",
+      "address": 2637024,
+      "size": 16,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "conversion entier vers flottant ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00336950",
+      "address": 3369296,
+      "size": 24,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "lit un flottant par double indirection, rend son entier ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_0033A9E0",
+      "address": 3385824,
+      "size": 24,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit la valeur si elle est plus petite que le maximum ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_003423B0",
+      "address": 3417008,
+      "size": 24,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "index multiplie par 20, ajoute a une base ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_0034FAE8",
+      "address": 3472104,
+      "size": 16,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "vrai si le compteur a atteint 0x1000 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00350698",
+      "address": 3475096,
+      "size": 16,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "range deux mots, rend 1 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00341540",
+      "address": 3413312,
+      "size": 16,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "range trois mots consecutifs ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_0033A9D0",
+      "address": 3385808,
+      "size": 16,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot dans un tableau indexe (index dans a0) ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00348630",
+      "address": 3442224,
+      "size": 16,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot dans un tableau indexe (index dans a0) ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00349A60",
+      "address": 3447392,
+      "size": 16,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot dans un tableau indexe (index dans a0) ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00349AA8",
+      "address": 3447464,
+      "size": 16,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un mot dans un tableau indexe (index dans a0) ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00351E48",
+      "address": 3481160,
+      "size": 16,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "remet a zero deux mots voisins (volatile) ; corps identique a l'octet dans les 27 niveaux"
     }
   ],
   "state": "candidates_unintegrated; flags qualified only for functions that pass this byte gate"

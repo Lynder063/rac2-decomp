@@ -277,3 +277,158 @@ void FUN_002E60E8(int arg0, long arg1) {
         }
     }
 }
+
+typedef struct { unsigned long long lo; unsigned long long hi; } Quad;
+
+/* LOT 8 OCTETS -- getters et setters nus, identiques dans les 27 niveaux. */
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+f32 FUN_00282C48(f32 a0) { return __builtin_fabsf(a0); }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+f32 FUN_002A7790(f32 a0) { return a0 * a0; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+s32 FUN_00335E10(u8 *a0) { return *(s32 *)(a0 + 0x0); }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+s32 FUN_00335E18(u8 *a0) { return *(s32 *)(a0 + 0x4); }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+s32 FUN_00335E20(u8 *a0) { return *(s32 *)(a0 + 0xc); }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+s32 FUN_00336318(u8 *a0) { return *(s32 *)(a0 + 0x38); }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+s32 FUN_003367B8(u8 *a0) { return *(s32 *)(a0 + 0x34); }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_00336CC0(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x38) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_00339790(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x2f8) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_0033A9C8(u8 *a0, f32 a1) { *(f32 *)(a0 + 0x204) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_0033A9F8(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x20c) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_0033AE18(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x290) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_0033AE20(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x294) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_0033B0A8(u8 *a0, f32 a1) { *(f32 *)(a0 + 0x274) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_00341550(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x220) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_00341CD8(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x8) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_003423A8(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x170) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_00343038(u8 *a0, f32 a1) { *(f32 *)(a0 + 0x4) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_00343058(u8 *a0) { *(s32 *)(a0 + 0x90) = 0; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+s32 FUN_00343060(u8 *a0) { return *(s32 *)(a0 + 0x10); }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_003435A0(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x330) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+s32 FUN_003435A8(u8 *a0) { return *(s32 *)(a0 + 0x330); }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_00348118(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x50) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_00348120(u8 *a0, s32 a1) { *(s32 *)(a0 + 0xbc) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+s32 FUN_00348128(u8 *a0) { return *(s32 *)(a0 + 0x50); }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+s32 FUN_00348130(u8 *a0) { return *(s32 *)(a0 + 0xb0); }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_00348570(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x448) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_00348578(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x44c) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_00349490(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x144) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_00349590(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x2c) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_003495C0(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x80) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_00349678(u8 *a0, f32 a1) { *(f32 *)(a0 + 0x24) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_00349B18(u8 *a0, f32 a1) { *(f32 *)(a0 + 0x18) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_0034A4A8(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x0) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_0034CE98(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x2bc) = a1; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+void FUN_00351888(u8 *a0) { *(s32 *)(a0 + 0xa8) = 0; }
+
+/* Cible mesuree : identique a l'octet dans les 27 niveaux. */
+s32 FUN_003518D8(u8 *a0) { return *(s32 *)(a0 + 0xa8); }
+
+/* DEUXIEME LOT -- 16 a 32 octets. */
+/* conversion entier vers flottant ; identique a l'octet dans les 27 niveaux. */
+f32 FUN_00283CE0(s32 a0) { return (f32)a0; }
+
+/* lit un flottant par double indirection, rend son entier ; identique a l'octet dans les 27 niveaux. */
+s32 FUN_00336950(u8 *a0) { return (s32)*(f32 *)(*(u8 **)(a0 + 0x34)); }
+
+/* ecrit la valeur si elle est plus petite que le maximum ; identique a l'octet dans les 27 niveaux. */
+void FUN_0033A9E0(u8 *a0, s32 a1) { if (a1 < *(s32 *)(a0 + 0x1F8)) *(s32 *)(a0 + 0x208) = a1; }
+
+/* index multiplie par 20, ajoute a une base ; identique a l'octet dans les 27 niveaux. */
+s32 FUN_003423B0(u8 *a0) { return *(s32 *)(a0 + 0x250) + *(s32 *)(a0 + 0x16C) * 20; }
+
+/* vrai si le compteur a atteint 0x1000 ; identique a l'octet dans les 27 niveaux. */
+s32 FUN_0034FAE8(u8 *a0) { return *(s32 *)(a0 + 0x50) >= 0x1000; }
+
+/* range deux mots, rend 1 ; identique a l'octet dans les 27 niveaux. */
+s32 FUN_00350698(u8 *a0, s32 a1, s32 a2) { *(s32 *)(a0 + 0x4) = a1; *(s32 *)a0 = a2; return 1; }
+
+/* range trois mots consecutifs ; identique a l'octet dans les 27 niveaux. */
+void FUN_00341540(u8 *a0, s32 a1, s32 a2, s32 a3) { *(s32 *)(a0 + 0x2F0) = a1; *(s32 *)(a0 + 0x2F4) = a2; *(s32 *)(a0 + 0x2F8) = a3; }
+
+/* lot6 -- corps mesures, tailles posees au catalogue. */
+void FUN_0033A9D0(u8 *a0, s32 a1, s32 a2) { a0 += a1 * 4; *(s32 *)(a0 + 0x1B8) = a2; }
+
+void FUN_00348630(u8 *a0, s32 a1, s32 a2) { a0 += a1 * 4; *(s32 *)(a0 + 0x418) = a2; }
+
+void FUN_00349A60(u8 *a0, s32 a1, s32 a2) { a0 += a1 * 4; *(s32 *)(a0 + 0x20) = a2; }
+
+void FUN_00349AA8(u8 *a0, s32 a1, s32 a2) { a0 += a1 * 4; *(s32 *)(a0 + 0x8C) = a2; }
+
+
+/* lot7 -- corps mesures, tailles posees au catalogue. */
+extern Quad16 D_00189EA0;
+void FUN_00351E48(u8 *a0) {
+    volatile s32 *p = (volatile s32 *)a0;
+    p[3] = 0;
+    p[2] = 0;
+}
+
