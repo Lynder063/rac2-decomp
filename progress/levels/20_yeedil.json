@@ -2,8 +2,8 @@
   "target": "SCUS_972.68",
   "program": "20_yeedil",
   "reference_sha256": "af33c5378811e9d57c612c10002ca5c92eb676add3db0552ab2d6231034cafc8",
-  "source_sha256": "182bafa72d54f1f4348a37560cf12bbe0df483aa67bd64583a030e73eb100da1",
-  "catalog_sha256": "24903cf9109c83dfeebb3dfe7c34c7f1fdc871afc229f93b54edb132f1cd4b88",
+  "source_sha256": "6b01b603d95e98b7f7bee4fd9a0802ebdf251f71672d6551b4550d27c56d5262",
+  "catalog_sha256": "cfacef4ad07b3e30a926ef0e922edd74a8641700743e6d1eac31cf206561d7b3",
   "candidate_source": "candidates/boot.c",
   "state": "integrated",
   "functions": [
@@ -248,6 +248,42 @@
       "program": "20_yeedil"
     },
     {
+      "symbol": "FUN_003363C0",
+      "address": 4599384,
+      "size": 12,
+      "matched": true,
+      "reference_sha256": "03a769d6542bc6d3c1c88e225701b3e75fd79ba4a0b56af2f7f1cc7b500c1c44",
+      "candidate_sha256": "03a769d6542bc6d3c1c88e225701b3e75fd79ba4a0b56af2f7f1cc7b500c1c44",
+      "different_bytes": 0,
+      "state": "integrated",
+      "integrated": true,
+      "program": "20_yeedil"
+    },
+    {
+      "symbol": "FUN_00336498",
+      "address": 4599600,
+      "size": 20,
+      "matched": true,
+      "reference_sha256": "670aa148c053401684fb863427739e893a6c83f08384e7f42dc680446f7db227",
+      "candidate_sha256": "670aa148c053401684fb863427739e893a6c83f08384e7f42dc680446f7db227",
+      "different_bytes": 0,
+      "state": "integrated",
+      "integrated": true,
+      "program": "20_yeedil"
+    },
+    {
+      "symbol": "FUN_003364B0",
+      "address": 4599624,
+      "size": 20,
+      "matched": true,
+      "reference_sha256": "2446f70a1ebe3f5b48b83591cff4c227a265ca4e4f2f4f252a6c27f431343f23",
+      "candidate_sha256": "2446f70a1ebe3f5b48b83591cff4c227a265ca4e4f2f4f252a6c27f431343f23",
+      "different_bytes": 0,
+      "state": "integrated",
+      "integrated": true,
+      "program": "20_yeedil"
+    },
+    {
       "symbol": "FUN_003367B8",
       "address": 4600400,
       "size": 8,
@@ -440,6 +476,18 @@
       "program": "20_yeedil"
     },
     {
+      "symbol": "FUN_00343028",
+      "address": 4651720,
+      "size": 12,
+      "matched": true,
+      "reference_sha256": "33ac9e4a025859f6d37c25927d4d663f98f20531b037b13e0daadac4a69faa9c",
+      "candidate_sha256": "33ac9e4a025859f6d37c25927d4d663f98f20531b037b13e0daadac4a69faa9c",
+      "different_bytes": 0,
+      "state": "integrated",
+      "integrated": true,
+      "program": "20_yeedil"
+    },
+    {
       "symbol": "FUN_00343038",
       "address": 4651736,
       "size": 8,
@@ -494,6 +542,30 @@
       "matched": true,
       "reference_sha256": "65b130f08c148e475ecb2d5b1be8fe1974c6e779fa60ea235ae761fdb5a100a3",
       "candidate_sha256": "65b130f08c148e475ecb2d5b1be8fe1974c6e779fa60ea235ae761fdb5a100a3",
+      "different_bytes": 0,
+      "state": "integrated",
+      "integrated": true,
+      "program": "20_yeedil"
+    },
+    {
+      "symbol": "FUN_003435B0",
+      "address": 4653136,
+      "size": 20,
+      "matched": true,
+      "reference_sha256": "bc9556ea4bdecf1d8c31267196acf09d953d145f7a7b8d7dd1ae68dc9a05c438",
+      "candidate_sha256": "bc9556ea4bdecf1d8c31267196acf09d953d145f7a7b8d7dd1ae68dc9a05c438",
+      "different_bytes": 0,
+      "state": "integrated",
+      "integrated": true,
+      "program": "20_yeedil"
+    },
+    {
+      "symbol": "FUN_003480D8",
+      "address": 4672376,
+      "size": 12,
+      "matched": true,
+      "reference_sha256": "3f9fdfcc61eb543187a2a203d653907d8d9fac899767169211b9c1aefd81c238",
+      "candidate_sha256": "3f9fdfcc61eb543187a2a203d653907d8d9fac899767169211b9c1aefd81c238",
       "different_bytes": 0,
       "state": "integrated",
       "integrated": true,
@@ -620,6 +692,18 @@
       "program": "20_yeedil"
     },
     {
+      "symbol": "FUN_003495C8",
+      "address": 4677736,
+      "size": 12,
+      "matched": true,
+      "reference_sha256": "ec43a6c8fb4b53c441b1c91d9c9c0a770e79444d015e84a057f2f4c7589b94be",
+      "candidate_sha256": "ec43a6c8fb4b53c441b1c91d9c9c0a770e79444d015e84a057f2f4c7589b94be",
+      "different_bytes": 0,
+      "state": "integrated",
+      "integrated": true,
+      "program": "20_yeedil"
+    },
+    {
       "symbol": "FUN_00349678",
       "address": 4677912,
       "size": 8,
@@ -674,6 +758,18 @@
       "matched": true,
       "reference_sha256": "eb145aa2915f561839a1eff7c9da12adc93c631a1d0f8f08f1581bd859231e5f",
       "candidate_sha256": "eb145aa2915f561839a1eff7c9da12adc93c631a1d0f8f08f1581bd859231e5f",
+      "different_bytes": 0,
+      "state": "integrated",
+      "integrated": true,
+      "program": "20_yeedil"
+    },
+    {
+      "symbol": "FUN_0034AFE8",
+      "address": 4684424,
+      "size": 20,
+      "matched": true,
+      "reference_sha256": "822f69ab8dcef705861369021f7f164d771db49b7ea7714012b2821be2476af7",
+      "candidate_sha256": "822f69ab8dcef705861369021f7f164d771db49b7ea7714012b2821be2476af7",
       "different_bytes": 0,
       "state": "integrated",
       "integrated": true,
@@ -752,12 +848,36 @@
       "program": "20_yeedil"
     },
     {
+      "symbol": "FUN_003518E0",
+      "address": 4711312,
+      "size": 12,
+      "matched": true,
+      "reference_sha256": "35ce94931197d92697a7048e2a0f8b0a31c2029cbe36438406c166f4be9b3f93",
+      "candidate_sha256": "35ce94931197d92697a7048e2a0f8b0a31c2029cbe36438406c166f4be9b3f93",
+      "different_bytes": 0,
+      "state": "integrated",
+      "integrated": true,
+      "program": "20_yeedil"
+    },
+    {
       "symbol": "FUN_00351E48",
       "address": 4712696,
       "size": 16,
       "matched": true,
       "reference_sha256": "b95d4ad95790cb8c1a973d0036dbe8ebaba4929948f8a57d16d0c77c897426b0",
       "candidate_sha256": "b95d4ad95790cb8c1a973d0036dbe8ebaba4929948f8a57d16d0c77c897426b0",
+      "different_bytes": 0,
+      "state": "integrated",
+      "integrated": true,
+      "program": "20_yeedil"
+    },
+    {
+      "symbol": "FUN_00351F28",
+      "address": 4712920,
+      "size": 12,
+      "matched": true,
+      "reference_sha256": "70fdf27e8aa878da05756ac62760c98eaf2fae1b69de4ab32efbf0360e950247",
+      "candidate_sha256": "70fdf27e8aa878da05756ac62760c98eaf2fae1b69de4ab32efbf0360e950247",
       "different_bytes": 0,
       "state": "integrated",
       "integrated": true,
@@ -769,7 +889,7 @@
     "bytes_compared": 2977264,
     "segments": 1
   },
-  "matched_code_bytes": 1396,
+  "matched_code_bytes": 1548,
   "tools": {
     "ee-gcc2953.exe": "522d28f9d74ddfce89568437156c8ee323c806de525d99907f698050dee8d81e",
     "ee-as.exe": "5ae3c981bb4e105bd1edfc48c11f15a932dbbf4680be46edc46c55a869885f9e",
@@ -777,8 +897,8 @@
     "cc1.exe": "0393bcd31f91a6b9f0255db97f1cc99eba78ee8fc003e9a04dfabed1ae1d522e",
     "cpp.exe": "b9c50aa66f9cf5dbd80b2affe9874ec7674b7328965c629476f6ad7c77943154"
   },
-  "candidate_elf_sha256": "fd499bcff8a8fc8725df0f011dd93e025631ffadd48331a063904a4d07fac23e",
-  "c_object_sha256": "0eae7d105056ab2887ae587ede90159c637ba88efd42ca0fc1b8a9831c7fc4da",
+  "candidate_elf_sha256": "78a8556862831d682b94e9e30179ac9db9ae1aa674e3514323402ca4b2b6aee7",
+  "c_object_sha256": "2df9542db779e22a0240d908042701038c7d318b8cc64cc0f6d0952f8a12d5aa",
   "replacement_inputs": {
     "10FB00.s": [
       "FUN_00282C48",
@@ -801,6 +921,9 @@
       "FUN_00335E18",
       "FUN_00335E20",
       "FUN_00336318",
+      "FUN_003363C0",
+      "FUN_00336498",
+      "FUN_003364B0",
       "FUN_003367B8",
       "FUN_00336950",
       "FUN_00336CC0",
@@ -817,11 +940,14 @@
       "FUN_00341CD8",
       "FUN_003423A8",
       "FUN_003423B0",
+      "FUN_00343028",
       "FUN_00343038",
       "FUN_00343058",
       "FUN_00343060",
       "FUN_003435A0",
       "FUN_003435A8",
+      "FUN_003435B0",
+      "FUN_003480D8",
       "FUN_00348118",
       "FUN_00348120",
       "FUN_00348128",
@@ -832,18 +958,22 @@
       "FUN_00349490",
       "FUN_00349590",
       "FUN_003495C0",
+      "FUN_003495C8",
       "FUN_00349678",
       "FUN_00349A60",
       "FUN_00349AA8",
       "FUN_00349B18",
       "FUN_0034A4A8",
+      "FUN_0034AFE8",
       "FUN_0034CE98",
       "FUN_0034FAE8",
       "FUN_003505E0",
       "FUN_00350698",
       "FUN_00351888",
       "FUN_003518D8",
-      "FUN_00351E48"
+      "FUN_003518E0",
+      "FUN_00351E48",
+      "FUN_00351F28"
     ]
   }
 }

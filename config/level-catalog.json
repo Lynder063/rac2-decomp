@@ -238,6 +238,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4493216,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4493432,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4493456,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4494232,
           "size": 8
@@ -318,6 +333,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4545552,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4545568,
           "size": 8
@@ -341,6 +361,16 @@
           "symbol": "FUN_003435A8",
           "address": 4546960,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4546968,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4566208,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -393,6 +423,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4571568,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4571744,
           "size": 8
@@ -416,6 +451,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4575376,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4578256,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -448,9 +488,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4605144,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4606528,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4606752,
+          "size": 12
         }
       ],
       "excluded": [
@@ -459,12 +509,6 @@
           "address": 2883000,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 101 times in .text (18 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2891364,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 346 times in .text (41 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -583,6 +627,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4773440,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4773656,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4773680,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4774456,
           "size": 8
@@ -663,6 +722,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4825776,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4825792,
           "size": 8
@@ -686,6 +750,16 @@
           "symbol": "FUN_003435A8",
           "address": 4827184,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4827192,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4846432,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -738,6 +812,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4851792,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4851968,
           "size": 8
@@ -761,6 +840,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4855600,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4858480,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -793,9 +877,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4885368,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4886752,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4886976,
+          "size": 12
         }
       ],
       "excluded": [
@@ -804,12 +898,6 @@
           "address": 2876072,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 107 times in .text (19 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2884320,
-          "size": 8,
-          "reason": "the 8-byte body is a complete function at 45 addresses in this level (373 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         },
         {
           "symbol": "FUN_0026F718",
@@ -923,6 +1011,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4465800,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4466016,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4466040,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4466816,
           "size": 8
@@ -1003,6 +1106,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4518136,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4518152,
           "size": 8
@@ -1026,6 +1134,16 @@
           "symbol": "FUN_003435A8",
           "address": 4519544,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4519552,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4538792,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -1078,6 +1196,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4544152,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4544328,
           "size": 8
@@ -1101,6 +1224,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4547960,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4550840,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -1133,9 +1261,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4577728,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4579112,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4579336,
+          "size": 12
         }
       ],
       "excluded": [
@@ -1144,12 +1282,6 @@
           "address": 2796472,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 103 times in .text (18 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2804828,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 365 times in .text (40 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -1274,6 +1406,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4455904,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4456120,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4456144,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4456920,
           "size": 8
@@ -1354,6 +1501,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4508240,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4508256,
           "size": 8
@@ -1377,6 +1529,16 @@
           "symbol": "FUN_003435A8",
           "address": 4509648,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4509656,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4528896,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -1429,6 +1591,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4534256,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4534432,
           "size": 8
@@ -1452,6 +1619,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4538064,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4540944,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -1484,9 +1656,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4567832,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4569216,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4569440,
+          "size": 12
         }
       ],
       "excluded": [
@@ -1495,12 +1677,6 @@
           "address": 2817976,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 107 times in .text (20 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2826332,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 366 times in .text (41 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -1614,6 +1790,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4497368,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4497584,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4497608,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4498384,
           "size": 8
@@ -1694,6 +1885,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4549704,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4549720,
           "size": 8
@@ -1717,6 +1913,16 @@
           "symbol": "FUN_003435A8",
           "address": 4551112,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4551120,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4570360,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -1769,6 +1975,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4575720,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4575896,
           "size": 8
@@ -1792,6 +2003,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4579528,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4582408,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -1824,9 +2040,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4609296,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4610680,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4610904,
+          "size": 12
         }
       ],
       "excluded": [
@@ -1835,12 +2061,6 @@
           "address": 2803640,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 109 times in .text (18 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2812004,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 364 times in .text (39 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -1965,6 +2185,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4538464,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4538680,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4538704,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4539480,
           "size": 8
@@ -2045,6 +2280,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4590800,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4590816,
           "size": 8
@@ -2068,6 +2308,16 @@
           "symbol": "FUN_003435A8",
           "address": 4592208,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4592216,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4611456,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -2120,6 +2370,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4616816,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4616992,
           "size": 8
@@ -2143,6 +2398,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4620624,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4623504,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -2175,9 +2435,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4650392,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4651776,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4652000,
+          "size": 12
         }
       ],
       "excluded": [
@@ -2186,12 +2456,6 @@
           "address": 2875064,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 103 times in .text (18 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2883428,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 346 times in .text (40 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -2310,6 +2574,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4421424,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4421640,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4421664,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4422440,
           "size": 8
@@ -2390,6 +2669,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4473760,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4473776,
           "size": 8
@@ -2413,6 +2697,16 @@
           "symbol": "FUN_003435A8",
           "address": 4475168,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4475176,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4494416,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -2465,6 +2759,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4499776,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4499952,
           "size": 8
@@ -2488,6 +2787,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4503584,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4506464,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -2520,9 +2824,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4533352,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4534736,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4534960,
+          "size": 12
         }
       ],
       "excluded": [
@@ -2531,12 +2845,6 @@
           "address": 2779280,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 102 times in .text (20 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2786152,
-          "size": 8,
-          "reason": "the 8-byte body is a complete function at 38 addresses in this level (357 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         },
         {
           "symbol": "FUN_0026F718",
@@ -2655,6 +2963,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4425656,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4425872,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4425896,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4426672,
           "size": 8
@@ -2735,6 +3058,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4477992,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4478008,
           "size": 8
@@ -2758,6 +3086,16 @@
           "symbol": "FUN_003435A8",
           "address": 4479400,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4479408,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4498648,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -2810,6 +3148,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4504008,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4504184,
           "size": 8
@@ -2833,6 +3176,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4507816,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4510696,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -2865,9 +3213,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4537584,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4538968,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4539192,
+          "size": 12
         }
       ],
       "excluded": [
@@ -2876,12 +3234,6 @@
           "address": 2778424,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 104 times in .text (19 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2786780,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 362 times in .text (39 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -3000,6 +3352,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4560048,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4560264,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4560288,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4561064,
           "size": 8
@@ -3080,6 +3447,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4612384,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4612400,
           "size": 8
@@ -3103,6 +3475,16 @@
           "symbol": "FUN_003435A8",
           "address": 4613792,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4613800,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4633040,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -3155,6 +3537,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4638400,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4638576,
           "size": 8
@@ -3178,6 +3565,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4642208,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4645088,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -3210,9 +3602,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4671976,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4673360,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4673584,
+          "size": 12
         }
       ],
       "excluded": [
@@ -3221,12 +3623,6 @@
           "address": 2895672,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 105 times in .text (19 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2903404,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 362 times in .text (38 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -3345,6 +3741,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4444304,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4444520,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4444544,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4445320,
           "size": 8
@@ -3425,6 +3836,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4496640,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4496656,
           "size": 8
@@ -3448,6 +3864,16 @@
           "symbol": "FUN_003435A8",
           "address": 4498048,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4498056,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4517296,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -3500,6 +3926,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4522656,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4522832,
           "size": 8
@@ -3523,6 +3954,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4526464,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4529344,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -3555,9 +3991,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4556232,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4557616,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4557840,
+          "size": 12
         }
       ],
       "excluded": [
@@ -3566,12 +4012,6 @@
           "address": 2788008,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 106 times in .text (17 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2795732,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 356 times in .text (35 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -3690,6 +4130,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4386032,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4386248,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4386272,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4387048,
           "size": 8
@@ -3770,6 +4225,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4438368,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4438384,
           "size": 8
@@ -3793,6 +4253,16 @@
           "symbol": "FUN_003435A8",
           "address": 4439776,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4439784,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4459024,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -3845,6 +4315,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4464384,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4464560,
           "size": 8
@@ -3868,6 +4343,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4468192,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4471072,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -3900,9 +4380,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4497960,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4499344,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4499568,
+          "size": 12
         }
       ],
       "excluded": [
@@ -3911,12 +4401,6 @@
           "address": 2782224,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 99 times in .text (18 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2789088,
-          "size": 8,
-          "reason": "the 8-byte body is a complete function at 38 addresses in this level (352 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         },
         {
           "symbol": "FUN_0026F718",
@@ -4030,6 +4514,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4599384,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4599600,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4599624,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4600400,
           "size": 8
@@ -4110,6 +4609,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4651720,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4651736,
           "size": 8
@@ -4133,6 +4637,16 @@
           "symbol": "FUN_003435A8",
           "address": 4653128,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4653136,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4672376,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -4185,6 +4699,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4677736,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4677912,
           "size": 8
@@ -4208,6 +4727,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4681544,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4684424,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -4240,9 +4764,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4711312,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4712696,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4712920,
+          "size": 12
         }
       ],
       "excluded": [
@@ -4251,12 +4785,6 @@
           "address": 2849872,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 103 times in .text (18 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2858980,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 374 times in .text (41 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -4381,6 +4909,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4376296,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4376512,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4376536,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4377312,
           "size": 8
@@ -4461,6 +5004,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4428632,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4428648,
           "size": 8
@@ -4484,6 +5032,16 @@
           "symbol": "FUN_003435A8",
           "address": 4430040,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4430048,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4449288,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -4536,6 +5094,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4454648,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4454824,
           "size": 8
@@ -4559,6 +5122,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4458456,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4461336,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -4591,9 +5159,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4488224,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4489608,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4489832,
+          "size": 12
         }
       ],
       "excluded": [
@@ -4602,12 +5180,6 @@
           "address": 2789088,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 101 times in .text (19 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2799516,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 337 times in .text (36 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -4726,6 +5298,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4463904,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4464120,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4464144,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4464920,
           "size": 8
@@ -4806,6 +5393,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4516240,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4516256,
           "size": 8
@@ -4829,6 +5421,16 @@
           "symbol": "FUN_003435A8",
           "address": 4517648,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4517656,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4536896,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -4881,6 +5483,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4542256,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4542432,
           "size": 8
@@ -4904,6 +5511,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4546064,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4548944,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -4936,9 +5548,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4575832,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4577216,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4577440,
+          "size": 12
         }
       ],
       "excluded": [
@@ -4947,12 +5569,6 @@
           "address": 2807264,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 103 times in .text (18 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2817692,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 345 times in .text (36 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -5071,6 +5687,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4238288,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4238504,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4238528,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4239304,
           "size": 8
@@ -5151,6 +5782,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4290624,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4290640,
           "size": 8
@@ -5174,6 +5810,16 @@
           "symbol": "FUN_003435A8",
           "address": 4292032,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4292040,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4311280,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -5226,6 +5872,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4316640,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4316816,
           "size": 8
@@ -5249,6 +5900,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4320448,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4323328,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -5281,9 +5937,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4350216,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4351600,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4351824,
+          "size": 12
         }
       ],
       "excluded": [
@@ -5292,12 +5958,6 @@
           "address": 2769208,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 97 times in .text (18 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2777572,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 330 times in .text (35 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -5416,6 +6076,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4424552,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4424768,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4424792,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4425568,
           "size": 8
@@ -5496,6 +6171,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4476888,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4476904,
           "size": 8
@@ -5519,6 +6199,16 @@
           "symbol": "FUN_003435A8",
           "address": 4478296,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4478304,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4497544,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -5571,6 +6261,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4502904,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4503080,
           "size": 8
@@ -5594,6 +6289,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4506712,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4509592,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -5626,9 +6326,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4536480,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4537864,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4538088,
+          "size": 12
         }
       ],
       "excluded": [
@@ -5637,12 +6347,6 @@
           "address": 2851384,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 98 times in .text (18 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2859748,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 339 times in .text (39 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -5761,6 +6465,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4317824,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4318040,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4318064,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4318840,
           "size": 8
@@ -5841,6 +6560,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4370160,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4370176,
           "size": 8
@@ -5864,6 +6588,16 @@
           "symbol": "FUN_003435A8",
           "address": 4371568,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4371576,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4390816,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -5916,6 +6650,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4396176,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4396352,
           "size": 8
@@ -5939,6 +6678,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4399984,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4402864,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -5971,9 +6715,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4429752,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4431136,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4431360,
+          "size": 12
         }
       ],
       "excluded": [
@@ -5982,12 +6736,6 @@
           "address": 2774584,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 98 times in .text (18 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2782948,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 342 times in .text (37 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -6106,6 +6854,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4550944,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4551160,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4551184,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4551960,
           "size": 8
@@ -6186,6 +6949,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4603280,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4603296,
           "size": 8
@@ -6209,6 +6977,16 @@
           "symbol": "FUN_003435A8",
           "address": 4604688,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4604696,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4623936,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -6261,6 +7039,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4629296,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4629472,
           "size": 8
@@ -6284,6 +7067,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4633104,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4635984,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -6316,9 +7104,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4662872,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4664256,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4664480,
+          "size": 12
         }
       ],
       "excluded": [
@@ -6327,12 +7125,6 @@
           "address": 2786104,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 108 times in .text (18 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2794468,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 367 times in .text (38 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -6451,6 +7243,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4389056,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4389272,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4389296,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4390072,
           "size": 8
@@ -6531,6 +7338,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4441392,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4441408,
           "size": 8
@@ -6554,6 +7366,16 @@
           "symbol": "FUN_003435A8",
           "address": 4442800,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4442808,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4462048,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -6606,6 +7428,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4467408,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4467584,
           "size": 8
@@ -6629,6 +7456,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4471216,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4474096,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -6661,9 +7493,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4500984,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4502368,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4502592,
+          "size": 12
         }
       ],
       "excluded": [
@@ -6672,12 +7514,6 @@
           "address": 2801208,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 101 times in .text (19 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2809572,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 344 times in .text (37 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -6791,6 +7627,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4443224,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4443440,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4443464,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4444240,
           "size": 8
@@ -6871,6 +7722,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4495560,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4495576,
           "size": 8
@@ -6894,6 +7750,16 @@
           "symbol": "FUN_003435A8",
           "address": 4496968,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4496976,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4516216,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -6946,6 +7812,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4521576,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4521752,
           "size": 8
@@ -6969,6 +7840,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4525384,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4528264,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -7001,9 +7877,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4555152,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4556536,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4556760,
+          "size": 12
         }
       ],
       "excluded": [
@@ -7012,12 +7898,6 @@
           "address": 2799528,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 104 times in .text (19 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2807776,
-          "size": 8,
-          "reason": "the 8-byte body is a complete function at 40 addresses in this level (357 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         },
         {
           "symbol": "FUN_0026F718",
@@ -7142,6 +8022,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4649912,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4650128,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4650152,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4650928,
           "size": 8
@@ -7222,6 +8117,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4702248,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4702264,
           "size": 8
@@ -7245,6 +8145,16 @@
           "symbol": "FUN_003435A8",
           "address": 4703656,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4703664,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4722904,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -7297,6 +8207,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4728264,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4728440,
           "size": 8
@@ -7320,6 +8235,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4732072,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4734952,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -7352,9 +8272,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4761840,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4763224,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4763448,
+          "size": 12
         }
       ],
       "excluded": [
@@ -7363,12 +8293,6 @@
           "address": 2935072,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 101 times in .text (20 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2941936,
-          "size": 8,
-          "reason": "the 8-byte body is a complete function at 45 addresses in this level (365 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         },
         {
           "symbol": "FUN_0026F718",
@@ -7487,6 +8411,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4486112,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4486328,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4486352,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4487128,
           "size": 8
@@ -7567,6 +8506,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4538448,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4538464,
           "size": 8
@@ -7590,6 +8534,16 @@
           "symbol": "FUN_003435A8",
           "address": 4539856,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4539864,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4559104,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -7642,6 +8596,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4564464,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4564640,
           "size": 8
@@ -7665,6 +8624,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4568272,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4571152,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -7697,9 +8661,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4598040,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4599424,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4599648,
+          "size": 12
         }
       ],
       "excluded": [
@@ -7708,12 +8682,6 @@
           "address": 2873528,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 99 times in .text (18 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2881892,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 344 times in .text (39 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -7832,6 +8800,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4708680,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4708896,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4708920,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4709696,
           "size": 8
@@ -7912,6 +8895,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4761016,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4761032,
           "size": 8
@@ -7935,6 +8923,16 @@
           "symbol": "FUN_003435A8",
           "address": 4762424,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4762432,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4781672,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -7987,6 +8985,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4787032,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4787208,
           "size": 8
@@ -8010,6 +9013,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4790840,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4793720,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -8042,9 +9050,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4820608,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4821992,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4822216,
+          "size": 12
         }
       ],
       "excluded": [
@@ -8053,12 +9071,6 @@
           "address": 3032632,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 101 times in .text (19 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 3040996,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 358 times in .text (40 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",
@@ -8177,6 +9189,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4356224,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4356440,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4356464,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4357240,
           "size": 8
@@ -8257,6 +9284,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4408560,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4408576,
           "size": 8
@@ -8280,6 +9312,16 @@
           "symbol": "FUN_003435A8",
           "address": 4409968,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4409976,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4429216,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -8332,6 +9374,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4434576,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4434752,
           "size": 8
@@ -8355,6 +9402,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4438384,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4441264,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -8387,9 +9439,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4468152,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4469536,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4469760,
+          "size": 12
         }
       ],
       "excluded": [
@@ -8398,12 +9460,6 @@
           "address": 2774544,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 101 times in .text (19 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2781408,
-          "size": 8,
-          "reason": "the 8-byte body is a complete function at 38 addresses in this level (344 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         },
         {
           "symbol": "FUN_0026F718",
@@ -8522,6 +9578,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4488152,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4488368,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4488392,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4489168,
           "size": 8
@@ -8602,6 +9673,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4540488,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4540504,
           "size": 8
@@ -8625,6 +9701,16 @@
           "symbol": "FUN_003435A8",
           "address": 4541896,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4541904,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4561144,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -8677,6 +9763,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4566504,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4566680,
           "size": 8
@@ -8700,6 +9791,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4570312,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4573192,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -8732,9 +9828,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4600080,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4601464,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4601688,
+          "size": 12
         }
       ],
       "excluded": [
@@ -8743,12 +9849,6 @@
           "address": 2849056,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 102 times in .text (19 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2855920,
-          "size": 8,
-          "reason": "the 8-byte body is a complete function at 36 addresses in this level (357 occurrences in .text), so no occurrence is attributable to this reviewed symbol"
         },
         {
           "symbol": "FUN_0026F718",
@@ -8867,6 +9967,21 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003363C0",
+          "address": 4434384,
+          "size": 12
+        },
+        {
+          "symbol": "FUN_00336498",
+          "address": 4434600,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003364B0",
+          "address": 4434624,
+          "size": 20
+        },
+        {
           "symbol": "FUN_003367B8",
           "address": 4435400,
           "size": 8
@@ -8947,6 +10062,11 @@
           "size": 24
         },
         {
+          "symbol": "FUN_00343028",
+          "address": 4486720,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00343038",
           "address": 4486736,
           "size": 8
@@ -8970,6 +10090,16 @@
           "symbol": "FUN_003435A8",
           "address": 4488128,
           "size": 8
+        },
+        {
+          "symbol": "FUN_003435B0",
+          "address": 4488136,
+          "size": 20
+        },
+        {
+          "symbol": "FUN_003480D8",
+          "address": 4507376,
+          "size": 12
         },
         {
           "symbol": "FUN_00348118",
@@ -9022,6 +10152,11 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003495C8",
+          "address": 4512736,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00349678",
           "address": 4512912,
           "size": 8
@@ -9045,6 +10180,11 @@
           "symbol": "FUN_0034A4A8",
           "address": 4516544,
           "size": 8
+        },
+        {
+          "symbol": "FUN_0034AFE8",
+          "address": 4519424,
+          "size": 20
         },
         {
           "symbol": "FUN_0034CE98",
@@ -9077,9 +10217,19 @@
           "size": 8
         },
         {
+          "symbol": "FUN_003518E0",
+          "address": 4546312,
+          "size": 12
+        },
+        {
           "symbol": "FUN_00351E48",
           "address": 4547696,
           "size": 16
+        },
+        {
+          "symbol": "FUN_00351F28",
+          "address": 4547920,
+          "size": 12
         }
       ],
       "excluded": [
@@ -9088,12 +10238,6 @@
           "address": 2787728,
           "size": 8,
           "reason": "not a function entry in this level; the 8-byte body occurs 102 times in .text (19 of them at function entries)"
-        },
-        {
-          "symbol": "FUN_00120BC8",
-          "address": 2794700,
-          "size": 8,
-          "reason": "not a function entry in this level; the 8-byte body occurs 364 times in .text (40 of them at function entries)"
         },
         {
           "symbol": "FUN_0026F718",

@@ -14,7 +14,8 @@
     "D_0013A308": 1286920,
     "D_00137E00": 1277440,
     "D_001A7A0A": 1735178,
-    "D_00189EA0": 1613472
+    "D_00189EA0": 1613472,
+    "D_00139648": 1283656
   },
   "functions": [
     {
@@ -616,6 +617,94 @@
       "ranges": 1,
       "xrefs": 0,
       "meaning": "remet a zero deux mots voisins (volatile) ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00343028",
+      "address": 3420200,
+      "size": 12,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "range deux flottants voisins ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_003480D8",
+      "address": 3440856,
+      "size": 12,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "range deux mots voisins ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_003495C8",
+      "address": 3446216,
+      "size": 12,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "rend l'ancienne valeur d'un mot et le remplace ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_003518E0",
+      "address": 3479776,
+      "size": 12,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "rend l'ancienne valeur d'un mot et le remplace ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00351F28",
+      "address": 3481384,
+      "size": 12,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "vrai si le compteur est a zero ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_003363C0",
+      "address": 3367872,
+      "size": 12,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit un flottant par double indirection ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_002B0D60",
+      "address": 2821472,
+      "size": 12,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "lit un octet global ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_00336498",
+      "address": 3368088,
+      "size": 20,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "range deux mots dans le bloc pointe par +0xc ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_003364B0",
+      "address": 3368112,
+      "size": 20,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "range deux mots dans le bloc pointe par +0xc ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_0034AFE8",
+      "address": 3452904,
+      "size": 20,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "range deux flottants dans le bloc pointe par +0x8 ; corps identique a l'octet dans les 27 niveaux"
+    },
+    {
+      "symbol": "FUN_003435B0",
+      "address": 3421616,
+      "size": 20,
+      "ranges": 1,
+      "xrefs": 0,
+      "meaning": "ecrit l'indice s'il est valide, remet un compteur a zero ; corps identique a l'octet dans les 27 niveaux"
     }
   ],
   "state": "candidates_unintegrated; flags qualified only for functions that pass this byte gate"

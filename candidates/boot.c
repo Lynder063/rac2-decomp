@@ -1,6 +1,7 @@
 typedef float f32;
 typedef int s32;
 typedef unsigned char u8;
+typedef unsigned int u32;
 
 typedef struct {
     char pad0[0x8];
@@ -431,4 +432,47 @@ void FUN_00351E48(u8 *a0) {
     p[3] = 0;
     p[2] = 0;
 }
+
+
+/* lot11 -- corps mesures, tailles posees au catalogue. */
+
+
+void FUN_00343028(u8 *a0, f32 a1, f32 a2) { *(f32 *)(a0 + 0x8) = a1; *(f32 *)(a0 + 0xc) = a2; }
+
+void FUN_003480D8(u8 *a0, s32 a1, s32 a2) { *(s32 *)(a0 + 0xa8) = a1; *(s32 *)(a0 + 0xac) = a2; }
+
+s32 FUN_003495C8(u8 *a0, s32 a1) { s32 vieux = *(s32 *)(a0 + 0x28); *(s32 *)(a0 + 0x28) = a1; return vieux; }
+
+s32 FUN_003518E0(u8 *a0, s32 a1) { s32 vieux = *(s32 *)(a0 + 0xa8); *(s32 *)(a0 + 0xa8) = a1; return vieux; }
+
+s32 FUN_00351F28(u8 *a0) { return *(u32 *)(a0 + 0xc) < 1; }
+
+void FUN_003363C0(u8 *a0, f32 a1) { f32 *p = *(f32 **)(a0 + 0x38); *p = a1; }
+
+extern u8 D_00139648;
+s32 FUN_002B0D60(void) { return D_00139648; }
+
+/* lot12 -- corps mesures, tailles posees au catalogue. */
+void FUN_00336498(u8 *a0, s32 a1, s32 a2) {
+    *(s32 *)*(u8 **)(a0 + 0xc) = a1;
+    *(s32 *)(*(u8 **)(a0 + 0xc) + 0x4) = a2;
+}
+
+void FUN_003364B0(u8 *a0, s32 a1, s32 a2) {
+    *(s32 *)(*(u8 **)(a0 + 0xc) + 0x8) = a1;
+    *(s32 *)(*(u8 **)(a0 + 0xc) + 0xc) = a2;
+}
+
+void FUN_0034AFE8(u8 *a0, f32 a1, f32 a2) {
+    *(f32 *)*(u8 **)(a0 + 0x8) = a1;
+    *(f32 *)(*(u8 **)(a0 + 0x8) + 0x4) = a2;
+}
+
+void FUN_003435B0(u8 *a0, u32 a1) {
+    if (a1 < 4) *(u32 *)(a0 + 0x294) = a1;
+    *(s32 *)(a0 + 0x1a0) = 0;
+}
+
+
+
 
