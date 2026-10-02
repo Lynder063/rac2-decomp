@@ -164,7 +164,8 @@ SHA-256 and R5900 language verified. All seven contiguous bodies, callers and re
 delay slots were reviewed. `config/candidate-catalog.json` records their individual
 boundaries. Two later lots added nineteen bodies measured in RAC1's reconstruction
 corpus whose bytes are identical in RAC2 - see `docs/SECOND-C-LOT.md` and
-`docs/THIRD-C-LOT.md`.
+`docs/THIRD-C-LOT.md`. Sixty more come from RAC2's own bytes instead, where one boot
+body opens a function in the level overlays - see `docs/FOURTH-C-LOT.md`.
 
 ```powershell
 .venv\Scripts\python.exe scripts/check_candidates.py --reference <boot.elf> --toolchain <SN-ProDG-3.01-EE-gcc-directory> --runtime D:\RAC2\runtime
